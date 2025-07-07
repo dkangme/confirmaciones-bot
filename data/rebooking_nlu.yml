@@ -1,0 +1,175 @@
+version: "3.1"
+
+nlu:
+- intent: rebooking
+  examples: |
+    - quiero reagendar mi cita
+    - necesito cambiar mi hora
+    - quiero cambiar la fecha de mi cita
+    - necesito reagendar
+    - quiero cambiar mi cita
+    - reagendar cita
+    - cambiar hora
+    - cambiar fecha
+    - reagendar
+    - cambiar cita
+
+- intent: proponer_fecha
+  examples: |
+    - [mañana](fecha_propuesta) a las [9:00](hora_propuesta) de la mañana
+    - [mañana](fecha_propuesta) a las [10:30](hora_propuesta)
+    - [mañana](fecha_propuesta) en la [mañana](hora_propuesta)
+    - [mañana](fecha_propuesta) en la [tarde](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [15:00](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [16:30](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [17:00](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [18:30](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [19:00](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [20:30](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [9](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [10](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [11](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [12](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [13](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [14](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [15](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [16](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [17](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [18](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [19](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [20](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [21](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [22](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [23](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [0](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [1](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [2](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [3](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [4](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [5](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [6](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [7](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [8](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [9:00](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [10:30](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) en la [mañana](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) en la [tarde](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [15:00](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [16:30](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [17:00](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [18:30](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [19:00](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [20:30](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [9](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [10](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [11](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [12](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [13](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [14](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [15](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [16](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [17](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [18](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [19](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [20](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [21](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [22](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [23](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [0](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [1](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [2](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [3](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [4](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [5](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [6](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [7](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [8](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [9:00](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [10:30](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [11:00](hora_propuesta)
+    - el [jueves](fecha_propuesta) a las [12:30](hora_propuesta)
+    - el [viernes](fecha_propuesta) a las [13:00](hora_propuesta)
+    - el [sábado](fecha_propuesta) a las [14:30](hora_propuesta)
+    - el [domingo](fecha_propuesta) a las [15:00](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [9](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [10](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [11](hora_propuesta)
+    - el [jueves](fecha_propuesta) a las [12](hora_propuesta)
+    - el [viernes](fecha_propuesta) a las [13](hora_propuesta)
+    - el [sábado](fecha_propuesta) a las [14](hora_propuesta)
+    - el [domingo](fecha_propuesta) a las [15](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [16](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [17](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [18](hora_propuesta)
+    - el [jueves](fecha_propuesta) a las [19](hora_propuesta)
+    - el [viernes](fecha_propuesta) a las [20](hora_propuesta)
+    - el [sábado](fecha_propuesta) a las [21](hora_propuesta)
+    - el [domingo](fecha_propuesta) a las [22](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [23](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [0](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [1](hora_propuesta)
+    - el [jueves](fecha_propuesta) a las [2](hora_propuesta)
+    - el [viernes](fecha_propuesta) a las [3](hora_propuesta)
+    - el [sábado](fecha_propuesta) a las [4](hora_propuesta)
+    - el [domingo](fecha_propuesta) a las [5](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [6](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [7](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [8](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [9:00](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [10:30](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [11:00](hora_propuesta)
+    - el próximo [jueves](fecha_propuesta) a las [12:30](hora_propuesta)
+    - el próximo [viernes](fecha_propuesta) a las [13:00](hora_propuesta)
+    - el próximo [sábado](fecha_propuesta) a las [14:30](hora_propuesta)
+    - el próximo [domingo](fecha_propuesta) a las [15:00](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [9](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [10](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [11](hora_propuesta)
+    - el próximo [jueves](fecha_propuesta) a las [12](hora_propuesta)
+    - el próximo [viernes](fecha_propuesta) a las [13](hora_propuesta)
+    - el próximo [sábado](fecha_propuesta) a las [14](hora_propuesta)
+    - el próximo [domingo](fecha_propuesta) a las [15](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [16](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [17](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [18](hora_propuesta)
+    - el próximo [jueves](fecha_propuesta) a las [19](hora_propuesta)
+    - el próximo [viernes](fecha_propuesta) a las [20](hora_propuesta)
+    - el próximo [sábado](fecha_propuesta) a las [21](hora_propuesta)
+    - el próximo [domingo](fecha_propuesta) a las [22](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [23](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [0](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [1](hora_propuesta)
+    - el próximo [jueves](fecha_propuesta) a las [2](hora_propuesta)
+    - el próximo [viernes](fecha_propuesta) a las [3](hora_propuesta)
+    - el próximo [sábado](fecha_propuesta) a las [4](hora_propuesta)
+    - el próximo [domingo](fecha_propuesta) a las [5](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [6](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [7](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [8](hora_propuesta)
+
+- intent: seleccionar_opcion
+  examples: |
+    - opción 1
+    - la primera
+    - la opción 1
+    - quiero la primera
+    - me sirve la primera
+    - opción 2
+    - la segunda
+    - la opción 2
+    - quiero la segunda
+    - me sirve la segunda
+    - opción 3
+    - la tercera
+    - la opción 3
+    - quiero la tercera
+    - me sirve la tercera
+    - opción 4
+    - la cuarta
+    - la opción 4
+    - quiero la cuarta
+    - me sirve la cuarta
+    - ninguna
+    - ninguna opción
+    - no me sirve ninguna
+    - no me conviene ninguna 

@@ -1,0 +1,54 @@
+version: "3.1"
+
+rules:
+
+# ===== INICIALIZACIÓN DE CONTEXTOS =====
+
+- rule: Initialize context when EXTERNAL_init_context is triggered
+  steps:
+  - intent: EXTERNAL_init_context
+  - action: action_init_context
+
+
+
+# ===== FLUJO DE CONFIRMACIÓN DE CITA =====
+
+- rule: Greet with confirmation template when context is confirmación
+  condition:
+  - slot_was_set:
+    - contexto: "confirmación"
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Confirm appointment when user affirms in confirmación context
+  condition:
+  - slot_was_set:
+    - contexto: "confirmación"
+  steps:
+  - intent: affirm
+  - action: action_confirm_appointment
+
+- rule: Cancel appointment when user denies in confirmación context
+  condition:
+  - slot_was_set:
+    - contexto: "confirmación"
+  steps:
+  - intent: deny
+  - action: action_cancel_appointment
+
+
+
+# ===== MANEJO DE FALLBACK =====
+
+- rule: Fallback when bot doesn't understand
+  steps:
+  - intent: nlu_fallback
+  - action: action_fallback
+
+- rule: Handle out of scope text
+  steps:
+  - intent: out_of_scope
+  - action: action_fallback
+
+

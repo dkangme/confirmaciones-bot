@@ -1,0 +1,38 @@
+version: "3.1"
+
+stories:
+
+# ===== INICIALIZACIÓN DE REBOOKING =====
+
+- story: external init rebooking
+  steps:
+  - intent: EXTERNAL_init_rebooking
+  - action: action_init_rebooking
+
+# ===== FLUJO COMPLETO DE REBOOKING =====
+
+- story: complete rebooking flow
+  steps:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  - intent: rebooking
+  - action: utter_rebooking
+  - intent: affirm
+  - action: utter_rebooking_ask_date
+  - intent: proponer_fecha
+  - action: action_process_date_request
+  - intent: seleccionar_opcion
+  - action: action_process_slot_selection
+  - intent: affirm_rebooking_confirm
+  - action: action_confirm_rebooking
+
+# ===== FALLBACK EN REBOOKING =====
+
+- story: fallback in rebooking context
+  steps:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  - intent: rebooking
+  - action: utter_rebooking
+  - intent: nlu_fallback
+  - action: action_fallback

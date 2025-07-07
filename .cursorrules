@@ -1,0 +1,218 @@
+# Cursor Rules: Bot de Confirmaciones RedSalud
+
+## Patrones de Proyecto
+
+### Estructura de Archivos
+- **Configuración**: domain.yml, config.yml, credentials.yml, endpoints.yml
+- **Datos**: data/nlu.yml, data/stories.yml, data/rules.yml
+- **Acciones**: actions/actions.py, actions/database.py, actions/utils.py
+- **Utilidades**: logging_config.py, validate_setup.py
+
+### Convenciones de Naming
+- **Intents**: UPPER_CASE (ej: EXTERNAL_init_context)
+- **Actions**: snake_case (ej: action_confirm_appointment)
+- **Slots**: snake_case (ej: fecha_hora_formato)
+- **Entities**: snake_case (ej: nombre_paciente)
+
+### Patrones de Código
+
+#### Acciones Personalizadas
+```python
+class ActionCustomName(Action):
+    def name(self) -> Text:
+        return "action_custom_name"
+    
+    def run(self, dispatcher, tracker, domain):
+        try:
+            # Lógica principal
+            dispatcher.utter_message(response="utter_success")
+        except Exception as e:
+            logger.error(f"Error: {e}")
+            dispatcher.utter_message(response="utter_error")
+```
+
+#### Manejo de Variables de Entorno
+```python
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+REDSALUD_CONFIG = {
+    "auth_url": os.getenv("APIGEE_API_URL") + "/oauth/token",
+    "base_url": os.getenv("APIGEE_API_URL"),
+    "client_id": os.getenv("APIGEE_USERNAME"),
+    "client_secret": os.getenv("APIGEE_PASSWORD")
+}
+```
+
+#### Logging
+```python
+import logging
+logger = logging.getLogger(__name__)
+
+logger.info(f"Operación exitosa para usuario: {tracker.sender_id}")
+logger.error(f"Error en operación: {error_details}")
+```
+
+## Configuración de Rasa
+
+### Pipeline NLU (config.yml)
+- Usar FallbackClassifier con threshold: 0.3
+- Configurar DIETClassifier con epochs: 100
+- Mantener language: es para español
+
+### Policies (config.yml)
+- Incluir FallbackPolicy con action_fallback
+- Configurar TEDPolicy con max_history: 5
+- Usar RulePolicy para comportamiento específico
+
+### Domain.yml
+- Mantener 25 entidades definidas
+- Incluir slots correspondientes
+- Definir respuestas personalizadas para WhatsApp
+
+## Integración API
+
+### Autenticación APIGEE
+- Usar OAuth2 client credentials flow
+- Implementar cache de tokens
+- Manejar errores de autenticación
+
+### Endpoints RedSalud
+- Confirmación: POST /agendarsv2/cita/confirmar/
+- Cancelación: POST /agendarsv2/cita/anular/
+- Timeout: 90 segundos
+
+### Manejo de Errores
+- Logging detallado de errores
+- Respuestas de usuario claras
+- Fallback a opciones alternativas
+
+## Flujos de Conversación
+
+### Contexto de Confirmación
+- Slot "contexto" = "confirmación" activa flujos específicos
+- Intent "affirm" → action_confirm_appointment
+- Intent "deny" → action_cancel_appointment
+
+### Fallback
+- Usar ActionFallback personalizado
+- Proporcionar opciones útiles al usuario
+- Guiar hacia flujos válidos
+
+### Formateo de Fechas
+- Formato español: "miércoles 2 de julio de 2025 a las 13:30"
+- Usar ActionFormatDate para conversión
+- Mantener consistencia en toda la aplicación
+
+## Variables de Entorno Críticas
+
+### Base de Datos
+```bash
+DB_HOST=34.45.109.62
+DB_USER=bot_client
+DB_PORT=5432
+DB_PASSWORD=Cg:m8mY=xZR?LB#*
+DB_NAME=bot
+```
+
+### APIGEE
+```bash
+APIGEE_API_URL=https://redsalud-qa.apigee.net
+APIGEE_USERNAME=4tu0YPpudPmRE2bvgyheDbKnVAmPdCqK
+APIGEE_PASSWORD=iHVNn0GZU0KJ2iN8
+```
+
+## Comandos Útiles
+
+### Desarrollo
+```bash
+rasa train                    # Entrenar modelo
+rasa run actions             # Servidor de acciones
+rasa shell                   # Chat interactivo
+python validate_setup.py     # Validar configuración
+```
+
+### Testing
+```bash
+rasa test                    # Ejecutar tests
+rasa test nlu               # Test solo NLU
+rasa test core              # Test solo Core
+```
+
+## Preferencias del Usuario
+
+### Estilo de Código
+- Usar snake_case para variables y funciones
+- Comentarios en español
+- Manejo explícito de errores
+- Logging detallado
+
+### Documentación
+- Mantener Memory Bank actualizado
+- Documentar decisiones técnicas
+- Incluir ejemplos de uso
+- Explicar flujos de conversación
+
+### Testing
+- Validar configuración antes de cambios
+- Probar flujos completos
+- Verificar integración con API
+- Comprobar manejo de errores
+
+## Problemas Comunes y Soluciones
+
+### Error de Credenciales
+- Verificar variables de entorno APIGEE_*
+- Cargar dotenv en actions.py
+- Validar formato de URLs
+
+### Error de Sintaxis YAML
+- Verificar indentación en config.yml
+- Usar espacios, no tabs
+- Validar estructura de pipeline y policies
+
+### Dependencias Faltantes
+- Instalar colorlog y PyYAML
+- Verificar requirements.txt
+- Usar entorno virtual
+
+### Import Errors
+- Verificar __init__.py en actions/
+- Importar todas las acciones
+- Validar nombres de clases
+
+## Patrones de Respuesta
+
+### Éxito
+- Confirmar operación completada
+- Proporcionar detalles relevantes
+- Ofrecer siguiente paso si aplica
+
+### Error
+- Explicar problema claramente
+- Ofrecer alternativas
+- Proporcionar contacto de soporte
+
+### Fallback
+- Reconocer que no se entendió
+- Proporcionar opciones disponibles
+- Guiar hacia flujos válidos
+
+## Optimizaciones Conocidas
+
+### Rendimiento
+- Cache de tokens de autenticación
+- Timeouts apropiados para API calls
+- Logging eficiente
+
+### Experiencia de Usuario
+- Respuestas claras y concisas
+- Formato de fechas en español
+- Manejo gracioso de errores
+
+### Mantenibilidad
+- Código modular y bien documentado
+- Separación clara de responsabilidades
+- Configuración centralizada 

@@ -1,0 +1,79 @@
+version: "3.1"
+
+rules:
+
+# ===== INICIALIZACIÓN DE REBOOKING =====
+
+- rule: Initialize rebooking context when EXTERNAL_init_rebooking is triggered
+  steps:
+  - intent: EXTERNAL_init_rebooking
+  - action: action_init_rebooking
+
+# ===== FLUJO COMPLETO DE REBOOKING =====
+
+- rule: Handle rebooking intent when contexto_rebooking is set
+  condition:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  steps:
+  - intent: rebooking
+  - action: utter_rebooking
+
+- rule: Handle affirm intent in rebooking context (initial)
+  condition:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  steps:
+  - intent: affirm
+  - action: utter_rebooking_ask_date
+
+- rule: Handle date proposal in rebooking context
+  condition:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  steps:
+  - intent: proponer_fecha
+  - action: action_process_date_request
+
+- rule: Handle option selection in rebooking context
+  condition:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  steps:
+  - intent: seleccionar_opcion
+  - action: action_process_slot_selection
+
+- rule: Handle deny intent in rebooking context
+  condition:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  steps:
+  - intent: deny
+  - action: action_cancel_rebooking
+
+- rule: Handle affirm intent for rebooking confirmation (after slot selection)
+  condition:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+    - selected_slot: true
+  steps:
+  - intent: affirm_rebooking_confirm
+  - action: action_confirm_rebooking
+
+# ===== FALLBACK PARA REBOOKING =====
+
+- rule: Fallback for rebooking when bot doesn't understand
+  condition:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  steps:
+  - intent: nlu_fallback
+  - action: action_fallback
+
+- rule: Handle out of scope text in rebooking context
+  condition:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  steps:
+  - intent: out_of_scope
+  - action: action_fallback

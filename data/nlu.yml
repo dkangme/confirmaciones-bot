@@ -1,0 +1,521 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hola
+    - buenos días
+    - buenas tardes
+    - buenas noches
+    - saludos
+    - qué tal
+    - cómo estás
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - chao
+    - adiós
+    - hasta luego
+    - hasta la vista
+    - nos vemos
+    - hasta pronto
+    - que tengas un buen día
+    - que tengas un buen día
+    - hasta la próxima
+    - nos vemos después
+    - hasta mañana
+    - hasta después
+    - saludos
+    - hasta luego
+    - chau
+    - adiós
+    - hasta la próxima vez
+    - nos vemos más tarde
+    - que estés bien
+    - que te vaya bien
+    - hasta la próxima cita
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sí
+    - si
+    - claro
+    - por supuesto
+    - correcto
+    - exacto
+    - perfecto
+    - está bien
+    - está bueno
+    - me parece bien
+    - está correcto
+    - confirmo
+    - confirmado
+    - acepto
+    - de acuerdo
+    - ok
+    - okey
+    - vale
+    - perfecto
+    - excelente
+    - muy bien
+    - está perfecto
+    - me parece perfecto
+    - confirmo mi cita
+    - sí confirmo
+    - sí quiero
+    - sí por favor
+    - sí gracias
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - no
+    - no gracias
+    - no quiero
+    - no puedo
+    - no me parece
+    - no está bien
+    - no está bueno
+    - no me conviene
+    - no puedo asistir
+    - no puedo ir
+    - no voy a poder
+    - no me es posible
+    - no tengo tiempo
+    - no me funciona
+    - no me sirve
+    - no me interesa
+    - no gracias
+    - no por favor
+    - no está correcto
+    - no es correcto
+    - no es así
+    - no es lo que quiero
+    - no es lo que necesito
+    - cancelo
+    - cancelado
+    - no confirmo
+    - no confirmo mi cita
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - perfecto
+    - excelente
+    - genial
+    - fantástico
+    - maravilloso
+    - estoy muy bien
+    - estoy genial
+    - estoy perfecto
+    - me siento muy bien
+    - me siento genial
+    - me siento perfecto
+    - muy bien
+    - súper bien
+    - extremadamente bien
+    - muy bueno
+    - excelente
+    - genial
+    - fantástico
+    - maravilloso
+    - increíble
+    - espectacular
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - mi día fue horrible
+    - estoy triste
+    - no me siento muy bien
+    - estoy decepcionado
+    - súper triste
+    - estoy muy triste
+    - triste
+    - muy triste
+    - infeliz
+    - no está bien
+    - no muy bien
+    - extremadamente triste
+    - muy triste
+    - me siento mal
+    - me siento triste
+    - me siento decepcionado
+    - no me siento bien
+    - estoy mal
+    - estoy deprimido
+    - estoy desanimado
+    - no estoy bien
+    - no estoy contento
+    - no estoy feliz
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - ¿eres un bot?
+    - ¿eres un humano?
+    - ¿estoy hablando con un bot?
+    - ¿estoy hablando con un humano?
+    - eres un bot
+    - eres un humano
+    - estoy hablando con un bot
+    - estoy hablando con un humano
+    - ¿eres real?
+    - ¿eres una persona?
+    - ¿eres una máquina?
+    - ¿eres artificial?
+    - eres real
+    - eres una persona
+    - eres una máquina
+    - eres artificial
+
+- intent: EXTERNAL_init_context
+  examples: |
+    - init context
+    - initialize context
+    - setup context
+    - external init context
+    - start context
+    - begin context
+    - context initialization
+    - external context init
+
+- intent: EXTERNAL_init_rebooking
+  examples: |
+    - init rebooking
+    - initialize rebooking
+    - setup rebooking
+    - external init rebooking
+    - start rebooking
+    - begin rebooking
+    - rebooking initialization
+    - external rebooking init
+
+
+
+# Ejemplos de texto aleatorio para mejorar el fallback
+- intent: out_of_scope
+  examples: |
+    - xyz123
+    - asdfghjkl
+    - qwertyuiop
+    - 123456789
+    - @#$%^&*()
+    - abcdefghijklmnopqrstuvwxyz
+    - 987654321
+    - !@#$%^&*()_+
+    - random text
+    - meaningless words
+    - jibberish
+    - nonsense
+    - random characters
+    - test test test
+    - hello world
+    - lorem ipsum
+    - sample text
+    - placeholder
+    - dummy text
+    - random string
+    - asdf
+    - qwer
+    - zxcv
+    - 1234
+    - 5678
+    - 9999
+    - 0000
+    - aaa
+    - bbb
+    - ccc
+    - ddd
+    - eee
+    - fff
+    - ggg
+    - hhh
+    - iii
+    - jjj
+    - kkk
+    - lll
+    - mmm
+    - nnn
+    - ooo
+    - ppp
+    - qqq
+    - rrr
+    - sss
+    - ttt
+    - uuu
+    - vvv
+    - www
+    - xxx
+    - yyy
+    - zzz
+
+# ===== INTENCIONES DE REBOOKING =====
+
+- intent: rebooking
+  examples: |
+    - quiero reagendar mi cita
+    - necesito cambiar mi hora
+    - quiero cambiar la fecha de mi cita
+    - necesito reagendar
+    - quiero cambiar mi cita
+    - reagendar cita
+    - cambiar hora
+    - cambiar fecha
+    - reagendar
+    - cambiar cita
+
+- intent: proponer_fecha
+  examples: |
+    - [mañana](fecha_propuesta) a las [9:00](hora_propuesta) de la mañana
+    - [mañana](fecha_propuesta) a las [10:30](hora_propuesta)
+    - [mañana](fecha_propuesta) en la [mañana](hora_propuesta)
+    - [mañana](fecha_propuesta) en la [tarde](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [15:00](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [16:30](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [17:00](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [18:30](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [19:00](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [20:30](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [9](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [10](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [11](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [12](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [13](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [14](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [15](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [16](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [17](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [18](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [19](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [20](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [21](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [22](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [23](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [0](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [1](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [2](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [3](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [4](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [5](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [6](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [7](hora_propuesta)
+    - [mañana](fecha_propuesta) a las [8](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [9:00](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [10:30](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) en la [mañana](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) en la [tarde](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [15:00](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [16:30](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [17:00](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [18:30](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [19:00](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [20:30](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [9](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [10](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [11](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [12](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [13](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [14](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [15](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [16](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [17](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [18](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [19](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [20](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [21](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [22](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [23](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [0](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [1](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [2](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [3](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [4](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [5](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [6](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [7](hora_propuesta)
+    - [pasado mañana](fecha_propuesta) a las [8](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [9:00](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [10:30](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [11:00](hora_propuesta)
+    - el [jueves](fecha_propuesta) a las [12:30](hora_propuesta)
+    - el [viernes](fecha_propuesta) a las [13:00](hora_propuesta)
+    - el [sábado](fecha_propuesta) a las [14:30](hora_propuesta)
+    - el [domingo](fecha_propuesta) a las [15:00](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [9](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [10](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [11](hora_propuesta)
+    - el [jueves](fecha_propuesta) a las [12](hora_propuesta)
+    - el [viernes](fecha_propuesta) a las [13](hora_propuesta)
+    - el [sábado](fecha_propuesta) a las [14](hora_propuesta)
+    - el [domingo](fecha_propuesta) a las [15](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [16](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [17](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [18](hora_propuesta)
+    - el [jueves](fecha_propuesta) a las [19](hora_propuesta)
+    - el [viernes](fecha_propuesta) a las [20](hora_propuesta)
+    - el [sábado](fecha_propuesta) a las [21](hora_propuesta)
+    - el [domingo](fecha_propuesta) a las [22](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [23](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [0](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [1](hora_propuesta)
+    - el [jueves](fecha_propuesta) a las [2](hora_propuesta)
+    - el [viernes](fecha_propuesta) a las [3](hora_propuesta)
+    - el [sábado](fecha_propuesta) a las [4](hora_propuesta)
+    - el [domingo](fecha_propuesta) a las [5](hora_propuesta)
+    - el [lunes](fecha_propuesta) a las [6](hora_propuesta)
+    - el [martes](fecha_propuesta) a las [7](hora_propuesta)
+    - el [miércoles](fecha_propuesta) a las [8](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [9:00](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [10:30](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [11:00](hora_propuesta)
+    - el próximo [jueves](fecha_propuesta) a las [12:30](hora_propuesta)
+    - el próximo [viernes](fecha_propuesta) a las [13:00](hora_propuesta)
+    - el próximo [sábado](fecha_propuesta) a las [14:30](hora_propuesta)
+    - el próximo [domingo](fecha_propuesta) a las [15:00](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [9](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [10](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [11](hora_propuesta)
+    - el próximo [jueves](fecha_propuesta) a las [12](hora_propuesta)
+    - el próximo [viernes](fecha_propuesta) a las [13](hora_propuesta)
+    - el próximo [sábado](fecha_propuesta) a las [14](hora_propuesta)
+    - el próximo [domingo](fecha_propuesta) a las [15](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [16](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [17](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [18](hora_propuesta)
+    - el próximo [jueves](fecha_propuesta) a las [19](hora_propuesta)
+    - el próximo [viernes](fecha_propuesta) a las [20](hora_propuesta)
+    - el próximo [sábado](fecha_propuesta) a las [21](hora_propuesta)
+    - el próximo [domingo](fecha_propuesta) a las [22](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [23](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [0](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [1](hora_propuesta)
+    - el próximo [jueves](fecha_propuesta) a las [2](hora_propuesta)
+    - el próximo [viernes](fecha_propuesta) a las [3](hora_propuesta)
+    - el próximo [sábado](fecha_propuesta) a las [4](hora_propuesta)
+    - el próximo [domingo](fecha_propuesta) a las [5](hora_propuesta)
+    - el próximo [lunes](fecha_propuesta) a las [6](hora_propuesta)
+    - el próximo [martes](fecha_propuesta) a las [7](hora_propuesta)
+    - el próximo [miércoles](fecha_propuesta) a las [8](hora_propuesta)
+
+- intent: seleccionar_opcion
+  examples: |
+    - opción 1
+    - la primera
+    - la opción 1
+    - quiero la primera
+    - me sirve la primera
+    - la 1
+    - la uno
+    - la primera opción
+    - opción 2
+    - la segunda
+    - la opción 2
+    - quiero la segunda
+    - me sirve la segunda
+    - la 2
+    - la dos
+    - la segunda opción
+    - opción 3
+    - la tercera
+    - la opción 3
+    - quiero la tercera
+    - me sirve la tercera
+    - la 3
+    - la tres
+    - la tercera opción
+    - opción 4
+    - la cuarta
+    - la opción 4
+    - quiero la cuarta
+    - me sirve la cuarta
+    - la 4
+    - la cuatro
+    - la cuarta opción
+    - ninguna
+    - ninguna opción
+    - no me sirve ninguna
+    - no me conviene ninguna
+    - ninguna me sirve
+    - no me conviene ninguna opción
+
+- intent: affirm_rebooking_confirm
+  examples: |
+    - Sí, reagendar
+    - Confirmo el nuevo horario
+    - Quiero ese horario
+    - Sí, ese horario está bien
+    - Confirmar rebooking
+    - Confirmo la reprogramación
+    - Sí, reagendar para ese horario
+    - Confirmo la cita
+    - Confirmo
+    - Sí, quiero ese horario
+    - Sí, por favor reagendar
+    - Sí, reagendar para ese día
+    - Sí, reagendar para esa hora
+    - Sí, reagendar para ese horario

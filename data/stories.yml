@@ -1,0 +1,36 @@
+version: "3.1"
+
+stories:
+
+# Flujo de inicialización de contexto
+- story: external init context
+  steps:
+  - intent: EXTERNAL_init_context
+  - action: action_init_context
+
+
+
+# Flujo completo de confirmación de cita
+- story: complete confirmation flow
+  steps:
+  - slot_was_set:
+    - contexto: "confirmación"
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: action_confirm_appointment
+
+# Flujo completo de cancelación de cita
+- story: complete cancellation flow
+  steps:
+  - slot_was_set:
+    - contexto: "confirmación"
+  - intent: greet
+  - action: utter_greet
+  - intent: deny
+  - action: action_cancel_appointment
+
+
+
+
+

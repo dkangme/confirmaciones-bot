@@ -1,0 +1,581 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - EXTERNAL_init_context
+  - EXTERNAL_init_rebooking
+  - rebooking
+  - proponer_fecha
+  - seleccionar_opcion
+  - affirm_rebooking_confirm
+
+entities:
+  - nombre_paciente
+  - id_especialidad
+  - especialidad
+  - fecha_hora
+  - id_centro_medico
+  - centro_medico
+  - centro_medico_address
+  - centro_medico_google
+  - centro_medico_comuna
+  - area_medica
+  - conversation_id
+  - bot_name
+  - campaign_name
+  - phone_number
+  - preparations
+  - tipo_mensaje
+  - centro_medico_tipo
+  - preparation_url
+  - preparation_pdf_name
+  - resource_name
+  - status
+  - piso
+  - torre
+  - autopago
+  - appointment_id
+  - fecha_propuesta
+  - hora_propuesta
+  - opcion_seleccionada
+  - fecha_seleccionada_confirmada
+
+slots:
+  nombre_paciente:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nombre_paciente
+  id_especialidad:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: id_especialidad
+  especialidad:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: especialidad
+  fecha_hora:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: fecha_hora
+  id_centro_medico:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: id_centro_medico
+  centro_medico:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: centro_medico
+  centro_medico_address:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: centro_medico_address
+  centro_medico_google:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: centro_medico_google
+  centro_medico_comuna:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: centro_medico_comuna
+  area_medica:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: area_medica
+  conversation_id:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: conversation_id
+  bot_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: bot_name
+  campaign_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: campaign_name
+  phone_number:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: phone_number
+  preparations:
+    type: bool
+    mappings:
+    - type: from_entity
+      entity: preparations
+  tipo_mensaje:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: tipo_mensaje
+  centro_medico_tipo:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: centro_medico_tipo
+  preparation_url:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: preparation_url
+  preparation_pdf_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: preparation_pdf_name
+  resource_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: resource_name
+  status:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: status
+  piso:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: piso
+  torre:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: torre
+  autopago:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: autopago
+  fecha_hora_formato:
+    type: text
+    mappings:
+    - type: custom
+  appointment_id:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: appointment_id
+  contexto:
+    type: text
+    mappings:
+    - type: custom
+  contexto_rebooking:
+    type: text
+    mappings:
+    - type: custom
+  fecha_propuesta:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: fecha_propuesta
+  hora_propuesta:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: hora_propuesta
+  opcion_seleccionada:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: opcion_seleccionada
+  rebooking_fecha:
+    type: text
+    mappings:
+    - type: custom
+  rebooking_hora:
+    type: text
+    mappings:
+    - type: custom
+  start_time:
+    type: text
+    mappings:
+    - type: custom
+  end_time:
+    type: text
+    mappings:
+    - type: custom
+  available_slots:
+    type: list
+    mappings:
+    - type: custom
+  adjacent_slots:
+    type: text
+    mappings:
+    - type: custom
+  fecha_seleccionada_confirmada:
+    type: text
+    mappings:
+    - type: custom
+  selected_slot:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  slot_selection_index:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: custom
+  appointment_type_id:
+    type: text
+    mappings:
+    - type: custom
+  preparations_url:
+    type: text
+    mappings:
+    - type: custom
+  resource_id:
+    type: text
+    mappings:
+    - type: custom
+  patient_id:
+    type: text
+    mappings:
+    - type: custom
+  service_id:
+    type: text
+    mappings:
+    - type: custom
+  coverage_plan_id:
+    type: text
+    mappings:
+    - type: custom
+  starting_location_id:
+    type: text
+    mappings:
+    - type: custom
+  original_appointment_id:
+    type: text
+    mappings:
+    - type: custom
+  maximum_distance:
+    type: text
+    mappings:
+    - type: custom
+  app_timezone:
+    type: text
+    mappings:
+    - type: custom
+  include_self_payer:
+    type: bool
+    mappings:
+    - type: custom
+  expert_booking_mode:
+    type: bool
+    mappings:
+    - type: custom
+  include_not_bookable:
+    type: bool
+    mappings:
+    - type: custom
+  reschedule_appointment_id:
+    type: text
+    mappings:
+    - type: custom
+
+responses:
+  utter_greet:
+  - condition:
+    - type: slot
+      name: campaign_name
+      value: "confirmacion"
+    custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: template
+      template:
+        name: "{campaign_name}"
+        language:
+          code: ES_AR
+        components:
+        - type: body
+          parameters:
+          - type: text
+            text: "*{nombre_paciente}*"
+          - type: text
+            text: "*{bot_name}*"
+          - type: text
+            text: "{area_medica}"
+          - type: text
+            text: "*{fecha_hora_formato}*"
+          - type: text
+            text: "*{resource_name}*"
+          - type: text
+            text: "_*{especialidad}*_"
+          - type: text
+            text: "{centro_medico}"
+  - condition:
+    - type: slot
+      name: campaign_name
+      value: "reconfirmacion"
+    custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: interactive
+      interactive:
+        type: button
+        header:
+          text: "Confirmación de cita"
+          type: "TEXT"
+        body:
+          text: "Hola {nombre_paciente}, 👋 por favor recuerde mi pregunta. {resource_name} me pidió que confirmara su hora para el {fecha_hora_formato} en {centro_medico}. ¿Confirma su hora?"
+        footer:
+          text: "Seleccione una opción"
+        action:
+          buttons:
+          - type: reply
+            reply:
+              id: "affirm"
+              title: "Si"
+          - type: reply
+            reply:
+              id: "deny"
+              title: "No"
+  - text: "Hey! How are you?"
+
+  utter_rebooking_cancelled:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Entendido {nombre_paciente}, mantendremos su cita para el {fecha_hora_formato}.\n\n✅ **Cita Mantenida**\n\n📅 Fecha: {fecha_hora_formato}\n👨‍⚕️ Doctor: {resource_name}\n🏥 Centro: {centro_medico}\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\nSi cambia de opinión más adelante, puede contactarnos nuevamente para reagendar.\n\n¡Que tenga un buen día!"
+
+  utter_rebooking:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: interactive
+      interactive:
+        type: button
+        body: 
+          text: "¿Le gustaría que busquemos una nueva fecha que le acomode mejor?"
+        action:
+          buttons:
+            - type: reply
+              reply:
+                id: affirm
+                title: "Sí"
+            - type: reply
+              reply:
+                id: deny
+                title: "No"
+
+  utter_rebooking_confirmed:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Perfecto {nombre_paciente}, vamos a buscar una nueva fecha que le acomode mejor.\n\n🔄 **Reagendamiento Confirmado**\n\n📅 Fecha actual: {fecha_hora_formato}\n👨‍⚕️ Doctor: {resource_name}\n🏥 Centro: {centro_medico}\n\n⏳ **Procesando su solicitud...**\n\nNuestro equipo se pondrá en contacto con usted pronto para ofrecerle nuevas opciones de horarios disponibles.\n\nGracias por su paciencia."
+
+  utter_rebooking_ask_date:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Por favor, indícame qué fecha y hora te gustaría para tu cita."
+
+  utter_show_available_slots:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "📅 **Horarios disponibles:**\n\n{available_slots}\n\nResponde con el número de la opción que prefieras."
+
+  utter_show_options:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: interactive
+      interactive:
+        type: list
+        body: 
+          text: "¡Perfecto! 😊 Estas son las opciones más cercanas disponibles:"
+        footer:
+          text: "¿Cuál de estas fechas le acomoda más?"
+        action:
+          button: "Fechas disponibles"
+          sections:
+            - rows:
+              - id: 1
+                title: "Lunes 16 de julio"
+                description: "10:00 horas"                
+              - id: 2
+                title: "Lunes 16 de julio"
+                description: "10:15 horas"                
+              - id: 3
+                title: "Lunes 16 de julio"
+                description: "10:30 horas"                
+              - id: 4
+                title: "Ninguna"
+
+  utter_waiting_for_confirmation:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Ok, deme un minuto para dejarla agendada en el sistema."
+
+  utter_rebooking_success:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Perfecto, su hora quedó agendada para el {fecha_seleccionada_confirmada}.😊\n\n🕑Recuerde llegar 20 minutos antes de su hora.\n\nEn caso de no poder asistir, le agradeceríamos anular o cambiar su hora en https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments para asi dejar disponible la hora a otro paciente.\n\nLo esperamos! 😊\n\nopcion: {opcion_seleccionada}👻"
+
+  utter_confirm_deny:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Entendido {nombre_paciente}, su cita para el {fecha_hora_formato} ha sido cancelada.\n\n❌ **Cita Cancelada**\n\n📅 Fecha: {fecha_hora_formato}\n👨‍⚕️ Doctor: {resource_name}\n🏥 Centro: {centro_medico}\n\n🔄 **Próximos Pasos:**\n• Si desea reprogramar su cita, puede contactarnos nuevamente\n• Si tiene alguna pregunta, no dude en consultarnos\n• Recuerde que puede acceder a sus exámenes y recetas en miredsalud.cl\n\nGracias por avisarnos con anticipación. ¡Que tenga un buen día!"
+
+  utter_cancel_appointment_failed:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Tuvimos un problema al cancelar su cita para el {fecha_hora_formato}.\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\nGracias!\n\n"
+
+  utter_confirmation_appointment_failed:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Tuvimos un problema en confirmar su cita para el {fecha_hora_formato}.\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\nGracias!\n\n"
+
+  utter_confirm_header:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n🕑 Recuerde llegar 15 minutos antes de su hora.\n📍 Dirección: {centro_medico_address} ({centro_medico_google})."
+
+  utter_confirm_footer:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "¡Lo esperamos! ☺️\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla"
+
+  utter_confirm_centro_medico:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl"
+
+  utter_confirm_medicina_general:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "👩‍⚕️ *Revise si necesita realizarse alguno de los siguientes exámenes preventivos:\nhttps://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive link"
+
+  utter_confirm_rejection:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Oh qué pena 😞, cancelaré la hora y le avisaré al doctor que no viene el {fecha_hora_formato}.\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link\nhttps://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\nGracias!"
+
+  utter_confirm_dental_header:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para {fecha_hora_formato} ☺️\n🕑 Recuerde llegar 15 minutos antes de su hora.\n📍 Dirección: {centro_medico_address} ({centro_medico_google}).\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\nCuide su salud dental siguiendo los siguientes consejos:\n-https://drive.google.com/file/d/1xvnUPDohXBcvx0WyMzAw7baN-ItBkTWP/view\n¡Lo esperamos! ☺️"
+
+  utter_confirm_dental_footer:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Si por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_dental_body:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "¡Tenemos una gran noticia! Adelante el pago de su consulta de diagnóstico y aproveche un 50% de descuento si usa el nuevo servicio de pago online. Ingrese al mail de su reserva de cita, seleccione el botón de pago y siga las instrucciones."
+
+  utter_confirm_dental_rejection:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Ok, entiendo. Gracias por avisar ☺️ Voy a cancelar esta hora entonces\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link\nhttps://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\nGracias!"
+
+actions:
+  - action_init_context
+  - action_init_rebooking
+  - action_format_date
+  - action_cancel_appointment
+  - action_confirm_appointment
+  - action_process_date_request
+  - action_show_available_slots
+  - action_process_slot_selection
+  - action_confirm_rebooking
+  - action_cancel_rebooking
+  - action_fallback
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
