@@ -704,7 +704,7 @@ class ActionProcessDateRequest(Action):
             end_time = get_slot_value(tracker, "end_time")
             adjacent_slots = get_slot_value(tracker, "adjacent_slots", "1")  # Default a 1
             patient_id = get_slot_value(tracker, "patient_id")  # Usar el slot patient_id correcto
-            reschedule_appointment_id = get_slot_value(tracker, "appointment_id")
+            reschedule_appointment_id = get_slot_value(tracker, "conversation_id")
             
             # Log de todos los slots para debugging
             logger.info(f"🔍 Debugging slots:")

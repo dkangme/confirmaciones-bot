@@ -3785,3 +3785,852 @@ Please try again later.</p>
   }
 }
 2025-07-04 21:52:48 - actions.rebooking_actions - WARNING - _call_get_slots_optimized_with_values:680 - ⚠️ get_slots_optimized retornó None
+2025-07-08 15:35:31 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-08 15:35:31 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-08 15:35:34 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-08 15:35:34 - actions.actions - INFO - <module>:42 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-08 15:35:34 - actions.actions - INFO - <module>:43 - APIGEE_USERNAME: 4tu0...
+2025-07-08 15:35:34 - actions.actions - INFO - <module>:44 - APIGEE_PASSWORD: Configurado
+2025-07-08 15:35:34 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:202 - Re-registered function for 'action_process_date_request'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-08 15:35:34 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-08 15:35:34 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-08 15:35:34 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-08 15:38:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: a72a1e23-6e53-4e0f-b008-b31401007b15
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Bárbara Vega Valdivia
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T090000-0400
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = a72a1e23-6e53-4e0f-b008-b31401007b15
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56988889999
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 15:38:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:38:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:38:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:00
+2025-07-08 15:38:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: a72a1e23-6e53-4e0f-b008-b31401007b15
+2025-07-08 15:38:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 7b086aaa-5088-442b-8f00-b3140108acac
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Patricio López Silva
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = aeea738a-2bdd-4011-9223-abf001418fb5
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = TOMA DE RAYOS INTRAORAL
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-08T154000-0400
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = b4bf0b82-08d4-4eb9-a31b-aa2c00f3d05a
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Manuel Montt
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = Av Providencia 1346 ,Providencia
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsKBkBJn741foRTQsz8
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Providencia
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Dental
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 7b086aaa-5088-442b-8f00-b3140108acac
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56988889999
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = False
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Tons 1 Rayos Manuel Montt
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 15:38:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:38:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:38:08 - actions.actions - INFO - run:521 - Fecha formateada: 08/07/2025 a las 15:40
+2025-07-08 15:38:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 7b086aaa-5088-442b-8f00-b3140108acac
+2025-07-08 15:38:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Rodrigo Durán Maza
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Celeste Olivia Borie Polanco
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 15:38:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:38:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:38:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:38:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:38:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 15:38:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:38:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:38:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:38:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:38:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: bf15c0e0-2b7a-4053-88ac-b31400e3371e
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Bárbara Vega Valdivia
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T090000-0400
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = bf15c0e0-2b7a-4053-88ac-b31400e3371e
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56988889999
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:38:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 15:38:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:38:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:38:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:00
+2025-07-08 15:38:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: bf15c0e0-2b7a-4053-88ac-b31400e3371e
+2025-07-08 15:39:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Rodrigo Durán Maza
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Celeste Olivia Borie Polanco
+2025-07-08 15:39:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 15:39:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:39:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:39:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:39:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:41:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 9a7f03e4-12bb-4251-8c97-b3140141d7ab
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = NANCY DEL ROSARIO VELIZ TIRADO
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = 303a7b29-8980-40f4-aa80-b2ec01663256
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL  DOLOR DE CABEZA
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-08T170000-0400
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = f80ba6ae-d846-4934-ab9b-a8ac010a03f6
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = Clínica RedSalud Vitacura
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = Tabancura 1185,Vitacura
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsqY6TiUmbujDKh75bA
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Vitacura
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 9a7f03e4-12bb-4251-8c97-b3140141d7ab
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56950389586
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = False
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Maria Veronica Lopez Masses
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 15:41:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:41:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:41:08 - actions.actions - INFO - run:521 - Fecha formateada: 08/07/2025 a las 17:00
+2025-07-08 15:41:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 9a7f03e4-12bb-4251-8c97-b3140141d7ab
+2025-07-08 15:41:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:41:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 15:41:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:41:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:41:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:41:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:43:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 9a7f03e4-12bb-4251-8c97-b3140141d7ab
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = NANCY DEL ROSARIO VELIZ TIRADO
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = 303a7b29-8980-40f4-aa80-b2ec01663256
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL  DOLOR DE CABEZA
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-08T170000-0400
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = f80ba6ae-d846-4934-ab9b-a8ac010a03f6
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = Clínica RedSalud Vitacura
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = Tabancura 1185,Vitacura
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsqY6TiUmbujDKh75bA
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Vitacura
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 9a7f03e4-12bb-4251-8c97-b3140141d7ab
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56950389586
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = False
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Maria Veronica Lopez Masses
+2025-07-08 15:43:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 15:43:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:43:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:43:08 - actions.actions - INFO - run:521 - Fecha formateada: 08/07/2025 a las 17:00
+2025-07-08 15:43:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 9a7f03e4-12bb-4251-8c97-b3140141d7ab
+2025-07-08 15:44:01 - actions.utils - INFO - log_request_info:190 - Ejecutando action_confirm_appointment para usuario: 9a7f03e4-12bb-4251-8c97-b3140141d7ab
+2025-07-08 15:44:01 - actions.actions - INFO - obtener_access_token:101 - Solicitando token de acceso a https://redsalud-qa.apigee.net/oauth/token
+2025-07-08 15:44:01 - actions.actions - INFO - obtener_access_token:102 - Client ID: 4tu0...
+2025-07-08 15:44:01 - actions.actions - INFO - obtener_access_token:120 - Token de acceso obtenido exitosamente, expira en 2025-07-08 16:29:00.198751
+2025-07-08 15:44:01 - actions.actions - INFO - confirm_appointment:165 - Solicitando confirmación de cita 9a7f03e4-12bb-4251-8c97-b3140141d7ab
+2025-07-08 15:44:10 - actions.actions - INFO - confirm_appointment:170 - Confirmación de cita exitosa
+2025-07-08 15:44:10 - actions.actions - INFO - run:773 - Cita confirmada exitosamente en Apigee: {'@odata.context': 'https://proxy-qa.redsalud.cl/RSPBOTWSCONFIRMACION/$metadata#Appointments/$entity', '@odata.etag': 'W/"J0FBQUFBQy9jWElZPSc="', 'DateTimeFrom': '2025-07-08T17:00:00-04:00', 'DateTimeTo': '2025-07-08T17:20:00-04:00', 'DateTimeFromUTC': '2025-07-08T21:00:00Z', 'DateTimeToUTC': '2025-07-08T21:20:00Z', 'Status': 'Confirmed', 'Duration': 20, 'ResourceId': '5fd72551-58ff-4f12-b144-a5fa00690a42', 'ServiceId': 'e967d1fd-7633-4dd1-baec-b2ec01680ebf', 'CoveragePlanId': 'f2d3cd94-b91c-420e-9ec0-a5f800ca8dbc', 'PatientId': '72b57ca4-c479-4167-b0f0-a60c00f078a1', 'CenterId': 'f80ba6ae-d846-4934-ab9b-a8ac010a03f6', 'IsOvercapacity': False, 'InCallBy': None, 'Index': 1, 'Number': 2118, 'NumberOfSlots': 1, 'CommentsCount': 0, 'CreatedByMainAvailabilityId': '360eb7af-dc1a-4c67-a3f1-b2ed00f86080', 'BlockedByAvailabilityId': None, 'RescheduleAppointmentId': '4adaefc9-6f5e-46ab-800e-b314010f6633', 'OversellingDefinitionId': None, 'Comments': [], 'CreatedByMarketingCampaign': None, 'Archived': False, 'OldPatientId': None, 'SortQueryId': None, 'DynamicData': [], 'AppointmentTypeId': '4139651e-c3c2-4839-97ef-cdd5428b9975', 'CreatedByOriginalAvailabilityId': '360eb7af-dc1a-4c67-a3f1-b2ed00f86080', 'BlockedByOriginalAvailabilityId': None, 'TreatmentPlanId': None, 'Cancelled': False, 'Id': '9a7f03e4-12bb-4251-8c97-b3140141d7ab', 'ModifiedOn': '2025-07-08T19:44:03.0937259Z', 'CreatedOn': '2025-07-08T19:31:47.5510932Z', 'RowVersion': 'AAAAAC/cXIY=', 'ModifiedBy': '3eba71b2-d750-4291-932d-b1760170619d', 'CreatedBy': '86a74779-e16c-40d4-b443-b20401389291', 'ModifiedByClient': 'Api', 'CreatedByClient': 'Reception'}
+2025-07-08 15:44:10 - actions.database - INFO - update_appointment_status:194 - Estado de cita 9a7f03e4-12bb-4251-8c97-b3140141d7ab actualizado a 'confirmed' exitosamente
+2025-07-08 15:44:10 - actions.actions - INFO - run:819 - Confirmación exitosa para usuario: 9a7f03e4-12bb-4251-8c97-b3140141d7ab
+2025-07-08 15:53:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Rodrigo Durán Maza
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Celeste Olivia Borie Polanco
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 15:53:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:53:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:53:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:53:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:53:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: a72a1e23-6e53-4e0f-b008-b31401007b15
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Bárbara Vega Valdivia
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T090000-0400
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = a72a1e23-6e53-4e0f-b008-b31401007b15
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56988889999
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 15:53:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:53:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:53:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:00
+2025-07-08 15:53:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: a72a1e23-6e53-4e0f-b008-b31401007b15
+2025-07-08 15:53:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:53:08 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 15:53:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:53:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:53:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:53:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:54:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Rodrigo Durán Maza
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Celeste Olivia Borie Polanco
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 15:54:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:54:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:54:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:54:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:54:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:54:08 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 15:54:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:54:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:54:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:54:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:55:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Rodrigo Durán Maza
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Celeste Olivia Borie Polanco
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 15:55:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:55:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:55:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:55:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 015af2e9-4fe6-4d99-9042-b31400fa9aa7
+2025-07-08 15:55:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:55:08 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 15:55:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:55:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:55:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:55:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:56:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: a72a1e23-6e53-4e0f-b008-b31401007b15
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Bárbara Vega Valdivia
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T090000-0400
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = a72a1e23-6e53-4e0f-b008-b31401007b15
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56988889999
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:56:08 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 15:56:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:56:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:56:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:00
+2025-07-08 15:56:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: a72a1e23-6e53-4e0f-b008-b31401007b15
+2025-07-08 15:58:06 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:58:06 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-08 15:58:06 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 15:58:06 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 15:58:06 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 15:58:06 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:58:06 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 15:58:06 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 15:58:07 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 15:58:07 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:58:07 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:58:07 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 15:58:07 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: c089499d-189b-45aa-8795-b31400e41dae
+2025-07-08 15:58:54 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 1
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Dennis
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = 1 CONSULTA BARIÁTRICA
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-03-18 090000
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = 223ce757-0a28-471b-a13a-a8ac010e5041
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = Clínica RedSalud Santiago
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = Av Lib Bernardo Ohiggins 4850,Santiago
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsLmkXZn4PYRgkGrYZ9
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = Ricardo
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56956196028
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: preparations = False
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 8fcf10cb-614d-4aa9-8720-b2a300fd978b
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Miguel Angulo
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: patient_id = 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: service_id = 7c8871ba-36be-47b9-bf9a-a602010902b0
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: coverage_plan_id = f2d3cd94-b91c-420e-9ec0-a5f800ca8dbc
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: original_appointment_id = appointment_id_to_cancel
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: maximum_distance = 5
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: adjacent_slots = 1
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: app_timezone = -240
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: include_self_payer = False
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: expert_booking_mode = False
+2025-07-08 15:58:54 - actions.actions - INFO - run:502 - Slot actualizado: include_not_bookable = True
+2025-07-08 15:58:54 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 15:58:54 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 15:58:54 - actions.actions - INFO - run:521 - Fecha formateada: 18/03/2025 a las 09:00
+2025-07-08 15:58:54 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 1
+2025-07-08 15:59:09 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_rebooking para usuario: 1
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: nombre_paciente = Dennis
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: id_especialidad = 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: especialidad = 1 CONSULTA BARIÁTRICA
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: fecha_hora = 2025-03-18 090000
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: id_centro_medico = 223ce757-0a28-471b-a13a-a8ac010e5041
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico = Clínica RedSalud Santiago
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico_address = Av Lib Bernardo Ohiggins 4850,Santiago
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico_google = httpsgoo.glmapsLmkXZn4PYRgkGrYZ9
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: area_medica = Médica
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: bot_name = Ricardo
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: phone_number = 56956196028
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: preparations = False
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: conversation_id = 8fcf10cb-614d-4aa9-8720-b2a300fd978b
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: resource_name = Miguel Angulo
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: patient_id = 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: service_id = 7c8871ba-36be-47b9-bf9a-a602010902b0
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: coverage_plan_id = f2d3cd94-b91c-420e-9ec0-a5f800ca8dbc
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: original_appointment_id = appointment_id_to_cancel
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: maximum_distance = 5
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: adjacent_slots = 1
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: app_timezone = -240
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: include_self_payer = False
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: expert_booking_mode = False
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: include_not_bookable = True
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:251 - Contexto de rebooking configurado como: rebooking
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:255 - Contexto general configurado como: None
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:265 - Fecha formateada: 18/03/2025 a las 09:00
+2025-07-08 15:59:09 - actions.rebooking_actions - INFO - run:300 - Contexto de rebooking inicializado exitosamente para usuario: 1
+2025-07-08 15:59:38 - actions.utils - INFO - log_request_info:190 - Ejecutando action_process_date_request para usuario: 1
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - run:334 - Procesando mensaje: mañana a las 10
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - run:352 - Fecha y hora extraídas: 9 de julio a las 10:00
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - run:353 - Start time: 2025-07-09T10:00:00-04:00
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - run:354 - End time: 2025-07-09T18:00:00-04:00
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:630 - 🔍 Debugging slots:
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:631 -    resource_id: None
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:632 -    id_especialidad: 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:633 -    autopago: None
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:634 -    phone_number: 56956196028
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:635 -    appointment_id: None
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:636 -    start_time (pasado): 2025-07-09T10:00:00-04:00
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:637 -    end_time (pasado): 2025-07-09T18:00:00-04:00
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:654 - 🔧 Llamando get_slots_optimized con parámetros:
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:655 -    resource_id: Miguel Angulo
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:656 -    service_id: 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:657 -    coverage_plan_id: 1
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:658 -    start_time: 2025-07-09T10:00:00-04:00
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:659 -    finish_time: 2025-07-09T18:00:00-04:00
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:660 -    adjacent_slots: 1
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:661 -    patient_id: 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:662 -    reschedule_appointment_id: None
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:665 - 📞 Invocando get_slots_optimized...
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - get_slots_optimized:92 - 🌐 URL generada para get_slots_optimized:
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - get_slots_optimized:93 -    Base URL: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - get_slots_optimized:94 -    Parámetros: {'includeSelfPayer': 'false', 'expertBookingMode': 'false', 'includeNotBookable': 'false'}
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - get_slots_optimized:95 -    Filtro: ResourceId eq Miguel Angulo and ServiceId eq 9da27b49-fe81-4188-ba06-b13100fee18d and CoveragePlanId eq 1 and (StartTime ge 2025-07-09T10:00:00-04:00) and (FinishTime le 2025-07-09T18:00:00-04:00) and AdjacentSlots eq 1 and PatientId eq 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - get_slots_optimized:96 -    URL completa: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized(includeSelfPayer=false,expertBookingMode=false,includeNotBookable=false)?$filter=ResourceId%20eq%20Miguel%20Angulo%20and%20ServiceId%20eq%209da27b49-fe81-4188-ba06-b13100fee18d%20and%20CoveragePlanId%20eq%201%20and%20%28StartTime%20ge%202025-07-09T10%3A00%3A00-04%3A00%29%20and%20%28FinishTime%20le%202025-07-09T18%3A00%3A00-04%3A00%29%20and%20AdjacentSlots%20eq%201%20and%20PatientId%20eq%2027a1bd0d-2028-4191-887c-acc9014582a9&$orderby=StartTime asc&$count=true
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - get_slots_optimized:105 - 📋 Headers de la petición:
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - get_slots_optimized:106 -    X-AppTimezone: -240
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - get_slots_optimized:107 -    Authorization: Bearer [TOKEN_OCULTO]
+2025-07-08 15:59:38 - actions.rebooking_actions - INFO - get_slots_optimized:110 - 🚀 Enviando petición GET a la API...
+2025-07-08 15:59:40 - actions.rebooking_actions - ERROR - get_slots_optimized:144 - ❌ Error al llamar a la API: 500 Server Error: Internal Server Error for url: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized(includeSelfPayer=false,expertBookingMode=false,includeNotBookable=false)?$filter=ResourceId%20eq%20Miguel%20Angulo%20and%20ServiceId%20eq%209da27b49-fe81-4188-ba06-b13100fee18d%20and%20CoveragePlanId%20eq%201%20and%20%28StartTime%20ge%202025-07-09T10%3A00%3A00-04%3A00%29%20and%20%28FinishTime%20le%202025-07-09T18%3A00%3A00-04%3A00%29%20and%20AdjacentSlots%20eq%201%20and%20PatientId%20eq%2027a1bd0d-2028-4191-887c-acc9014582a9&$orderby=StartTime%20asc&$count=true
+2025-07-08 15:59:40 - actions.rebooking_actions - ERROR - get_slots_optimized:146 -    Status Code: 500
+2025-07-08 15:59:40 - actions.rebooking_actions - ERROR - get_slots_optimized:147 -    Response Text: No route was found for the given request. Check if the Dependency Resolve is configured correctly, or if the Odata Requst is corrctly buid, or if this is a Create/Delete Ref request, then check that the Collection exists on the respective Entities
+2025-07-08 15:59:40 - actions.rebooking_actions - WARNING - _call_get_slots_optimized_with_values:680 - ⚠️ get_slots_optimized retornó None
+2025-07-08 16:09:06 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-08 16:09:06 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-08 16:09:07 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-08 16:09:08 - actions.actions - INFO - <module>:42 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-08 16:09:08 - actions.actions - INFO - <module>:43 - APIGEE_USERNAME: 4tu0...
+2025-07-08 16:09:08 - actions.actions - INFO - <module>:44 - APIGEE_PASSWORD: Configurado
+2025-07-08 16:09:08 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:202 - Re-registered function for 'action_process_date_request'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-08 16:09:08 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-08 16:09:08 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-08 16:09:08 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-08 16:09:26 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_rebooking para usuario: 2
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: nombre_paciente = Dennis
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: id_especialidad = 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: especialidad = 1 CONSULTA BARIÁTRICA
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: fecha_hora = 2025-03-18 090000
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: id_centro_medico = 223ce757-0a28-471b-a13a-a8ac010e5041
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico = Clínica RedSalud Santiago
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico_address = Av Lib Bernardo Ohiggins 4850,Santiago
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico_google = httpsgoo.glmapsLmkXZn4PYRgkGrYZ9
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: area_medica = Médica
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: bot_name = Ricardo
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: phone_number = 56956196028
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: preparations = False
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: conversation_id = 8fcf10cb-614d-4aa9-8720-b2a300fd978b
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: resource_name = Miguel Angulo
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: patient_id = 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: service_id = 7c8871ba-36be-47b9-bf9a-a602010902b0
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: coverage_plan_id = f2d3cd94-b91c-420e-9ec0-a5f800ca8dbc
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: original_appointment_id = appointment_id_to_cancel
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: maximum_distance = 5
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: adjacent_slots = 1
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: app_timezone = -240
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: include_self_payer = False
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: expert_booking_mode = False
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: include_not_bookable = True
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:251 - Contexto de rebooking configurado como: rebooking
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:255 - Contexto general configurado como: None
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:265 - Fecha formateada: 18/03/2025 a las 09:00
+2025-07-08 16:09:26 - actions.rebooking_actions - INFO - run:300 - Contexto de rebooking inicializado exitosamente para usuario: 2
+2025-07-08 16:10:07 - actions.utils - INFO - log_request_info:190 - Ejecutando action_process_date_request para usuario: 2
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - run:334 - Procesando mensaje: mañana a las 10
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - run:352 - Fecha y hora extraídas: 9 de julio a las 10:00
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - run:353 - Start time: 2025-07-09T10:00:00-04:00
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - run:354 - End time: 2025-07-09T18:00:00-04:00
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:630 - 🔍 Debugging slots:
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:631 -    resource_id: None
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:632 -    id_especialidad: 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:633 -    autopago: None
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:634 -    phone_number: 56956196028
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:635 -    appointment_id: None
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:636 -    start_time (pasado): 2025-07-09T10:00:00-04:00
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:637 -    end_time (pasado): 2025-07-09T18:00:00-04:00
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:654 - 🔧 Llamando get_slots_optimized con parámetros:
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:655 -    resource_id: Miguel Angulo
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:656 -    service_id: 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:657 -    coverage_plan_id: 1
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:658 -    start_time: 2025-07-09T10:00:00-04:00
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:659 -    finish_time: 2025-07-09T18:00:00-04:00
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:660 -    adjacent_slots: 1
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:661 -    patient_id: 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:662 -    reschedule_appointment_id: None
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:665 - 📞 Invocando get_slots_optimized...
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - get_slots_optimized:92 - 🌐 URL generada para get_slots_optimized:
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - get_slots_optimized:93 -    Base URL: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - get_slots_optimized:94 -    Parámetros: {'includeSelfPayer': 'false', 'expertBookingMode': 'false', 'includeNotBookable': 'false'}
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - get_slots_optimized:95 -    Filtro: ResourceId eq Miguel Angulo and ServiceId eq 9da27b49-fe81-4188-ba06-b13100fee18d and CoveragePlanId eq 1 and (StartTime ge 2025-07-09T10:00:00-04:00) and (FinishTime le 2025-07-09T18:00:00-04:00) and AdjacentSlots eq 1 and PatientId eq 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - get_slots_optimized:96 -    URL completa: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized(includeSelfPayer=false,expertBookingMode=false,includeNotBookable=false)?$filter=ResourceId%20eq%20Miguel%20Angulo%20and%20ServiceId%20eq%209da27b49-fe81-4188-ba06-b13100fee18d%20and%20CoveragePlanId%20eq%201%20and%20%28StartTime%20ge%202025-07-09T10%3A00%3A00-04%3A00%29%20and%20%28FinishTime%20le%202025-07-09T18%3A00%3A00-04%3A00%29%20and%20AdjacentSlots%20eq%201%20and%20PatientId%20eq%2027a1bd0d-2028-4191-887c-acc9014582a9&$orderby=StartTime asc&$count=true
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - get_slots_optimized:105 - 📋 Headers de la petición:
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - get_slots_optimized:106 -    X-AppTimezone: -240
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - get_slots_optimized:107 -    Authorization: Bearer [TOKEN_OCULTO]
+2025-07-08 16:10:07 - actions.rebooking_actions - INFO - get_slots_optimized:110 - 🚀 Enviando petición GET a la API...
+2025-07-08 16:10:08 - actions.rebooking_actions - ERROR - get_slots_optimized:144 - ❌ Error al llamar a la API: 500 Server Error: Internal Server Error for url: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized(includeSelfPayer=false,expertBookingMode=false,includeNotBookable=false)?$filter=ResourceId%20eq%20Miguel%20Angulo%20and%20ServiceId%20eq%209da27b49-fe81-4188-ba06-b13100fee18d%20and%20CoveragePlanId%20eq%201%20and%20%28StartTime%20ge%202025-07-09T10%3A00%3A00-04%3A00%29%20and%20%28FinishTime%20le%202025-07-09T18%3A00%3A00-04%3A00%29%20and%20AdjacentSlots%20eq%201%20and%20PatientId%20eq%2027a1bd0d-2028-4191-887c-acc9014582a9&$orderby=StartTime%20asc&$count=true
+2025-07-08 16:10:08 - actions.rebooking_actions - ERROR - get_slots_optimized:146 -    Status Code: 500
+2025-07-08 16:10:08 - actions.rebooking_actions - ERROR - get_slots_optimized:147 -    Response Text: No route was found for the given request. Check if the Dependency Resolve is configured correctly, or if the Odata Requst is corrctly buid, or if this is a Create/Delete Ref request, then check that the Collection exists on the respective Entities
+2025-07-08 16:10:08 - actions.rebooking_actions - WARNING - _call_get_slots_optimized_with_values:680 - ⚠️ get_slots_optimized retornó None
+2025-07-08 16:18:24 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-08 16:18:24 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-08 16:18:25 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-08 16:18:25 - actions.actions - INFO - <module>:42 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-08 16:18:25 - actions.actions - INFO - <module>:43 - APIGEE_USERNAME: 4tu0...
+2025-07-08 16:18:25 - actions.actions - INFO - <module>:44 - APIGEE_PASSWORD: Configurado
+2025-07-08 16:18:25 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:202 - Re-registered function for 'action_process_date_request'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-08 16:18:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-08 16:18:25 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-08 16:18:25 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-08 16:18:49 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_rebooking para usuario: 3
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: nombre_paciente = Dennis
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: id_especialidad = 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: especialidad = 1 CONSULTA BARIÁTRICA
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: fecha_hora = 2025-03-18 090000
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: id_centro_medico = 223ce757-0a28-471b-a13a-a8ac010e5041
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico = Clínica RedSalud Santiago
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico_address = Av Lib Bernardo Ohiggins 4850,Santiago
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico_google = httpsgoo.glmapsLmkXZn4PYRgkGrYZ9
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: area_medica = Médica
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: bot_name = Ricardo
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: phone_number = 56956196028
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: preparations = False
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: conversation_id = 8fcf10cb-614d-4aa9-8720-b2a300fd978b
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: resource_name = Miguel Angulo
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: patient_id = 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: service_id = 7c8871ba-36be-47b9-bf9a-a602010902b0
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: coverage_plan_id = f2d3cd94-b91c-420e-9ec0-a5f800ca8dbc
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: original_appointment_id = appointment_id_to_cancel
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: maximum_distance = 5
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: adjacent_slots = 1
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: app_timezone = -240
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: include_self_payer = False
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: expert_booking_mode = False
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:247 - Slot actualizado: include_not_bookable = True
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:251 - Contexto de rebooking configurado como: rebooking
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:255 - Contexto general configurado como: None
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:265 - Fecha formateada: 18/03/2025 a las 09:00
+2025-07-08 16:18:49 - actions.rebooking_actions - INFO - run:300 - Contexto de rebooking inicializado exitosamente para usuario: 3
+2025-07-08 16:19:11 - actions.utils - INFO - log_request_info:190 - Ejecutando action_process_date_request para usuario: 3
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - run:334 - Procesando mensaje: mañana a las 10
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - run:352 - Fecha y hora extraídas: 9 de julio a las 10:00
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - run:353 - Start time: 2025-07-09T10:00:00-04:00
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - run:354 - End time: 2025-07-09T18:00:00-04:00
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:630 - 🔍 Debugging slots:
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:631 -    resource_id: None
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:632 -    id_especialidad: 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:633 -    autopago: None
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:634 -    phone_number: 56956196028
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:635 -    appointment_id: None
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:636 -    start_time (pasado): 2025-07-09T10:00:00-04:00
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:637 -    end_time (pasado): 2025-07-09T18:00:00-04:00
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:654 - 🔧 Llamando get_slots_optimized con parámetros:
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:655 -    resource_id: Miguel Angulo
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:656 -    service_id: 9da27b49-fe81-4188-ba06-b13100fee18d
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:657 -    coverage_plan_id: 1
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:658 -    start_time: 2025-07-09T10:00:00-04:00
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:659 -    finish_time: 2025-07-09T18:00:00-04:00
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:660 -    adjacent_slots: 1
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:661 -    patient_id: 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:662 -    reschedule_appointment_id: None
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:665 - 📞 Invocando get_slots_optimized...
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - get_slots_optimized:92 - 🌐 URL generada para get_slots_optimized:
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - get_slots_optimized:93 -    Base URL: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - get_slots_optimized:94 -    Parámetros: {'includeSelfPayer': 'false', 'expertBookingMode': 'false', 'includeNotBookable': 'false'}
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - get_slots_optimized:95 -    Filtro: ResourceId eq Miguel Angulo and ServiceId eq 9da27b49-fe81-4188-ba06-b13100fee18d and CoveragePlanId eq 1 and (StartTime ge 2025-07-09T10:00:00-04:00) and (FinishTime le 2025-07-09T18:00:00-04:00) and AdjacentSlots eq 1 and PatientId eq 27a1bd0d-2028-4191-887c-acc9014582a9
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - get_slots_optimized:96 -    URL completa: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized(includeSelfPayer=false,expertBookingMode=false,includeNotBookable=false)?$filter=ResourceId%20eq%20Miguel%20Angulo%20and%20ServiceId%20eq%209da27b49-fe81-4188-ba06-b13100fee18d%20and%20CoveragePlanId%20eq%201%20and%20%28StartTime%20ge%202025-07-09T10%3A00%3A00-04%3A00%29%20and%20%28FinishTime%20le%202025-07-09T18%3A00%3A00-04%3A00%29%20and%20AdjacentSlots%20eq%201%20and%20PatientId%20eq%2027a1bd0d-2028-4191-887c-acc9014582a9&$orderby=StartTime asc&$count=true
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - get_slots_optimized:105 - 📋 Headers de la petición:
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - get_slots_optimized:106 -    X-AppTimezone: -240
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - get_slots_optimized:107 -    Authorization: Bearer [TOKEN_OCULTO]
+2025-07-08 16:19:11 - actions.rebooking_actions - INFO - get_slots_optimized:110 - 🚀 Enviando petición GET a la API...
+2025-07-08 16:19:13 - actions.rebooking_actions - ERROR - get_slots_optimized:144 - ❌ Error al llamar a la API: 500 Server Error: Internal Server Error for url: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized(includeSelfPayer=false,expertBookingMode=false,includeNotBookable=false)?$filter=ResourceId%20eq%20Miguel%20Angulo%20and%20ServiceId%20eq%209da27b49-fe81-4188-ba06-b13100fee18d%20and%20CoveragePlanId%20eq%201%20and%20%28StartTime%20ge%202025-07-09T10%3A00%3A00-04%3A00%29%20and%20%28FinishTime%20le%202025-07-09T18%3A00%3A00-04%3A00%29%20and%20AdjacentSlots%20eq%201%20and%20PatientId%20eq%2027a1bd0d-2028-4191-887c-acc9014582a9&$orderby=StartTime%20asc&$count=true
+2025-07-08 16:19:13 - actions.rebooking_actions - ERROR - get_slots_optimized:146 -    Status Code: 500
+2025-07-08 16:19:13 - actions.rebooking_actions - ERROR - get_slots_optimized:147 -    Response Text: No route was found for the given request. Check if the Dependency Resolve is configured correctly, or if the Odata Requst is corrctly buid, or if this is a Create/Delete Ref request, then check that the Collection exists on the respective Entities
+2025-07-08 16:19:13 - actions.rebooking_actions - WARNING - _call_get_slots_optimized_with_values:680 - ⚠️ get_slots_optimized retornó None
+2025-07-08 16:21:26 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-08 16:21:26 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-08 16:21:27 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-08 16:21:27 - actions.actions - INFO - <module>:42 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-08 16:21:27 - actions.actions - INFO - <module>:43 - APIGEE_USERNAME: 4tu0...
+2025-07-08 16:21:27 - actions.actions - INFO - <module>:44 - APIGEE_PASSWORD: Configurado
+2025-07-08 16:21:27 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-08 16:21:27 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-08 16:21:27 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-08 16:21:27 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-08 16:31:08 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 3411bfbf-2813-4a3e-87fe-b314014f6581
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 3411bfbf-2813-4a3e-87fe-b314014f6581
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = confirmacion
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 16:31:08 - actions.actions - INFO - run:502 - Slot actualizado: status = ready to send
+2025-07-08 16:31:08 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 16:31:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 16:31:08 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 16:31:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 3411bfbf-2813-4a3e-87fe-b314014f6581
+2025-07-08 16:42:06 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_context para usuario: 3411bfbf-2813-4a3e-87fe-b314014f6581
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: fecha_hora = 2025-07-09T091500-0400
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: area_medica = Médica
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: conversation_id = 3411bfbf-2813-4a3e-87fe-b314014f6581
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: bot_name = BOT DEV
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: phone_number = 56958836039
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: preparations = True
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-08 16:42:06 - actions.actions - INFO - run:502 - Slot actualizado: status = reconfirmation in progress
+2025-07-08 16:42:06 - actions.actions - INFO - run:506 - Contexto configurado como: confirmación
+2025-07-08 16:42:06 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
+2025-07-08 16:42:06 - actions.actions - INFO - run:521 - Fecha formateada: 09/07/2025 a las 09:15
+2025-07-08 16:42:06 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: 3411bfbf-2813-4a3e-87fe-b314014f6581
