@@ -21,6 +21,7 @@ stories:
   - action: utter_rebooking_ask_date
   - intent: proponer_fecha
   - action: action_process_date_request
+  - action: action_show_available_slots
   - intent: seleccionar_opcion
   - action: action_process_slot_selection
   - intent: affirm_rebooking_confirm

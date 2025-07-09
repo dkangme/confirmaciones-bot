@@ -34,6 +34,7 @@ rules:
   steps:
   - intent: proponer_fecha
   - action: action_process_date_request
+  - action: action_show_available_slots
 
 - rule: Handle option selection in rebooking context
   condition:

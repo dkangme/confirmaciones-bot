@@ -60,17 +60,19 @@ def get_slots_optimized(
     """
     base_url = "https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized"
     
-    # Construir parámetros de la URL
+    # Construir parámetros de la URL (corresponden a los parámetros de función en el curl)
+    # Orden correcto según el curl: includeSelfPayer, expertBookingMode, includeNotBookable, rescheduleAppointmentId
     params = {
         "includeSelfPayer": str(include_self_payer).lower(),
         "expertBookingMode": str(expert_booking_mode).lower(),
-        "includeNotBookable": str(include_not_bookable).lower()
+        "includeNotBookable": str(include_not_bookable).lower(),
+        "rescheduleAppointmentId": reschedule_appointment_id
     }
     
     if reschedule_appointment_id:
         params["rescheduleAppointmentId"] = reschedule_appointment_id
     
-    # Construir filtro
+    # Construir filtro (corresponde al $filter en el curl)
     filter_parts = [
         f"ResourceId eq {resource_id}",
         f"ServiceId eq {service_id}",
@@ -83,7 +85,8 @@ def get_slots_optimized(
     
     filter_str = " and ".join(filter_parts)
     
-    # Construir URL completa
+    # Construir URL completa (corresponde exactamente al formato del curl)
+    # Formato: base_url(param1=value1,param2=value2)?$filter=...&$orderby=...&$count=true
     url = f"{base_url}({','.join(f'{k}={v}' for k, v in params.items())})"
     url += f"?$filter={urllib.parse.quote(filter_str)}"
     url += "&$orderby=StartTime asc&$count=true"
@@ -118,33 +121,90 @@ def get_slots_optimized(
         
         response_data = response.json()
         
-        # Log del contenido de la respuesta (resumido)
+        # Log detallado de la respuesta exitosa
+        logger.info(f"✅ RESPUESTA EXITOSA DE get_slots_optimized:")
+        logger.info(f"   Status Code: {response.status_code}")
+        logger.info(f"   Content-Type: {response.headers.get('content-type', 'N/A')}")
+        logger.info(f"   Content-Length: {response.headers.get('content-length', 'N/A')}")
+        
         if response_data:
-            logger.info(f"📊 Datos de respuesta:")
+            logger.info(f"📊 ESTRUCTURA DE LA RESPUESTA:")
+            logger.info(f"   Claves principales: {list(response_data.keys())}")
+            
             if "slots" in response_data:
                 slots_count = len(response_data["slots"])
-                logger.info(f"   Número de slots recibidos: {slots_count}")
+                logger.info(f"   Número total de slots: {slots_count}")
                 
-                # Mostrar los primeros 3 slots como ejemplo
-                for i, slot in enumerate(response_data["slots"][:3]):
+                # Contar slots disponibles
+                available_slots = [slot for slot in response_data["slots"] if slot.get("Bookable", {}).get("Bookable", False)]
+                logger.info(f"   Slots disponibles: {len(available_slots)}")
+                logger.info(f"   Slots no disponibles: {slots_count - len(available_slots)}")
+                
+                # Mostrar detalles de los primeros 5 slots
+                logger.info(f"📅 DETALLES DE SLOTS (primeros 5):")
+                for i, slot in enumerate(response_data["slots"][:5]):
                     timestamp = slot.get("Timestamp")
                     bookable = slot.get("Bookable", {}).get("Bookable", False)
-                    logger.info(f"   Slot {i+1}: Timestamp={timestamp}, Bookable={bookable}")
+                    start_time = slot.get("StartTime")
+                    end_time = slot.get("EndTime")
+                    resource_id = slot.get("ResourceId")
+                    
+                    # Convertir timestamp a fecha legible si existe
+                    fecha_legible = ""
+                    if timestamp:
+                        try:
+                            from datetime import datetime
+                            dt = datetime.fromtimestamp(timestamp)
+                            fecha_legible = dt.strftime("%Y-%m-%d %H:%M:%S")
+                        except:
+                            fecha_legible = "Error parsing timestamp"
+                    
+                    logger.info(f"   Slot {i+1}:")
+                    logger.info(f"     - Timestamp: {timestamp} ({fecha_legible})")
+                    logger.info(f"     - Bookable: {bookable}")
+                    logger.info(f"     - StartTime: {start_time}")
+                    logger.info(f"     - EndTime: {end_time}")
+                    logger.info(f"     - ResourceId: {resource_id}")
                 
-                if slots_count > 3:
-                    logger.info(f"   ... y {slots_count - 3} slots más")
+                if slots_count > 5:
+                    logger.info(f"   ... y {slots_count - 5} slots más")
+                
+                # Mostrar estadísticas adicionales
+                if available_slots:
+                    logger.info(f"📈 ESTADÍSTICAS DE SLOTS DISPONIBLES:")
+                    timestamps_disponibles = [slot.get("Timestamp") for slot in available_slots if slot.get("Timestamp")]
+                    if timestamps_disponibles:
+                        from datetime import datetime
+                        fechas_disponibles = [datetime.fromtimestamp(ts) for ts in timestamps_disponibles]
+                        fechas_unicas = list(set([fecha.strftime("%Y-%m-%d") for fecha in fechas_disponibles]))
+                        logger.info(f"     - Fechas únicas disponibles: {len(fechas_unicas)}")
+                        logger.info(f"     - Fechas: {fechas_unicas[:3]}{'...' if len(fechas_unicas) > 3 else ''}")
             else:
                 logger.info(f"   Respuesta sin slots: {list(response_data.keys())}")
+                logger.info(f"   Contenido completo: {response_data}")
         else:
             logger.warning("⚠️ Respuesta vacía de la API")
+        
+        # Log final de éxito
+        logger.info(f"🎉 get_slots_optimized completado exitosamente")
+        logger.info(f"   URL llamada: {url}")
+        logger.info(f"   Tiempo de respuesta: {response.elapsed.total_seconds():.2f}s")
         
         return response_data
         
     except requests.exceptions.RequestException as e:
-        logger.error(f"❌ Error al llamar a la API: {str(e)}")
+        logger.error(f"❌ ERROR en get_slots_optimized:")
+        logger.error(f"   Tipo de error: {type(e).__name__}")
+        logger.error(f"   Mensaje: {str(e)}")
+        logger.error(f"   URL que falló: {url}")
+        
         if hasattr(e, 'response') and e.response is not None:
             logger.error(f"   Status Code: {e.response.status_code}")
+            logger.error(f"   Response Headers: {dict(e.response.headers)}")
             logger.error(f"   Response Text: {e.response.text}")
+        else:
+            logger.error(f"   Sin respuesta del servidor (error de conexión)")
+        
         return None
 
 
@@ -620,11 +680,11 @@ class ActionProcessDateRequest(Action):
         try:
             # Obtener parámetros de los slots
             resource_id = get_slot_value(tracker, "resource_id") or get_slot_value(tracker, "resource_name")
-            service_id = get_slot_value(tracker, "id_especialidad")
-            coverage_plan_id = get_slot_value(tracker, "autopago", "1")  # Default a 1 si no existe
+            service_id = get_slot_value(tracker, "service_id")
+            coverage_plan_id = get_slot_value(tracker, "coverage_plan_id", "1")  # Default a 1 si no existe
             adjacent_slots = get_slot_value(tracker, "adjacent_slots", "1")  # Default a 1
             patient_id = get_slot_value(tracker, "patient_id")  # Usar el slot patient_id correcto
-            reschedule_appointment_id = get_slot_value(tracker, "appointment_id")
+            reschedule_appointment_id = get_slot_value(tracker, "reschedule_appointment_id")
             
             # Log de todos los slots para debugging
             logger.info(f"🔍 Debugging slots:")
@@ -632,7 +692,7 @@ class ActionProcessDateRequest(Action):
             logger.info(f"   id_especialidad: {get_slot_value(tracker, 'id_especialidad')}")
             logger.info(f"   autopago: {get_slot_value(tracker, 'autopago')}")
             logger.info(f"   phone_number: {get_slot_value(tracker, 'phone_number')}")
-            logger.info(f"   appointment_id: {get_slot_value(tracker, 'appointment_id')}")
+            logger.info(f"   appointment_id: {get_slot_value(tracker, 'conversation_id')}")
             logger.info(f"   start_time (pasado): {start_time}")
             logger.info(f"   end_time (pasado): {end_time}")
             
