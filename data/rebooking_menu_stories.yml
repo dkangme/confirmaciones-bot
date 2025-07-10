@@ -1,0 +1,57 @@
+version: "3.1"
+
+stories:
+
+# Flujo de inicialización del menú de reagendamiento
+- story: external init rebooking menu
+  steps:
+  - intent: EXTERNAL_init_rebooking_menu
+  - action: action_init_rebooking_menu
+
+# Flujo para opción 1 del menú de reagendamiento
+- story: reagendamiento menu opcion 1
+  steps:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  - intent: reagendamiento_menu_opcion1
+  - action: utter_reagendamiento_opcion1
+
+# Flujo para opción 2 del menú de reagendamiento
+- story: reagendamiento menu opcion 2
+  steps:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  - intent: reagendamiento_menu_opcion2
+  - action: utter_reagendamiento_opcion2
+
+# Flujo para opción 3 del menú de reagendamiento
+- story: reagendamiento menu opcion 3
+  steps:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  - intent: reagendamiento_menu_opcion3
+  - action: utter_reagendamiento_opcion3
+
+# Flujo para opción 4 del menú de reagendamiento
+- story: reagendamiento menu opcion 4
+  steps:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  - intent: reagendamiento_menu_opcion4
+  - action: utter_reagendamiento_opcion4
+
+# Flujo para opción 5 del menú de reagendamiento
+- story: reagendamiento menu opcion 5
+  steps:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  - intent: reagendamiento_menu_opcion5
+  - action: utter_reagendamiento_opcion5
+
+# Flujo para opción 6 del menú de reagendamiento
+- story: reagendamiento menu opcion 6
+  steps:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  - intent: reagendamiento_menu_opcion6
+  - action: utter_reagendamiento_opcion6 

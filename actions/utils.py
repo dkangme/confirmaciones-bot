@@ -280,4 +280,76 @@ def get_environment_variable(var_name: str, default: str = None) -> str:
     return value
 
 
- 
+def get_payment_url(access_token, appointment_id):
+    """
+    Obtiene la URL de pago para una cita específica.
+
+    :param access_token: Token de acceso a la API
+    :param appointment_id: ID de la cita
+    :return: URL de pago o None si hay error
+    """
+    try:
+        
+        # if not REDSALUD_CONFIG or not REDSALUD_CONFIG.get("base_url"):
+        #     logging.error("Configuración de RedSalud incompleta o no disponible")
+        #     return None
+
+        url = f"{get_environment_variable('APIGEE_API_URL')}/agendarsv2/PaymentUrl/GetPaymentUrl/{appointment_id}/"
+
+        if not access_token:
+            raise ValueError("Token de acceso no válido")
+
+        headers = {
+            "Authorization": f"Bearer {access_token}",
+            "X-AppTimeZone": "-180",  # Zona horaria para Chile (UTC-3)
+            "Content-Type": "application/json"
+        }
+
+        logging.info(f"Solicitando URL de pago para cita {appointment_id}")
+        logging.info(f"URL de la petición: {url}")
+
+        response = requests.get(url, headers=headers, timeout=120)
+        logging.info(f"Status code de la respuesta: {response.status_code}")
+        logging.info(f"Contenido de la respuesta: {response.text[:500]}...")  # Mostrar primeros 500 caracteres
+
+        if response.status_code == 200:
+            try:
+                # Intentar parsear la respuesta como JSON
+                response_json = response.json()
+                logging.info(f"Respuesta JSON: {response_json}")
+
+                if isinstance(response_json, dict):
+                    payment_url = response_json.get("paymentUrl")
+                    if payment_url:
+                        logging.info(f"URL de pago obtenida exitosamente: {payment_url}")
+                        return payment_url
+                    else:
+                        logging.error("La respuesta JSON no contiene el campo 'paymentUrl'")
+                        return None
+                else:
+                    # Si la respuesta es un string, intentar usarlo directamente
+                    payment_url = response.text.strip('"')  # Remover comillas si existen
+                    if payment_url and payment_url.startswith('http'):
+                        logging.info(f"URL de pago obtenida del texto de respuesta: {payment_url}")
+                        return payment_url
+                    else:
+                        logging.error("La respuesta no es un JSON válido ni una URL válida")
+                        return None
+            except ValueError as e:
+                logging.error(f"Error al parsear la respuesta como JSON: {e}")
+                # Si no es JSON válido, intentar usar el texto directamente
+                payment_url = response.text.strip('"')
+                if payment_url and payment_url.startswith('http'):
+                    logging.info(f"URL de pago obtenida del texto de respuesta: {payment_url}")
+                    return payment_url
+                else:
+                    logging.error("La respuesta no es un JSON válido ni una URL válida")
+                    return None
+        else:
+            logging.error(f"Error al obtener URL de pago: {response.status_code} - {response.text}")
+            return None
+    except Exception as e:
+        logging.error(f"Excepción al obtener URL de pago: {str(e)}")
+        import traceback
+        logging.error(f"Stacktrace: {traceback.format_exc()}")
+        return None

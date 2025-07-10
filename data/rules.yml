@@ -28,6 +28,8 @@ rules:
   steps:
   - intent: affirm
   - action: action_confirm_appointment
+  - action: action_eval_response
+  - action: action_schedule_payment_button
 
 - rule: Cancel appointment when user denies in confirmación context
   condition:
@@ -35,7 +37,7 @@ rules:
     - contexto: "confirmación"
   steps:
   - intent: deny
-  - action: action_cancel_appointment
+  - action: action_schedule_cancellation
 
 
 

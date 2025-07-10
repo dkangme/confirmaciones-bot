@@ -6581,3 +6581,502 @@ Please try again later.</p>
 2025-07-09 17:02:08 - actions.actions - INFO - run:510 - Contexto de rebooking limpiado
 2025-07-09 17:02:08 - actions.actions - INFO - run:521 - Fecha formateada: 10/07/2025 a las 08:40
 2025-07-09 17:02:08 - actions.actions - INFO - run:556 - Contexto inicializado exitosamente para usuario: e745c0cf-7d97-4ba3-831a-b3150157ff2a
+2025-07-10 00:05:24 - root - INFO - setup_logging:89 - Logging configurado - Nivel: DEBUG, Archivo: bot_confirmaciones.log
+2025-07-10 00:05:24 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-10 00:05:25 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-10 00:05:25 - actions.actions - INFO - <module>:42 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-10 00:05:25 - actions.actions - INFO - <module>:43 - APIGEE_USERNAME: 4tu0...
+2025-07-10 00:05:25 - actions.actions - INFO - <module>:44 - APIGEE_PASSWORD: Configurado
+2025-07-10 00:05:25 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-10 00:05:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-10 00:05:25 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-10 00:05:25 - rasa_sdk.plugin - DEBUG - _discover_plugins:30 - No plugins found: No module named 'rasa_sdk_plugins'
+2025-07-10 00:05:25 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-10 00:05:25 - rasa_sdk.utils - DEBUG - _log_and_get_default_number_of_workers:202 - Using the default number of Sanic workers (1).
+2025-07-10 00:07:50 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_rebooking'
+2025-07-10 00:07:50 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_rebooking para usuario: 1
+2025-07-10 00:07:50 - actions.utils - DEBUG - log_request_info:191 - Slots actuales: {'nombre_paciente': 'Carolina Ignacia Contreras Núñez', 'id_especialidad': 'd76fee22-6a38-43ef-b824-a60d001fe940', 'especialidad': 'MEDICINA GENERAL ADULTO', 'fecha_hora': '2025-07-10T09:00:00-04:00', 'id_centro_medico': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'centro_medico': 'RedSalud Alameda', 'centro_medico_address': '', 'centro_medico_google': '', 'centro_medico_comuna': '', 'area_medica': 'Médica', 'conversation_id': 'd8ca75ef-0ee5-4959-a351-b31500daab64', 'bot_name': 'Ricardo', 'campaign_name': 'confirmacion', 'phone_number': '+56958836039', 'preparations': False, 'tipo_mensaje': None, 'centro_medico_tipo': None, 'preparation_url': None, 'preparation_pdf_name': 'prepararions.pdf', 'resource_name': 'Rodrigo Ignacio Sánchez Mora', 'status': None, 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': None, 'appointment_id': None, 'contexto': None, 'contexto_rebooking': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'session_started_metadata': None}
+2025-07-10 00:07:50 - actions.utils - DEBUG - log_request_info:192 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_rebooking'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Carolina Ignacia Contreras Núñez'}, {'entity': 'id_especialidad', 'value': 'd76fee22-6a38-43ef-b824-a60d001fe940'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL ADULTO'}, {'entity': 'fecha_hora', 'value': '2025-07-10T09:00:00-04:00'}, {'entity': 'id_centro_medico', 'value': 'c7e1f17b-45c6-45e0-b981-a5f800212bef'}, {'entity': 'centro_medico', 'value': 'RedSalud Alameda'}, {'entity': 'centro_medico_address', 'value': ''}, {'entity': 'centro_medico_google', 'value': ''}, {'entity': 'centro_medico_comuna', 'value': ''}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'bot_name', 'value': 'Ricardo'}, {'entity': 'campaign_name', 'value': 'confirmacion'}, {'entity': 'phone_number', 'value': '+56958836039'}, {'entity': 'preparations', 'value': False}, {'entity': 'conversation_id', 'value': 'd8ca75ef-0ee5-4959-a351-b31500daab64'}, {'entity': 'preparations_url', 'value': 'https://www.google.cl'}, {'entity': 'preparation_pdf_name', 'value': 'prepararions.pdf'}, {'entity': 'resource_name', 'value': 'Rodrigo Ignacio Sánchez Mora'}, {'entity': 'resource_id', 'value': '97293e3f-b57e-4228-811d-afcb01444c9f'}, {'entity': 'patient_id', 'value': 'f737a314-f6b7-4359-b45c-a60d00194076'}, {'entity': 'service_id', 'value': '3229b16d-fa44-4a1e-84ea-a60b014e94ed'}, {'entity': 'coverage_plan_id', 'value': 'f2c1a020-3d0b-4dd9-9825-a5f800ca8c00'}, {'entity': 'starting_location_id', 'value': 'c7e1f17b-45c6-45e0-b981-a5f800212bef'}, {'entity': 'original_appointment_id', 'value': 'd8ca75ef-0ee5-4959-a351-b31500daab64'}, {'entity': 'maximum_distance', 'value': 5}, {'entity': 'adjacent_slots', 'value': 1}, {'entity': 'app_timezone', 'value': -240}, {'entity': 'include_self_payer', 'value': False}, {'entity': 'expert_booking_mode', 'value': False}, {'entity': 'include_not_bookable', 'value': True}, {'entity': 'reschedule_appointment_id', 'value': 'd8ca75ef-0ee5-4959-a351-b31500daab64'}], 'text': 'EXTERNAL: EXTERNAL_init_rebooking', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: fecha_hora = 2025-07-10T090000-0400
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_address = 
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_google = 
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_comuna = 
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: area_medica = Médica
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: bot_name = Ricardo
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: campaign_name = confirmacion
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: phone_number = 56958836039
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations = False
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: conversation_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_id = 97293e3f-b57e-4228-811d-afcb01444c9f
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: patient_id = f737a314-f6b7-4359-b45c-a60d00194076
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: service_id = 3229b16d-fa44-4a1e-84ea-a60b014e94ed
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: coverage_plan_id = f2c1a020-3d0b-4dd9-9825-a5f800ca8c00
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: original_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: maximum_distance = 5
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: adjacent_slots = 1
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: app_timezone = -240
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_self_payer = False
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: expert_booking_mode = False
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_not_bookable = True
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: reschedule_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:311 - Contexto de rebooking configurado como: rebooking
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:315 - Contexto general configurado como: None
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:325 - Fecha formateada: 10/07/2025 a las 09:00
+2025-07-10 00:07:50 - actions.rebooking_actions - INFO - run:360 - Contexto de rebooking inicializado exitosamente para usuario: 1
+2025-07-10 00:07:50 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_rebooking'
+2025-07-10 00:08:22 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_process_date_request'
+2025-07-10 00:08:22 - actions.utils - INFO - log_request_info:190 - Ejecutando action_process_date_request para usuario: 1
+2025-07-10 00:08:22 - actions.utils - DEBUG - log_request_info:191 - Slots actuales: {'nombre_paciente': 'Carolina Ignacia Contreras Núñez', 'id_especialidad': 'd76fee22-6a38-43ef-b824-a60d001fe940', 'especialidad': 'MEDICINA GENERAL ADULTO', 'fecha_hora': '2025-07-10T090000-0400', 'id_centro_medico': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'centro_medico': 'RedSalud Alameda', 'centro_medico_address': '', 'centro_medico_google': '', 'centro_medico_comuna': '', 'area_medica': 'Médica', 'conversation_id': 'd8ca75ef-0ee5-4959-a351-b31500daab64', 'bot_name': 'Ricardo', 'campaign_name': 'confirmacion', 'phone_number': '56958836039', 'preparations': False, 'tipo_mensaje': None, 'centro_medico_tipo': None, 'preparation_url': None, 'preparation_pdf_name': 'prepararions.pdf', 'resource_name': 'Rodrigo Ignacio Sánchez Mora', 'status': None, 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': '10/07/2025 a las 09:00', 'appointment_id': None, 'contexto': None, 'contexto_rebooking': 'rebooking', 'fecha_propuesta': 'maañana', 'hora_propuesta': '13', 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'adjacent_slots': 1, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': 'httpswww.google.cl', 'resource_id': '97293e3f-b57e-4228-811d-afcb01444c9f', 'patient_id': 'f737a314-f6b7-4359-b45c-a60d00194076', 'service_id': '3229b16d-fa44-4a1e-84ea-a60b014e94ed', 'coverage_plan_id': 'f2c1a020-3d0b-4dd9-9825-a5f800ca8c00', 'starting_location_id': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'original_appointment_id': 'd8ca75ef-0ee5-4959-a351-b31500daab64', 'maximum_distance': 5, 'app_timezone': -240, 'include_self_payer': False, 'expert_booking_mode': False, 'include_not_bookable': True, 'reschedule_appointment_id': 'd8ca75ef-0ee5-4959-a351-b31500daab64', 'session_started_metadata': None}
+2025-07-10 00:08:22 - actions.utils - DEBUG - log_request_info:192 - Último mensaje: {'intent': {'name': 'proponer_fecha', 'confidence': 1.0}, 'entities': [{'entity': 'fecha_propuesta', 'start': 0, 'end': 7, 'confidence_entity': 0.9998162388801575, 'value': 'maañana', 'extractor': 'DIETClassifier'}, {'entity': 'hora_propuesta', 'start': 14, 'end': 16, 'confidence_entity': 0.9999821186065674, 'value': '13', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}], 'text': 'maañana a las 13', 'message_id': 'c9fc7e7a48f04100a345a7e5b5cc4485', 'metadata': {}, 'text_tokens': [[0, 7], [8, 9], [10, 13], [14, 16]], 'intent_ranking': [{'name': 'proponer_fecha', 'confidence': 1.0}, {'name': 'rebooking', 'confidence': 1.4262855219798753e-12}, {'name': 'mood_unhappy', 'confidence': 1.3334237143267091e-12}, {'name': 'bot_challenge', 'confidence': 1.0639824524899533e-12}, {'name': 'goodbye', 'confidence': 8.145538822439125e-13}, {'name': 'seleccionar_opcion', 'confidence': 7.112325593923441e-13}, {'name': 'mood_great', 'confidence': 6.918093485228094e-13}, {'name': 'affirm', 'confidence': 6.101436088139234e-13}, {'name': 'out_of_scope', 'confidence': 5.88020842955117e-13}, {'name': 'affirm_rebooking_confirm', 'confidence': 4.550603058435521e-13}], 'response_selector': {'all_retrieval_intents': [], 'default': {'response': {'responses': None, 'confidence': 0.0, 'intent_response_key': None, 'utter_action': 'utter_None'}, 'ranking': []}}}
+2025-07-10 00:08:22 - actions.rebooking_actions - INFO - run:394 - Procesando mensaje: maañana a las 13
+2025-07-10 00:08:22 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_process_date_request'
+2025-07-10 00:08:22 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_show_available_slots'
+2025-07-10 00:08:22 - actions.utils - INFO - log_request_info:190 - Ejecutando action_show_available_slots para usuario: 1
+2025-07-10 00:08:22 - actions.utils - DEBUG - log_request_info:191 - Slots actuales: {'nombre_paciente': 'Carolina Ignacia Contreras Núñez', 'id_especialidad': 'd76fee22-6a38-43ef-b824-a60d001fe940', 'especialidad': 'MEDICINA GENERAL ADULTO', 'fecha_hora': '2025-07-10T090000-0400', 'id_centro_medico': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'centro_medico': 'RedSalud Alameda', 'centro_medico_address': '', 'centro_medico_google': '', 'centro_medico_comuna': '', 'area_medica': 'Médica', 'conversation_id': 'd8ca75ef-0ee5-4959-a351-b31500daab64', 'bot_name': 'Ricardo', 'campaign_name': 'confirmacion', 'phone_number': '56958836039', 'preparations': False, 'tipo_mensaje': None, 'centro_medico_tipo': None, 'preparation_url': None, 'preparation_pdf_name': 'prepararions.pdf', 'resource_name': 'Rodrigo Ignacio Sánchez Mora', 'status': None, 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': '10/07/2025 a las 09:00', 'appointment_id': None, 'contexto': None, 'contexto_rebooking': 'rebooking', 'fecha_propuesta': 'maañana', 'hora_propuesta': '13', 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'adjacent_slots': 1, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': 'httpswww.google.cl', 'resource_id': '97293e3f-b57e-4228-811d-afcb01444c9f', 'patient_id': 'f737a314-f6b7-4359-b45c-a60d00194076', 'service_id': '3229b16d-fa44-4a1e-84ea-a60b014e94ed', 'coverage_plan_id': 'f2c1a020-3d0b-4dd9-9825-a5f800ca8c00', 'starting_location_id': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'original_appointment_id': 'd8ca75ef-0ee5-4959-a351-b31500daab64', 'maximum_distance': 5, 'app_timezone': -240, 'include_self_payer': False, 'expert_booking_mode': False, 'include_not_bookable': True, 'reschedule_appointment_id': 'd8ca75ef-0ee5-4959-a351-b31500daab64', 'session_started_metadata': None}
+2025-07-10 00:08:22 - actions.utils - DEBUG - log_request_info:192 - Último mensaje: {'intent': {'name': 'proponer_fecha', 'confidence': 1.0}, 'entities': [{'entity': 'fecha_propuesta', 'start': 0, 'end': 7, 'confidence_entity': 0.9998162388801575, 'value': 'maañana', 'extractor': 'DIETClassifier'}, {'entity': 'hora_propuesta', 'start': 14, 'end': 16, 'confidence_entity': 0.9999821186065674, 'value': '13', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}], 'text': 'maañana a las 13', 'message_id': 'c9fc7e7a48f04100a345a7e5b5cc4485', 'metadata': {}, 'text_tokens': [[0, 7], [8, 9], [10, 13], [14, 16]], 'intent_ranking': [{'name': 'proponer_fecha', 'confidence': 1.0}, {'name': 'rebooking', 'confidence': 1.4262855219798753e-12}, {'name': 'mood_unhappy', 'confidence': 1.3334237143267091e-12}, {'name': 'bot_challenge', 'confidence': 1.0639824524899533e-12}, {'name': 'goodbye', 'confidence': 8.145538822439125e-13}, {'name': 'seleccionar_opcion', 'confidence': 7.112325593923441e-13}, {'name': 'mood_great', 'confidence': 6.918093485228094e-13}, {'name': 'affirm', 'confidence': 6.101436088139234e-13}, {'name': 'out_of_scope', 'confidence': 5.88020842955117e-13}, {'name': 'affirm_rebooking_confirm', 'confidence': 4.550603058435521e-13}], 'response_selector': {'all_retrieval_intents': [], 'default': {'response': {'responses': None, 'confidence': 0.0, 'intent_response_key': None, 'utter_action': 'utter_None'}, 'ranking': []}}}
+2025-07-10 00:08:22 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_show_available_slots'
+2025-07-10 00:10:29 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-10 00:10:29 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-10 00:10:30 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-10 00:10:30 - actions.actions - INFO - <module>:42 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-10 00:10:30 - actions.actions - INFO - <module>:43 - APIGEE_USERNAME: 4tu0...
+2025-07-10 00:10:30 - actions.actions - INFO - <module>:44 - APIGEE_PASSWORD: Configurado
+2025-07-10 00:10:30 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-10 00:10:30 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-10 00:10:30 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-10 00:10:30 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-10 00:10:57 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_rebooking para usuario: 1
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: fecha_hora = 2025-07-10T090000-0400
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_address = 
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_google = 
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_comuna = 
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: area_medica = Médica
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: bot_name = Ricardo
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: campaign_name = confirmacion
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: phone_number = 56958836039
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations = False
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: conversation_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_id = 97293e3f-b57e-4228-811d-afcb01444c9f
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: patient_id = f737a314-f6b7-4359-b45c-a60d00194076
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: service_id = 3229b16d-fa44-4a1e-84ea-a60b014e94ed
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: coverage_plan_id = f2c1a020-3d0b-4dd9-9825-a5f800ca8c00
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: original_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: maximum_distance = 5
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: adjacent_slots = 1
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: app_timezone = -240
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_self_payer = False
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: expert_booking_mode = False
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_not_bookable = True
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: reschedule_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:311 - Contexto de rebooking configurado como: rebooking
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:315 - Contexto general configurado como: None
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:325 - Fecha formateada: 10/07/2025 a las 09:00
+2025-07-10 00:10:57 - actions.rebooking_actions - INFO - run:360 - Contexto de rebooking inicializado exitosamente para usuario: 1
+2025-07-10 00:11:24 - actions.utils - INFO - log_request_info:190 - Ejecutando action_process_date_request para usuario: 1
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - run:394 - Procesando mensaje: mañana a las 13
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - run:412 - Fecha y hora extraídas: 11 de julio a las 13:00
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - run:413 - Start time: 2025-07-11T13:00:00-04:00
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - run:414 - End time: 2025-07-11T21:00:00-04:00
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:690 - 🔍 Debugging slots:
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:691 -    resource_id: 97293e3f-b57e-4228-811d-afcb01444c9f
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:692 -    id_especialidad: d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:693 -    autopago: None
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:694 -    phone_number: 56958836039
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:695 -    appointment_id: d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:696 -    start_time (pasado): 2025-07-11T13:00:00-04:00
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:697 -    end_time (pasado): 2025-07-11T21:00:00-04:00
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:714 - 🔧 Llamando get_slots_optimized con parámetros:
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:715 -    resource_id: 97293e3f-b57e-4228-811d-afcb01444c9f
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:716 -    service_id: 3229b16d-fa44-4a1e-84ea-a60b014e94ed
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:717 -    coverage_plan_id: f2c1a020-3d0b-4dd9-9825-a5f800ca8c00
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:718 -    start_time: 2025-07-11T13:00:00-04:00
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:719 -    finish_time: 2025-07-11T21:00:00-04:00
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:720 -    adjacent_slots: 1
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:721 -    patient_id: f737a314-f6b7-4359-b45c-a60d00194076
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:722 -    reschedule_appointment_id: d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - _call_get_slots_optimized_with_values:725 - 📞 Invocando get_slots_optimized...
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - get_slots_optimized:95 - 🌐 URL generada para get_slots_optimized:
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - get_slots_optimized:96 -    Base URL: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - get_slots_optimized:97 -    Parámetros: {'includeSelfPayer': 'false', 'expertBookingMode': 'false', 'includeNotBookable': 'false', 'rescheduleAppointmentId': 'd8ca75ef-0ee5-4959-a351-b31500daab64'}
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - get_slots_optimized:98 -    Filtro: ResourceId eq 97293e3f-b57e-4228-811d-afcb01444c9f and ServiceId eq 3229b16d-fa44-4a1e-84ea-a60b014e94ed and CoveragePlanId eq f2c1a020-3d0b-4dd9-9825-a5f800ca8c00 and (StartTime ge 2025-07-11T13:00:00-04:00) and (FinishTime le 2025-07-11T21:00:00-04:00) and AdjacentSlots eq 1 and PatientId eq f737a314-f6b7-4359-b45c-a60d00194076
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - get_slots_optimized:99 -    URL completa: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized(includeSelfPayer=false,expertBookingMode=false,includeNotBookable=false,rescheduleAppointmentId=d8ca75ef-0ee5-4959-a351-b31500daab64)?$filter=ResourceId%20eq%2097293e3f-b57e-4228-811d-afcb01444c9f%20and%20ServiceId%20eq%203229b16d-fa44-4a1e-84ea-a60b014e94ed%20and%20CoveragePlanId%20eq%20f2c1a020-3d0b-4dd9-9825-a5f800ca8c00%20and%20%28StartTime%20ge%202025-07-11T13%3A00%3A00-04%3A00%29%20and%20%28FinishTime%20le%202025-07-11T21%3A00%3A00-04%3A00%29%20and%20AdjacentSlots%20eq%201%20and%20PatientId%20eq%20f737a314-f6b7-4359-b45c-a60d00194076&$orderby=StartTime asc&$count=true
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - get_slots_optimized:108 - 📋 Headers de la petición:
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - get_slots_optimized:109 -    X-AppTimezone: -240
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - get_slots_optimized:110 -    Authorization: Bearer [TOKEN_OCULTO]
+2025-07-10 00:11:24 - actions.rebooking_actions - INFO - get_slots_optimized:113 - 🚀 Enviando petición GET a la API...
+2025-07-10 00:15:17 - actions.rebooking_actions - ERROR - get_slots_optimized:196 - ❌ ERROR en get_slots_optimized:
+2025-07-10 00:15:17 - actions.rebooking_actions - ERROR - get_slots_optimized:197 -    Tipo de error: HTTPError
+2025-07-10 00:15:17 - actions.rebooking_actions - ERROR - get_slots_optimized:198 -    Mensaje: 500 Server Error: Internal Server Error for url: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized(includeSelfPayer=false,expertBookingMode=false,includeNotBookable=false,rescheduleAppointmentId=d8ca75ef-0ee5-4959-a351-b31500daab64)?$filter=ResourceId%20eq%2097293e3f-b57e-4228-811d-afcb01444c9f%20and%20ServiceId%20eq%203229b16d-fa44-4a1e-84ea-a60b014e94ed%20and%20CoveragePlanId%20eq%20f2c1a020-3d0b-4dd9-9825-a5f800ca8c00%20and%20%28StartTime%20ge%202025-07-11T13%3A00%3A00-04%3A00%29%20and%20%28FinishTime%20le%202025-07-11T21%3A00%3A00-04%3A00%29%20and%20AdjacentSlots%20eq%201%20and%20PatientId%20eq%20f737a314-f6b7-4359-b45c-a60d00194076&$orderby=StartTime%20asc&$count=true
+2025-07-10 00:15:17 - actions.rebooking_actions - ERROR - get_slots_optimized:199 -    URL que falló: https://proxy-qa.redsalud.cl/AWAUsers/Slots/GetSlotsOptimized(includeSelfPayer=false,expertBookingMode=false,includeNotBookable=false,rescheduleAppointmentId=d8ca75ef-0ee5-4959-a351-b31500daab64)?$filter=ResourceId%20eq%2097293e3f-b57e-4228-811d-afcb01444c9f%20and%20ServiceId%20eq%203229b16d-fa44-4a1e-84ea-a60b014e94ed%20and%20CoveragePlanId%20eq%20f2c1a020-3d0b-4dd9-9825-a5f800ca8c00%20and%20%28StartTime%20ge%202025-07-11T13%3A00%3A00-04%3A00%29%20and%20%28FinishTime%20le%202025-07-11T21%3A00%3A00-04%3A00%29%20and%20AdjacentSlots%20eq%201%20and%20PatientId%20eq%20f737a314-f6b7-4359-b45c-a60d00194076&$orderby=StartTime asc&$count=true
+2025-07-10 00:15:17 - actions.rebooking_actions - ERROR - get_slots_optimized:202 -    Status Code: 500
+2025-07-10 00:15:17 - actions.rebooking_actions - ERROR - get_slots_optimized:203 -    Response Headers: {'Content-Length': '221', 'Date': 'Thu, 10 Jul 2025 04:15:17 GMT'}
+2025-07-10 00:15:17 - actions.rebooking_actions - ERROR - get_slots_optimized:204 -    Response Text: <html><head><title>500 - The request timed out.</title></head><body>  <font color ="#aa0000">         <h2>500 - The request timed out.</h2></font>  The web server failed to respond within the specified time.</body></html>
+2025-07-10 00:15:17 - actions.rebooking_actions - WARNING - _call_get_slots_optimized_with_values:740 - ⚠️ get_slots_optimized retornó None
+2025-07-10 00:15:17 - actions.utils - INFO - log_request_info:190 - Ejecutando action_show_available_slots para usuario: 1
+2025-07-10 02:35:31 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-10 02:35:31 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-10 02:35:32 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-10 02:35:32 - actions.actions - INFO - <module>:43 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-10 02:35:32 - actions.actions - INFO - <module>:44 - APIGEE_USERNAME: 4tu0...
+2025-07-10 02:35:32 - actions.actions - INFO - <module>:45 - APIGEE_PASSWORD: Configurado
+2025-07-10 02:35:32 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-10 02:35:32 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-10 02:35:32 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-10 02:35:32 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-10 02:36:51 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 02:39:24 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 02:41:39 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-10 02:41:39 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-10 02:41:41 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-10 02:41:41 - actions.actions - INFO - <module>:43 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-10 02:41:41 - actions.actions - INFO - <module>:44 - APIGEE_USERNAME: 4tu0...
+2025-07-10 02:41:41 - actions.actions - INFO - <module>:45 - APIGEE_PASSWORD: Configurado
+2025-07-10 02:41:41 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-10 02:41:41 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-10 02:41:41 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-10 02:41:41 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-10 02:43:15 - actions.rebooking_menu_actions - INFO - run:30 - Iniciando action_init_rebooking_menu para usuario: 1
+2025-07-10 02:43:15 - actions.rebooking_menu_actions - INFO - run:40 - Slots configurados para menú de reagendamiento:
+2025-07-10 02:43:15 - actions.rebooking_menu_actions - INFO - run:41 - - contexto: None
+2025-07-10 02:43:15 - actions.rebooking_menu_actions - INFO - run:42 - - contexto_rebooking: None
+2025-07-10 02:43:15 - actions.rebooking_menu_actions - INFO - run:43 - - contexto_rebooking_menu: activado
+2025-07-10 02:43:15 - actions.rebooking_menu_actions - INFO - run:59 - Menú de reagendamiento inicializado exitosamente para usuario: 1
+2025-07-10 02:43:42 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 02:44:47 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 02:45:01 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 02:48:17 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-10 02:48:17 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-10 02:48:18 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-10 02:48:18 - actions.actions - INFO - <module>:43 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-10 02:48:18 - actions.actions - INFO - <module>:44 - APIGEE_USERNAME: 4tu0...
+2025-07-10 02:48:18 - actions.actions - INFO - <module>:45 - APIGEE_PASSWORD: Configurado
+2025-07-10 02:48:18 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-10 02:48:18 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-10 02:48:18 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-10 02:48:18 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-10 02:49:44 - actions.rebooking_menu_actions - INFO - run:30 - Iniciando action_init_rebooking_menu para usuario: 1
+2025-07-10 02:49:44 - actions.rebooking_menu_actions - INFO - run:40 - Slots configurados para menú de reagendamiento:
+2025-07-10 02:49:44 - actions.rebooking_menu_actions - INFO - run:41 - - contexto: None
+2025-07-10 02:49:44 - actions.rebooking_menu_actions - INFO - run:42 - - contexto_rebooking: None
+2025-07-10 02:49:44 - actions.rebooking_menu_actions - INFO - run:43 - - contexto_rebooking_menu: activado
+2025-07-10 02:49:44 - actions.rebooking_menu_actions - INFO - run:59 - Menú de reagendamiento inicializado exitosamente para usuario: 1
+2025-07-10 03:00:25 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_rebooking para usuario: 1
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: fecha_hora = 2025-07-10T090000-0400
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_address = 
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_google = 
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_comuna = 
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: area_medica = Médica
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: bot_name = Ricardo
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: campaign_name = confirmacion
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: phone_number = 56958836039
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations = False
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: conversation_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_id = 97293e3f-b57e-4228-811d-afcb01444c9f
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: patient_id = f737a314-f6b7-4359-b45c-a60d00194076
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: service_id = 3229b16d-fa44-4a1e-84ea-a60b014e94ed
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: coverage_plan_id = f2c1a020-3d0b-4dd9-9825-a5f800ca8c00
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: original_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: maximum_distance = 5
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: adjacent_slots = 1
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: app_timezone = -240
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_self_payer = False
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: expert_booking_mode = False
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_not_bookable = True
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: reschedule_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:311 - Contexto de rebooking configurado como: rebooking
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:315 - Contexto general configurado como: None
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:325 - Fecha formateada: 10/07/2025 a las 09:00
+2025-07-10 03:00:25 - actions.rebooking_actions - INFO - run:360 - Contexto de rebooking inicializado exitosamente para usuario: 1
+2025-07-10 03:03:01 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-10 03:03:01 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-10 03:03:02 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-10 03:03:02 - actions.actions - INFO - <module>:43 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-10 03:03:02 - actions.actions - INFO - <module>:44 - APIGEE_USERNAME: 4tu0...
+2025-07-10 03:03:02 - actions.actions - INFO - <module>:45 - APIGEE_PASSWORD: Configurado
+2025-07-10 03:03:02 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-10 03:03:02 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-10 03:03:02 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-10 03:03:02 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-10 03:05:27 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_rebooking para usuario: 1
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: fecha_hora = 2025-07-10T090000-0400
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_address = 
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_google = 
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_comuna = 
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: area_medica = Médica
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: bot_name = Ricardo
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: campaign_name = confirmacion
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: phone_number = 56958836039
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations = False
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: conversation_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_id = 97293e3f-b57e-4228-811d-afcb01444c9f
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: patient_id = f737a314-f6b7-4359-b45c-a60d00194076
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: service_id = 3229b16d-fa44-4a1e-84ea-a60b014e94ed
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: coverage_plan_id = f2c1a020-3d0b-4dd9-9825-a5f800ca8c00
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: original_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: maximum_distance = 5
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: adjacent_slots = 1
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: app_timezone = -240
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_self_payer = False
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: expert_booking_mode = False
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_not_bookable = True
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: reschedule_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:311 - Contexto de rebooking configurado como: rebooking
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:315 - Contexto general configurado como: None
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:319 - Contexto de rebooking menu configurado como: None
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:329 - Fecha formateada: 10/07/2025 a las 09:00
+2025-07-10 03:05:27 - actions.rebooking_actions - INFO - run:364 - Contexto de rebooking inicializado exitosamente para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:05:41 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:07:17 - root - INFO - setup_logging:89 - Logging configurado - Nivel: INFO, Archivo: bot_confirmaciones.log
+2025-07-10 03:07:17 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-10 03:07:19 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-10 03:07:19 - actions.actions - INFO - <module>:43 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-10 03:07:19 - actions.actions - INFO - <module>:44 - APIGEE_USERNAME: 4tu0...
+2025-07-10 03:07:19 - actions.actions - INFO - <module>:45 - APIGEE_PASSWORD: Configurado
+2025-07-10 03:07:19 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-10 03:07:19 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-10 03:07:19 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-10 03:07:19 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-10 03:08:09 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_rebooking para usuario: 1
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: fecha_hora = 2025-07-10T090000-0400
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_address = 
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_google = 
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_comuna = 
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: area_medica = Médica
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: bot_name = Ricardo
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: campaign_name = confirmacion
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: phone_number = 56958836039
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations = False
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: conversation_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_id = 97293e3f-b57e-4228-811d-afcb01444c9f
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: patient_id = f737a314-f6b7-4359-b45c-a60d00194076
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: service_id = 3229b16d-fa44-4a1e-84ea-a60b014e94ed
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: coverage_plan_id = f2c1a020-3d0b-4dd9-9825-a5f800ca8c00
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: original_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: maximum_distance = 5
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: adjacent_slots = 1
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: app_timezone = -240
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_self_payer = False
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: expert_booking_mode = False
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_not_bookable = True
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: reschedule_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:311 - Contexto de rebooking configurado como: rebooking
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:315 - Contexto general configurado como: None
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:319 - Contexto de rebooking menu configurado como: None
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:329 - Fecha formateada: 10/07/2025 a las 09:00
+2025-07-10 03:08:09 - actions.rebooking_actions - INFO - run:364 - Contexto de rebooking inicializado exitosamente para usuario: 1
+2025-07-10 03:09:04 - actions.utils - INFO - log_request_info:190 - Ejecutando action_fallback para usuario: 1
+2025-07-10 03:13:11 - actions.utils - INFO - log_request_info:190 - Ejecutando action_init_rebooking para usuario: 1
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: fecha_hora = 2025-07-10T090000-0400
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_address = 
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_google = 
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: centro_medico_comuna = 
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: area_medica = Médica
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: bot_name = Ricardo
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: campaign_name = confirmacion
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: phone_number = 56958836039
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations = False
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: conversation_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparations_url = httpswww.google.cl
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: preparation_pdf_name = prepararions.pdf
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_name = Rodrigo Ignacio Sánchez Mora
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: resource_id = 97293e3f-b57e-4228-811d-afcb01444c9f
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: patient_id = f737a314-f6b7-4359-b45c-a60d00194076
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: service_id = 3229b16d-fa44-4a1e-84ea-a60b014e94ed
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: coverage_plan_id = f2c1a020-3d0b-4dd9-9825-a5f800ca8c00
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: starting_location_id = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: original_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: maximum_distance = 5
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: adjacent_slots = 1
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: app_timezone = -240
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_self_payer = False
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: expert_booking_mode = False
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: include_not_bookable = True
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:307 - Slot actualizado: reschedule_appointment_id = d8ca75ef-0ee5-4959-a351-b31500daab64
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:311 - Contexto de rebooking configurado como: rebooking
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:315 - Contexto general configurado como: None
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:319 - Contexto de rebooking menu configurado como: None
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:329 - Fecha formateada: 10/07/2025 a las 09:00
+2025-07-10 03:13:11 - actions.rebooking_actions - INFO - run:364 - Contexto de rebooking inicializado exitosamente para usuario: 1
+2025-07-10 03:19:39 - actions.rebooking_menu_actions - INFO - run:30 - Iniciando action_init_rebooking_menu para usuario: 1
+2025-07-10 03:19:39 - actions.rebooking_menu_actions - INFO - run:40 - Slots configurados para menú de reagendamiento:
+2025-07-10 03:19:39 - actions.rebooking_menu_actions - INFO - run:41 - - contexto: None
+2025-07-10 03:19:39 - actions.rebooking_menu_actions - INFO - run:42 - - contexto_rebooking: None
+2025-07-10 03:19:39 - actions.rebooking_menu_actions - INFO - run:43 - - contexto_rebooking_menu: activado
+2025-07-10 03:19:39 - actions.rebooking_menu_actions - INFO - run:59 - Menú de reagendamiento inicializado exitosamente para usuario: 1

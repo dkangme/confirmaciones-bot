@@ -201,6 +201,30 @@ class DatabaseConnection:
             logger.error(f"Error actualizando estado de cita {appointment_id}: {str(e)}")
             return False
 
+def get_patient_phone_from_db(appointment_id):
+    """
+    Obtiene el número de teléfono del paciente desde la base de datos usando el appointment_id.
 
+    Args:
+        appointment_id: ID de la cita
+        db_config: Configuración de la base de datos (opcional)
+
+    Returns:
+        str: Número de teléfono del paciente o None si no se encuentra
+    """
+    query = """
+        SELECT patient_main_phone_number
+        FROM appointments
+        WHERE appointment_id = %s
+    """
+    result, success = db_connection.execute_query(query, (appointment_id,))
+    
+    if success and result:
+        phone_number = result[0][0]
+        logging.info(f"Teléfono encontrado para appointment {appointment_id}: {phone_number}")
+        return phone_number
+    else:
+        logging.error(f"No se encontró teléfono para appointment {appointment_id}")
+        return None
 # Instancia global para uso en actions
 db_connection = DatabaseConnection() 

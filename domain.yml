@@ -10,10 +10,21 @@ intents:
   - bot_challenge
   - EXTERNAL_init_context
   - EXTERNAL_init_rebooking
+  - EXTERNAL_init_rebooking_menu
   - rebooking
   - proponer_fecha
   - seleccionar_opcion
   - affirm_rebooking_confirm
+  - cancel_appointment
+  - reschedule_appointment
+  - ask_prices
+  - pay_online
+  - reagendamiento_menu_opcion1
+  - reagendamiento_menu_opcion2
+  - reagendamiento_menu_opcion3
+  - reagendamiento_menu_opcion4
+  - reagendamiento_menu_opcion5
+  - reagendamiento_menu_opcion6
 
 entities:
   - nombre_paciente
@@ -184,6 +195,10 @@ slots:
     type: text
     mappings:
     - type: custom
+  contexto_rebooking_menu:
+    type: text
+    mappings:
+    - type: custom
   fecha_propuesta:
     type: text
     mappings:
@@ -290,6 +305,10 @@ slots:
     mappings:
     - type: custom
   reschedule_appointment_id:
+    type: text
+    mappings:
+    - type: custom
+  payment_url:
     type: text
     mappings:
     - type: custom
@@ -437,6 +456,44 @@ responses:
               - id: 4
                 title: "Ninguna"
 
+  utter_show_rebooking_menu:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: interactive
+      interactive:
+        type: list
+        header:
+          type: text
+          text: "Menú de Opciones"
+        body:
+          text: "Soy un asistente virtual, para poder ayudarle seleccione una de las siguientes opciones. 👇"
+        footer:
+          text: "Seleccione una opción"
+        action:
+          button: "Opciones"
+          sections:
+            - title: "Opciones disponibles"
+              rows:
+                - id: "reagendamiento_menu_opcion_1"
+                  title: "✅"
+                  description: "No, muchas gracias."
+                - id: "reagendamiento_menu_opcion_2"
+                  title: "❎"
+                  description: "Quiero anular mi hora."
+                - id: "reagendamiento_menu_opcion_3"
+                  title: "🔄"
+                  description: "Quiero reagendar mi hora."
+                - id: "reagendamiento_menu_opcion_4"
+                  title: "💲"
+                  description: "Quiero saber los valores de la atención."
+                - id: "reagendamiento_menu_opcion_5"
+                  title: "💳"
+                  description: "Quiero pagar mi cita Online."
+                - id: "reagendamiento_menu_opcion_6"
+                  title: "❓"
+                  description: "Otras consultas."
+
   utter_waiting_for_confirmation:
   - custom:
       messaging_product: whatsapp
@@ -563,18 +620,520 @@ responses:
         preview_url: false
         body: "Ok, entiendo. Gracias por avisar ☺️ Voy a cancelar esta hora entonces\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link\nhttps://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\nGracias!"
 
+  utter_confirm_affirm_area_dental:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "area dental"
+
+  utter_confirm_affirm_medica_confirmacion_centro_medico_medicina_general:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n👩‍⚕ Revise si necesita realizarse alguno de los siguientes exámenes preventivos: https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive link\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_medica_confirmacion_centro_medico_especialidad_no_medicina_general:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n👩‍⚕ Revise si necesita realizarse alguno de los siguientes exámenes preventivos: https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive link\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_medica_confirmacion_no_centromedico_especialidad_no_medicina_general:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️ \n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_dental_confirmacion_diagnosticos:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para {fecha_hora_formato} ☺️ \n\n🕑 Recuerde llegar 15 minutos antes de su hora. \n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n 🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n *Cuide su salud dental siguiendo los siguientes consejos*: -https://drive.google.com/file/d/1xvnUPDohXBcvx0WyMzAw7baN-ItBkTWP/view \n\n¡Lo esperamos! ☺️\n\n¡Tenemos una gran noticia! Adelante el pago de su consulta de diagnóstico y aproveche un *50% de descuento* si usa el nuevo servicio de *pago online*. Ingrese al mail de su reserva de cita, seleccione el botón de pago y siga las instrucciones.\n\nSi por algún motivo no puede asistir a su cita le pido que *por favor nos avise por este mismo medio*, otro paciente podría necesitarla"
+
+  utter_confirm_affirm:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️"
+
+  utter_confirm_affirm_medica_medicina_general_centromedico:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n👩‍⚕ Revise si necesita realizarse alguno de los siguientes exámenes preventivos: https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive \n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_medica_clinica_especialidad:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_dental_diagnostico:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n🦷 *Cuide su salud dental siguiendo los siguientes consejos*: https://drive.google.com/file/d/1xvnUPDohXBcvx0WyMzAw7baN-ItBkTWP/view \n\n ¡Lo esperamos! ☺️\n\n ¡Tenemos una gran noticia! Adelante el pago de su consulta de diagnóstico y aproveche un 50% de descuento si usa el nuevo servicio de pago online.\nIngrese al mail de su reserva de cita, seleccione el botón de pago y siga las instrucciones. \n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_dental_tratamiento:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n🦷 *Cuide su salud dental siguiendo los siguientes consejos*: https://drive.google.com/file/d/1xvnUPDohXBcvx0WyMzAw7baN-ItBkTWP/view \n\n ¡Lo esperamos! ☺️\n\n Si por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_imagenes_con_preparacion:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Ya no debe retirar sus exámenes de manera física.\nPuede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n 🚨 Abajo le dejo la preparación.\nEs de suma importancia seguir esta, ya que de esto dependerá su atención: https://drive.google.com/file/d/1Ni7VAO9HToYvFwp_gL6mUlTww1x_YdAA/view?usp=sharing \n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_imagenes_sin_preparacion:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Ya no debe retirar sus exámenes de manera física.\nPuede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n 🚨 Importante: Revise su correo de reserva de hora si tiene que seguir alguna preparación para su(s) examen(es)\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_laboratorio_con_preparacion:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n 🚨 Abajo le dejo la preparación.\nEs de suma importancia seguir esta, ya que de esto dependerá su atención: https://drive.google.com/file/d/1OidtCCGA6pKtNyTVkstCjYPz9YEKKfsl/view?usp=sharing  \n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_telemedicina_general:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para {fecha_hora_formato} ☺️\n\n📱 • Recuerde estar frente a tu dispositivo 15 minutos antes para revisar su correo \"Comprobante de reserva Telemedicina\", donde le enviaremos el enlace y las instrucciones para conectarse.\n• Si tienes exámenes o documentos que compartirnos, puede hacerlo previamente en el enlace del correo \"Comprobante de reserva Telemedicina\".\n• Si ingresa desde un computador, solo debe hacer clic en el enlace que te enviaremos. \nSi entra desde un celular o tablet, debe descargar la aplicación Google Meet. \n• En caso de requerir cualquier tipo de ayuda ingrese a www.redsalud.cl/telemedicina. \n\n ¡Lo esperamos! ☺️"
+
+  utter_confirm_affirm_telemedicina_psicologia:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para {fecha_hora_formato} ☺️\n\n📱 • Recuerde estar frente a su dispositivo 15 minutos antes para revisar el correo \"Comprobante de reserva Telemedicina\", donde le enviaremos el enlace y las instrucciones para conectarse.\n• Si ingresa desde un computador, solo debe hacer clic en el enlace que le enviaremos. \nSi entra desde un celular o tablet, debe descargar la aplicación Google Meet. \n• En caso de requerir cualquier tipo de ayuda ingrese a www.redsalud.cl/telemedicina. \n\n ¡Lo esperamos! ☺️"
+
+  utter_confirm_affirm_telemedicina_dermatologia:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para {fecha_hora_formato} ☺️\n\n📱 • Recuerde estar frente a su dispositivo 15 minutos antes para revisar el correo \"Comprobante de reserva Telemedicina\", donde le enviaremos el enlace y las instrucciones para conectarse.\n• Si ingresa desde un computador, solo debe hacer clic en el enlace que te enviaremos. \nSi entra desde un celular o tablet, debe descargar la aplicación Google Meet. \n• Es importante que antes de su cita médica, nos envíe 3 fotos de su lesión mediante el enlace de conexión, las que serán de gran ayuda para determinar el diagnóstico. \n• En caso de requerir cualquier tipo de ayuda ingrese a www.redsalud.cl/telemedicina. \n\n ¡Lo esperamos! ☺️"
+
+  utter_confirm_affirm_kinesiologia_con_preparacion:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n🚨 Abajo le dejo la preparación.\nEs de suma importancia seguir esta, ya que de esto dependerá su atención: https://drive.google.com/file/d/183DoPVTEk95k_C7pfXLo2xw1UWJMn9Ar/view?usp=sharing\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_medica_clinica_regional_autopagopiso:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\nDesde ahora pague su bono en los Módulos de Autopago ubicados en {autopago}. Luego diríjase directo al Piso {piso} Torre {torre} y espere el llamado de su profesional. \n\n ¡Lo esperamos! ☺️"
+
+  utter_confirm_affirm_medica_clinica_regional_info_piso:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna}, Piso {piso} Torre {torre} \n\n ({centro_medico_google}).\n\n ¡Lo esperamos! ☺️"
+
+  utter_confirm_affirm_medica_mall_independencia:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address_mall} ({centro_medico_google}).\nCuenta con 2 accesos:\nIngreso desde el 2° piso del Mall y ascensores directos desde estacionamiento Nivel -2.\nIngreso desde la calle Olivos 1050, Independencia.\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n👩‍⚕ Revise si necesita realizarse alguno de los siguientes exámenes preventivos: https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link \n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_medica_la_florida:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\nLe recomendamos utilizar Metro Vicente Valdés que se encuentra a 1 cuadra del Centro Médico, ya que nuestro estacionamiento cuenta con cupos limitados.\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n👩‍⚕ Revise si necesita realizarse alguno de los siguientes exámenes preventivos: https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link \n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_matriz_anulacion:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_recordatorio_medica:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n👩‍⚕ Revise si necesita realizarse alguno de los siguientes exámenes preventivos: https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive \n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_recordatorio_dental:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n👩‍⚕ Revise si necesita realizarse alguno de los siguientes exámenes preventivos: https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive \n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_recordatorio_imagenes_con_preparacion:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Ya no debe retirar sus exámenes de manera física.\nPuede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\nAbajo le dejo la preparación.\nEs de suma importancia seguir esta, ya que de esto dependerá su atención: {link_preparacion_examen}\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_recordatorio_procedimientos_con_preparacion:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Ya no debe retirar sus exámenes de manera física.\nPuede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\nAbajo le dejo la preparación.\nEs de suma importancia seguir esta, ya que de esto dependerá su atención: {link_preparacion_examen}\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_recordatorio_laboratorio_con_preparacion:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🧪 Abajo le dejo la preparación.\nEs de suma importancia seguir esta, ya que de esto dependerá su atención: {link_preparacion_examen}\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_affirm_recordatorio_kinesiologia_con_preparacion:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Confirmado para el {fecha_hora_formato} ☺️\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\n📍 Dirección: {centro_address}, {centro_medico_comuna} ({centro_medico_google}).\n\n🚨 Recuerde que desde ahora puede acceder a sus exámenes, órdenes y recetas en miredsalud.cl\n\n💪 Abajo le dejo la preparación.\nEs de suma importancia seguir esta, ya que de esto dependerá su atención: {link_preparacion_examen}\n\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_confirm_deny_medica_centromedico:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Oh qué pena 😞, cancelaré la hora y le avisaré al doctor que no viene el {fecha_hora_formato}.\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\nGracias!\n\n"
+
+  utter_confirm_deny_dental_tratamiento:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Ok, entiendo. 😞\nGracias por avisar Voy a cancelar esta hora entonces.\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\nGracias!\n\n"
+
+  utter_confirm_deny_imagenes:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Ok, no hay problema. 😞\nPor ahora cancelaré la hora y le avisaré al doctor que no asistirá a su cita.\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\nGracias!\n\n"
+
+  utter_confirm_deny_laboratorio:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Ok, no hay problema. 😞\nPor ahora cancelaré la hora y le avisaré al doctor que no asistirá a su cita.\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\nGracias!\n\n"
+
+  utter_confirm_deny_telemedicina:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "¡Gracias por informarnos! 😞\nCancelaré la hora y le avisaré a el (la) doctor(a).\n\nRecuerde que si así lo necesita puede reagendar su hora o solicitar su devolución en www.redsalud.cl/telemedicina sección ¿Necesitas Ayuda?.\n\nGracias!\n\n"
+
+  utter_confirm_deny_kinesiologia:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Ok, no hay problema. 😞\nPor ahora cancelaré la hora y le avisaré al doctor que no asistirá a su cita.\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\nGracias!\n\n"
+
+  utter_confirm_deny_post_confirm_menu:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "OK! No hay problema. 😞\nProcedo a cancelar la hora entonces!\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\n"
+
+  utter_confirm_deny_recordatorio_general:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Entendido. 😞\nCancelaré entonces la hora y le avisaré al doctor que no viene el {fecha_hora_formato}.\nGracias por informarnos.\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\nGracias!\n\n"
+
+  utter_info_nueva_masvida_bonos:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Adicionalmente le informamos que lamentablemente la venta de bonos NUEVA MASVIDA no está operativa en Centros Médicos RedSalud. [cite: 195]\nPara acceder a su atención deberá pagar el valor total y luego solicitar el reembolso en su Isapre. [cite: 196]\nLamentamos los inconvenientes que esto puede ocasionar. [cite: 197]"
+
+  utter_multicita_item_confirmed:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Muchas gracias por responder. Dejaré esta cita como confirmada."
+
+  utter_multicita_item_cancelled:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Muchas gracias por responder. Dejaré esta cita como cancelada."
+
+  utter_multicita_all_processed_some_confirmed:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Muchas gracias por las respuestas. Las dejé todas anotadas.\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n ¡Lo esperamos! ☺️\n\nSi por algún motivo no puede asistir a su cita le pido que por favor nos avise por este mismo medio, otro paciente podría necesitarla."
+
+  utter_multicita_all_processed_none_confirmed:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Muchas gracias por las respuestas. Las dejé todas anotadas."
+
+  utter_cancelation_appointment_failed:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Tuvimos un problema en cancelar su cita para el {fecha_hora_formato}.\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000.\n\nGracias!\n\n"
+
+  utter_payment_button:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: interactive
+      interactive:
+        type: cta_url
+        header:
+          text: "Botón de pago"
+          type: "TEXT"
+        body:
+          text: "*{nombre_paciente}*, evite filas 👩‍🔬, pagar anticipadamente disminuye considerablemente los tiempos de espera en el centro médico, sólo avise su llegada en el tótem de autoatención y espere el llamado de su médico."
+        footer:
+          text: "Pague su cita en el siguiente botón 👇🏻"
+        action:
+          name: cta_url
+          parameters:
+            display_text: "Pagar ahora"
+            url: "{payment_url}"
+
+  utter_goodbye:
+  - text: "¡Hasta luego! Que tengas un buen día."
+
+  utter_iamabot:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Soy un asistente virtual diseñado para ayudarte con tus citas médicas."
+
+  utter_no_pending_cancellation:
+  - text: "No hay ninguna cancelación pendiente para arrepentirse."
+
+  utter_cancellation_scheduled:
+  - text: "Entiendo que deseas cancelar tu cita. Esperaré 5 minutos antes de procesarla por si cambias de opinión. Si deseas mantener tu hora, simplemente dime 'me arrepentí' o 'quiero mantener mi cita'."
+
+  utter_cancellation_cancelled:
+  - text: "¡Perfecto! He mantenido tu cita. Gracias por confirmar tu asistencia."
+
+  utter_ask_confirm_cancel_or_keep:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: interactive
+      interactive:
+        type: button
+        header:
+          text: "Confirmación de cancelación"
+          type: "TEXT"
+        body:
+          text: "*{nombre_paciente}*, ¿estás seguro/a de que deseas cancelar tu cita para el {fecha_hora_formato}? Por favor, confirma tu decisión:"
+        footer:
+          text: "Selecciona una opción"
+        action:
+          buttons:
+            - type: reply
+              reply:
+                id: "cancel"
+                title: "Sí, cancelar cita"
+            - type: reply
+              reply:
+                id: "keep"
+                title: "No, mantener cita"
+
+  utter_reagendamiento_opcion1:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "OK! 😉Si necesita hablar con un ejecutivo puede contactarnos al 600 718 6000."
+
+  utter_reagendamiento_opcion2:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "OK! 😉 \n\nNo hay problema, procedo a cancelar la hora entonces! \n\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link \nhttps://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 \n718 6000."
+
+  utter_reagendamiento_opcion3:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "OK! 😉 \n\n\nEntiendo. Gracias por avisar 😉 por ahora cancelaré su hora. \n\n\nLe dejo el link directo a nuestra página para que pueda reagendar \nhttps://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments."
+
+  utter_reagendamiento_opcion4:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "RedSalud solo entrega valores referenciales, consulte en \nhttps://www.redsalud.cl/informacion-para-el-paciente/arancel e ingrese los datos requeridos, \nsi necesita mayor información comuníquese al 600 718 6000."
+
+  utter_reagendamiento_opcion5:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "En el correo del comprobante del agendamiento de su cita, revise si puede realizar el pago de su \nservicio de manera online."
+
+  utter_reagendamiento_opcion6:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Para otras consultas, puede dirigirse a nuestra página web www.redsalud.cl o llamando al \nContact Center en el 600 718 6000. \n\n\n¡Gracias!."
+
 actions:
   - action_init_context
   - action_init_rebooking
+  - action_init_rebooking_menu
   - action_format_date
   - action_cancel_appointment
   - action_confirm_appointment
+  - action_eval_response
+  - action_schedule_payment_button
   - action_process_date_request
   - action_show_available_slots
   - action_process_slot_selection
   - action_confirm_rebooking
   - action_cancel_rebooking
   - action_fallback
+  - action_schedule_cancellation
 
 session_config:
   session_expiration_time: 60

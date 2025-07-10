@@ -20,7 +20,6 @@ nlu:
     - buenos días
     - buenas tardes
     - buenas noches
-    - saludos
     - qué tal
     - cómo estás
 
@@ -48,7 +47,6 @@ nlu:
     - nos vemos después
     - hasta mañana
     - hasta después
-    - saludos
     - hasta luego
     - chau
     - adiós
@@ -84,9 +82,6 @@ nlu:
     - ok
     - okey
     - vale
-    - perfecto
-    - excelente
-    - muy bien
     - está perfecto
     - me parece perfecto
     - confirmo mi cita
@@ -148,8 +143,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-    - perfecto
-    - excelente
     - genial
     - fantástico
     - maravilloso
@@ -159,12 +152,9 @@ nlu:
     - me siento muy bien
     - me siento genial
     - me siento perfecto
-    - muy bien
     - súper bien
     - extremadamente bien
     - muy bueno
-    - excelente
-    - genial
     - fantástico
     - maravilloso
     - increíble
@@ -195,7 +185,6 @@ nlu:
     - triste
     - muy triste
     - infeliz
-    - no está bien
     - no muy bien
     - extremadamente triste
     - muy triste
@@ -254,6 +243,34 @@ nlu:
     - begin rebooking
     - rebooking initialization
     - external rebooking init
+
+- intent: EXTERNAL_init_rebooking_menu
+  examples: |
+    - EXTERNAL_init_rebooking_menu
+    - init rebooking menu
+    - external init rebooking menu
+    - external_init_rebooking_menu
+    - initialize rebooking menu
+    - start rebooking menu
+    - begin rebooking menu
+    - rebooking menu init
+    - rebooking menu initialization
+    - rebooking menu start
+    - rebooking menu begin
+    - rebooking menu external init
+    - external rebooking menu init
+    - external rebooking menu initialization
+    - external rebooking menu start
+    - external rebooking menu begin
+    - init rebooking menu flow
+    - start rebooking menu flow
+    - begin rebooking menu flow
+    - rebooking menu flow init
+    - rebooking menu flow start
+    - rebooking menu flow begin
+    - external rebooking menu flow init
+    - external rebooking menu flow start
+    - external rebooking menu flow begin
 
 
 
@@ -328,6 +345,20 @@ nlu:
     - cambiar fecha
     - reagendar
     - cambiar cita
+    - cambiar mi cita
+    - necesito cambiar mi cita
+    - quiero cambiar mi hora
+    - necesito cambiar mi hora
+    - cambiar cita
+    - cambiar hora
+    - cambiar fecha
+    - cambiar
+    - cambio mi cita
+    - cambio mi hora
+    - cambio mi fecha
+    - quiero cambiar
+    - necesito cambiar
+    - cambio
 
 - intent: proponer_fecha
   examples: |
@@ -464,44 +495,16 @@ nlu:
 
 - intent: seleccionar_opcion
   examples: |
-    - opción 1
-    - la primera
-    - la opción 1
-    - quiero la primera
-    - me sirve la primera
-    - la 1
-    - la uno
-    - la primera opción
-    - opción 2
-    - la segunda
-    - la opción 2
-    - quiero la segunda
-    - me sirve la segunda
-    - la 2
-    - la dos
-    - la segunda opción
-    - opción 3
-    - la tercera
-    - la opción 3
-    - quiero la tercera
-    - me sirve la tercera
-    - la 3
-    - la tres
-    - la tercera opción
-    - opción 4
-    - la cuarta
-    - la opción 4
-    - quiero la cuarta
-    - me sirve la cuarta
-    - la 4
-    - la cuatro
-    - la cuarta opción
     - ninguna
     - ninguna opción
     - no me sirve ninguna
     - no me conviene ninguna
     - ninguna me sirve
     - no me conviene ninguna opción
+    - no me sirve ninguna opción
+    - no me conviene ninguna opción
+    - ninguna opción me sirve
+    - ninguna opción me conviene
 
 - intent: affirm_rebooking_confirm
   examples: |
@@ -519,3 +522,263 @@ nlu:
     - Sí, reagendar para ese día
     - Sí, reagendar para esa hora
     - Sí, reagendar para ese horario
+
+- intent: reagendamiento_menu_opcion1
+  examples: |
+    - reagendamiento menu opcion 1
+    - reagendamiento menu opcion '1'
+    - opcion 1 del menu de reagendamiento
+    - menu reagendamiento opcion 1
+    - opcion 1 reagendamiento
+    - reagendamiento opcion 1
+    - opcion 1 del menu
+    - menu opcion 1
+    - opcion 1
+    - reagendamiento_menu_opcion_1
+    - opcion 1
+    - la opcion 1
+    - quiero la opcion 1
+    - me sirve la opcion 1
+    - la primera opcion
+    - opcion uno
+    - opcion 1 por favor
+    - selecciono opcion 1
+    - elijo opcion 1
+    - opcion 1 del menu de reagendamiento
+
+- intent: reagendamiento_menu_opcion2
+  examples: |
+    - reagendamiento menu opcion 2
+    - reagendamiento menu opcion '2'
+    - opcion 2 del menu de reagendamiento
+    - menu reagendamiento opcion 2
+    - opcion 2 reagendamiento
+    - reagendamiento opcion 2
+    - opcion 2 del menu
+    - menu opcion 2
+    - opcion 2
+    - reagendamiento_menu_opcion_2
+    - opcion 2
+    - la opcion 2
+    - quiero la opcion 2
+    - me sirve la opcion 2
+    - la segunda opcion
+    - opcion dos
+    - opcion 2 por favor
+    - selecciono opcion 2
+    - elijo opcion 2
+    - opcion 2 del menu de reagendamiento
+
+- intent: reagendamiento_menu_opcion3
+  examples: |
+    - reagendamiento menu opcion 3
+    - reagendamiento menu opcion '3'
+    - opcion 3 del menu de reagendamiento
+    - menu reagendamiento opcion 3
+    - opcion 3 reagendamiento
+    - reagendamiento opcion 3
+    - opcion 3 del menu
+    - menu opcion 3
+    - opcion 3
+    - reagendamiento_menu_opcion_3
+    - opcion 3
+    - la opcion 3
+    - quiero la opcion 3
+    - me sirve la opcion 3
+    - la tercera opcion
+    - opcion tres
+    - opcion 3 por favor
+    - selecciono opcion 3
+    - elijo opcion 3
+    - opcion 3 del menu de reagendamiento
+
+- intent: reagendamiento_menu_opcion4
+  examples: |
+    - reagendamiento menu opcion 4
+    - reagendamiento menu opcion '4'
+    - opcion 4 del menu de reagendamiento
+    - menu reagendamiento opcion 4
+    - opcion 4 reagendamiento
+    - reagendamiento opcion 4
+    - opcion 4 del menu
+    - menu opcion 4
+    - opcion 4
+    - reagendamiento_menu_opcion_4
+    - opcion 4
+    - la opcion 4
+    - quiero la opcion 4
+    - me sirve la opcion 4
+    - la cuarta opcion
+    - opcion cuatro
+    - opcion 4 por favor
+    - selecciono opcion 4
+    - elijo opcion 4
+    - opcion 4 del menu de reagendamiento
+
+- intent: reagendamiento_menu_opcion5
+  examples: |
+    - reagendamiento menu opcion 5
+    - reagendamiento menu opcion '5'
+    - opcion 5 del menu de reagendamiento
+    - menu reagendamiento opcion 5
+    - opcion 5 reagendamiento
+    - reagendamiento opcion 5
+    - opcion 5 del menu
+    - menu opcion 5
+    - opcion 5
+    - reagendamiento_menu_opcion_5
+    - opcion 5
+    - la opcion 5
+    - quiero la opcion 5
+    - me sirve la opcion 5
+    - la quinta opcion
+    - opcion cinco
+    - opcion 5 por favor
+    - selecciono opcion 5
+    - elijo opcion 5
+    - opcion 5 del menu de reagendamiento
+
+- intent: reagendamiento_menu_opcion6
+  examples: |
+    - reagendamiento menu opcion 6
+    - reagendamiento menu opcion '6'
+    - opcion 6 del menu de reagendamiento
+    - menu reagendamiento opcion 6
+    - opcion 6 reagendamiento
+    - reagendamiento opcion 6
+    - opcion 6 del menu
+    - menu opcion 6
+    - opcion 6
+    - reagendamiento_menu_opcion_6
+    - opcion 6
+    - la opcion 6
+    - quiero la opcion 6
+    - me sirve la opcion 6
+    - la sexta opcion
+    - opcion seis
+    - opcion 6 por favor
+    - selecciono opcion 6
+    - elijo opcion 6
+    - opcion 6 del menu de reagendamiento
+
+- intent: cancel_appointment
+  examples: |
+    - quiero cancelar mi cita
+    - necesito cancelar mi hora
+    - quiero anular mi cita
+    - necesito anular mi hora
+    - cancelar cita
+    - anular cita
+    - cancelar hora
+    - anular hora
+    - quiero cancelar
+    - necesito cancelar
+    - quiero anular
+    - necesito anular
+    - cancelo mi cita
+    - anulo mi cita
+    - cancelo mi hora
+    - anulo mi hora
+    - no puedo ir
+    - no puedo asistir
+    - no voy a poder ir
+    - no voy a poder asistir
+    - no me es posible ir
+    - no me es posible asistir
+    - no tengo tiempo
+    - no me funciona
+    - no me sirve
+    - no me interesa
+    - cancelo
+    - anulo
+    - cancelar
+    - anular
+
+- intent: reschedule_appointment
+  examples: |
+    - quiero reagendar mi cita
+    - necesito reagendar mi hora
+    - reagendar cita
+    - reagendar hora
+    - quiero reagendar
+    - necesito reagendar
+    - reagendo mi cita
+    - reagendo mi hora
+    - quiero otra fecha
+    - necesito otra fecha
+    - quiero otra hora
+    - necesito otra hora
+    - no me sirve esta fecha
+    - no me sirve esta hora
+    - reagendo
+    - reagendar
+
+- intent: ask_prices
+  examples: |
+    - quiero saber los valores de la atención
+    - necesito saber los valores de la atención
+    - quiero saber los precios
+    - necesito saber los precios
+    - quiero saber cuánto cuesta
+    - necesito saber cuánto cuesta
+    - quiero saber el valor
+    - necesito saber el valor
+    - quiero saber el precio
+    - necesito saber el precio
+    - cuánto cuesta la atención
+    - cuál es el valor de la atención
+    - cuál es el precio de la atención
+    - cuánto vale la atención
+    - cuánto cuesta la consulta
+    - cuál es el valor de la consulta
+    - cuál es el precio de la consulta
+    - cuánto vale la consulta
+    - quiero saber los valores
+    - necesito saber los valores
+    - quiero saber los precios de la atención
+    - necesito saber los precios de la atención
+    - quiero saber los valores de la consulta
+    - necesito saber los valores de la consulta
+    - cuánto cuesta
+    - cuál es el valor
+    - cuál es el precio
+    - cuánto vale
+    - valores
+    - precios
+    - costo
+    - valor
+
+- intent: pay_online
+  examples: |
+    - pagar mi cita online
+    - pagar mi cita por internet
+    - pagar mi cita en línea
+    - pagar mi cita por la web
+    - pagar mi cita por el sitio web
+    - pagar mi cita por la página web
+    - pagar mi cita por internet
+    - pagar mi cita por la red
+    - pagar mi cita por el navegador
+    - pagar mi cita por el computador
+    - pagar mi cita por el celular
+    - pagar mi cita por el teléfono
+    - pagar mi cita por la aplicación
+    - pagar mi cita por la app
+    - pagar mi cita por el móvil
+    - pagar mi cita por el smartphone
+    - pagar mi cita por el dispositivo
+    - pagar mi cita por el equipo
+    - pagar mi cita por el ordenador
+    - pagar mi cita por el pc
+    - pagar mi cita por el laptop
+    - pagar mi cita por el tablet
+    - pagar mi cita por el ipad
+    - pagar mi cita por el iphone
+    - pagar mi cita por el android
+    - pagar mi cita por el windows
+    - pagar mi cita por el mac
+    - pagar mi cita por el linux
+    - pagar mi cita por el chrome
+    - pagar mi cita por el firefox
+    - pagar mi cita por el safari
+    - pagar mi cita por el edge

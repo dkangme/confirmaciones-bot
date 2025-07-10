@@ -14,14 +14,15 @@ from dotenv import load_dotenv
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet, FollowupAction
+from rasa_sdk.events import SlotSet, FollowupAction, ReminderScheduled, ReminderCancelled
 
 # Importar módulos locales
 from .database import db_connection
 from .utils import (
     log_request_info, get_slot_value, extract_entity_value,
     create_json_response, ValidationError, validate_required_fields,
-    sanitize_string, format_date_for_display, format_time_for_display
+    sanitize_string, format_date_for_display, format_time_for_display,
+    get_payment_url, get_environment_variable
 )
 
 # Cargar variables de entorno desde .env
@@ -509,6 +510,10 @@ class ActionInitContext(Action):
             slot_events.append(SlotSet("contexto_rebooking", None))
             logger.info("Contexto de rebooking limpiado")
             
+            # Limpiar el contexto de rebooking menu para evitar conflictos
+            slot_events.append(SlotSet("contexto_rebooking_menu", None))
+            logger.info("Contexto de rebooking menu limpiado")
+            
             # Formatear fecha_hora si está disponible
             fecha_hora = get_slot_value(tracker, "fecha_hora")
             if fecha_hora:
@@ -842,3 +847,320 @@ class ActionConfirmAppointment(Action):
             return error_events
 
 
+class ActionEvalResponse(Action):
+    def name(self) -> Text:
+        return "action_eval_response"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # Obtener slots necesarios
+        area_medica = tracker.get_slot("area_medica")
+        tipo_mensaje = tracker.get_slot("tipo_mensaje")
+        centro_medico = tracker.get_slot("centro_medico")
+        appointment_id = tracker.get_slot("appointment_id")
+        preparations = tracker.get_slot("preparations")
+        especialidad = tracker.get_slot("especialidad")
+        piso = tracker.get_slot("piso")
+        torre = tracker.get_slot("torre")
+        autopago = tracker.get_slot("autopago")
+
+        logging.info(f"ActionEvalResponse")
+        logging.info(f"Slots: area_medica={area_medica}, tipo_mensaje={tipo_mensaje}, centro_medico={centro_medico}, preparations={preparations}, especialidad={especialidad}, piso={piso}, torre={torre}, autopago={autopago}")
+
+        # Verificar si es una confirmación exitosa
+        if tipo_mensaje != "Confirmacion":
+            logging.info("ActionEvalResponse - No es confirmación, usando respuesta por defecto")
+            dispatcher.utter_message(response="utter_confirm_affirm")
+            return []
+
+        # Determinar tipo de centro basado en el nombre del centro médico y slots adicionales
+        centro_tipo = "Centro"  # Por defecto es Centro
+        if centro_medico:
+            centro_medico_lower = centro_medico.lower()
+            
+            # Casos especiales primero
+            if "independencia" in centro_medico_lower:
+                centro_tipo = "Independencia"
+            elif "la florida" in centro_medico_lower:
+                centro_tipo = "La Florida"
+            # Luego verificar si contiene "clínica" o tiene piso/torre
+            elif "clínica" in centro_medico_lower or "clinica" in centro_medico_lower or (piso and torre):
+                centro_tipo = "Clinica"
+            # Si no contiene "clínica", se mantiene como "Centro"
+
+        logging.info(f"ActionEvalResponse - Centro detectado: {centro_tipo}")
+
+        # Convertir preparations a boolean si viene como string
+        tiene_preparacion = False
+        if preparations is not None:
+            if isinstance(preparations, str):
+                tiene_preparacion = preparations.lower() in ['true', '1', 'yes', 'sí']
+            else:
+                tiene_preparacion = bool(preparations)
+
+        logging.info(f"ActionEvalResponse - Tiene preparación: {tiene_preparacion}")
+
+        # Normalizar el área médica para comparación
+        area_medica_normalizada = area_medica.lower() if area_medica else ""
+        # Remover acentos para comparación
+        area_medica_normalizada = area_medica_normalizada.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u')
+
+        # Normalizar la especialidad para comparación
+        especialidad_normalizada = especialidad.lower() if especialidad else ""
+        especialidad_normalizada = especialidad_normalizada.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u')
+
+        logging.info(f"ActionEvalResponse - Área médica normalizada: {area_medica_normalizada}")
+        logging.info(f"ActionEvalResponse - Especialidad normalizada: {especialidad_normalizada}")
+        logging.info(f"ActionEvalResponse - Centro médico: {centro_medico}")
+        logging.info(f"ActionEvalResponse - Tipo de centro: {centro_tipo}")
+
+        # Mapeo de respuestas basado en la nueva lógica
+        response = "utter_confirm_affirm"  # Respuesta por defecto
+
+        if "medica" in area_medica_normalizada:
+            if centro_tipo == "Independencia":
+                response = "utter_confirm_affirm_medica_mall_independencia"
+            elif centro_tipo == "La Florida":
+                response = "utter_confirm_affirm_medica_la_florida"
+            elif centro_tipo == "Centro":
+                # Verificar si es medicina general
+                if especialidad_normalizada and "medicina general" in especialidad_normalizada:
+                    response = "utter_confirm_affirm_medica_medicina_general_centromedico"
+                else:
+                    response = "utter_confirm_affirm_medica_clinica_especialidad"
+            else:  # Clinica
+                # Verificar si tiene autopago y piso/torre
+                if autopago and piso and torre:
+                    response = "utter_confirm_affirm_medica_clinica_regional_autopagopiso"
+                elif piso and torre:
+                    response = "utter_confirm_affirm_medica_clinica_regional_info_piso"
+                else:
+                    response = "utter_confirm_affirm_medica_clinica_especialidad"
+                
+        elif "dental" in area_medica_normalizada:
+            # Para dental, verificar el tipo de especialidad
+            if especialidad:
+                especialidad_lower = especialidad.lower()
+                if "diagnostico" in especialidad_lower or "diagnóstico" in especialidad_lower:
+                    response = "utter_confirm_affirm_dental_diagnostico"
+                else:
+                    response = "utter_confirm_affirm_dental_tratamiento"
+            else:
+                # Si no hay especialidad especificada, usar diagnóstico por defecto
+                response = "utter_confirm_affirm_dental_diagnostico"
+            
+        elif "imagenes" in area_medica_normalizada or "imágenes" in area_medica_normalizada:
+            if tiene_preparacion:
+                response = "utter_confirm_affirm_imagenes_con_preparacion"
+            else:
+                response = "utter_confirm_affirm_imagenes_sin_preparacion"
+                
+        elif "laboratorio" in area_medica_normalizada:
+            if tiene_preparacion:
+                response = "utter_confirm_affirm_laboratorio_con_preparacion"
+            else:
+                # ❌ Esta respuesta NO existe en el dominio
+                # Usar la respuesta genérica por ahora
+                response = "utter_confirm_affirm"
+                
+        elif "telemedicina" in area_medica_normalizada:
+            # Podrías agregar lógica específica para psicología y dermatología
+            # basado en el slot 'especialidad'
+            if especialidad:
+                especialidad_lower = especialidad.lower()
+                if "psicolog" in especialidad_lower:
+                    response = "utter_confirm_affirm_telemedicina_psicologia"
+                elif "dermatolog" in especialidad_lower:
+                    response = "utter_confirm_affirm_telemedicina_dermatologia"
+                else:
+                    response = "utter_confirm_affirm_telemedicina_general"
+            else:
+                response = "utter_confirm_affirm_telemedicina_general"
+            
+        elif "kinesiologia" in area_medica_normalizada or "kinesiología" in area_medica_normalizada:
+            if tiene_preparacion:
+                response = "utter_confirm_affirm_kinesiologia_con_preparacion"
+            else:
+                # ❌ Esta respuesta NO existe en el dominio
+                # Usar la respuesta genérica por ahora
+                response = "utter_confirm_affirm"
+                
+        elif "procedimientos" in area_medica_normalizada:
+            # ❌ Estas respuestas NO existen en el dominio
+            # Usar las de imágenes que son similares
+            if tiene_preparacion:
+                response = "utter_confirm_affirm_imagenes_con_preparacion"
+            else:
+                response = "utter_confirm_affirm_imagenes_sin_preparacion"
+
+        logging.info(f"ActionEvalResponse - Enviando respuesta: {response}")
+        dispatcher.utter_message(response=response)
+
+        # Verificar si la cita está confirmada en la base de datos
+        query = "SELECT status FROM appointments WHERE appointment_id = %s"
+        result, success = db_connection.execute_query(query, (appointment_id,))
+
+        if success and result and result[0][0] == "confirmed":
+            logging.info("ActionEvalResponse - Cita confirmada exitosamente, programando botón de pago")
+            return [FollowupAction("action_schedule_payment_button")]
+        else:
+            logging.info("ActionEvalResponse - Cita no confirmada, no se programará el botón de pago")
+            return []
+
+class ActionSchedulePaymentButton(Action):
+    """
+    Acción que envía la información de pago al servicio de programación de botones de pago.
+    """
+
+    def name(self) -> Text:
+        return "action_schedule_payment_button"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        logging.info("Iniciando action_schedule_payment_button")
+        events = []
+
+        try:
+            # Obtener el ID de la cita del slot
+            appointment_id = tracker.get_slot("appointment_id")
+            logging.info(f"Appointment ID extraído del slot: {appointment_id}")
+            if not appointment_id:
+                logging.error("No se encontró el ID de la cita para programar el botón de pago")
+                return events
+
+            logging.info(f"Obteniendo token de acceso para appointment ID: {appointment_id}")
+            # Obtener token de acceso
+            access_token = obtener_access_token()
+            if not access_token:
+                logging.error("No se pudo obtener token de acceso")
+                return events
+
+            logging.info("Token de acceso obtenido exitosamente")
+            logging.info(f"Obteniendo URL de pago para appointment ID: {appointment_id}")
+            # Obtener URL de pago
+            payment_url = get_payment_url(access_token, appointment_id)
+
+            if payment_url:
+                logging.info(f"URL de pago obtenida exitosamente: {payment_url}")
+
+                # Obtener teléfono del paciente desde la base de datos
+                telefono_paciente = db_connection.get_patient_phone_from_db(appointment_id)
+                if not telefono_paciente:
+                    logging.error("No se pudo obtener el teléfono del paciente")
+                    return events
+
+                # Obtener nombre del paciente
+                nombre_paciente = tracker.get_slot("nombre_paciente")
+                if not nombre_paciente:
+                    logging.error("No se pudo obtener el nombre del paciente")
+                    return events
+
+                # Obtener la hora actual en Chile (considerando horario de verano/invierno)
+                chile_tz = pytz.timezone('America/Santiago')
+                reminder_time = datetime.now(chile_tz) + timedelta(minutes=5)
+                reminder_time_str = reminder_time.strftime('%Y-%m-%d %H:%M:%S.%f')
+
+                # Preparar payload para la API
+                payload = {
+                    "paymentUrl": payment_url,
+                    "phoneNumber": telefono_paciente,
+                    "patientName": nombre_paciente,
+                    "reminderTime": reminder_time_str
+                }
+
+                # Realizar llamada a la API
+                api_url = f"{get_environment_variable('API_OPERATIONS_URL').rstrip('/')}/payment-button"
+                headers = {
+                    "Content-Type": "application/json"
+                }
+
+                logging.info(f"Enviando solicitud a la API de programación de botón de pago: {api_url}")
+                response = requests.post(api_url, json=payload, headers=headers, timeout=30)
+
+                if response.status_code == 201:
+                    logging.info("Solicitud de programación de botón de pago enviada exitosamente")
+                    events.append(SlotSet("payment_url", payment_url))
+                else:
+                    logging.error(f"Error al enviar solicitud a la API: {response.status_code} - {response.text}")
+            else:
+                logging.error(f"No se pudo obtener URL de pago para cita {appointment_id}")
+        except Exception as e:
+            logging.error(f"Error en action_schedule_payment_button: {str(e)}")
+            import traceback
+            logging.error(f"Stacktrace: {traceback.format_exc()}")
+
+        logging.info(f"ActionSchedulePaymentButton retornando eventos: {events}")
+        return events
+
+class ActionScheduleCancellation(Action):
+    """
+    Acción que envía un mensaje de confirmación de cancelación y programa un recordatorio externo.
+    """
+
+    def name(self) -> Text:
+        return "action_schedule_cancellation"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        logging.info("Iniciando action_schedule_cancellation")
+
+        # Verificar si ya hay una cancelación pendiente o ya se ha intentado cancelar
+        cancellation_pending = tracker.get_slot("cancellation_pending")
+        if cancellation_pending:
+            logging.info("Ya existe una cancelación pendiente, no programando otra")
+            return []
+
+        # Obtener el ID de la cita
+        appointment_id = tracker.get_slot("appointment_id")
+        if not appointment_id:
+            logging.error("No se encontró el ID de la cita para programar la cancelación")
+            dispatcher.utter_message(response="utter_cancelation_appointment_failed")
+            return []
+
+        # Verificar estado en la base de datos para evitar bucles de cancelación
+        query = "SELECT status FROM appointments WHERE appointment_id = %s"
+        result, success = db_connection.execute_query(query, (appointment_id,))
+
+        if success and result:
+            status = result[0][0]
+            if status in ["canceled", "Canceling", "canceled error", "Cancellation Pending"]:
+                logging.info(f"La cita {appointment_id} ya está en proceso de cancelación o cancelada (estado: {status}), no programando otra cancelación")
+                # Asegurarse de que cancellation_pending sea False para evitar que se dispare el reminder
+                return [SlotSet("cancellation_pending", False)]
+        else:
+            logging.warning(f"No se encontró la cita {appointment_id} en la base de datos")
+
+        # Despachar mensaje de confirmación de cancelación
+        dispatcher.utter_message(response="utter_confirm_deny")
+
+        # Obtener la hora actual en Chile
+        chile_tz = pytz.timezone('America/Santiago')
+        reminder_time = datetime.now(chile_tz) + timedelta(minutes=5)
+
+        # Programar recordatorio externo
+        reminder = ReminderScheduled(
+            "EXTERNAL_cancellation",
+            trigger_date_time=reminder_time,
+            name="cancellation_reminder",
+            kill_on_user_message=False
+        )
+
+        logging.info(f"Recordatorio de cancelación programado para: {reminder_time} para la cita {appointment_id}")
+
+        # Establecer el slot de cancelación pendiente
+        cancellation_pending = SlotSet("cancellation_pending", True)
+
+        # Marcar en la base de datos como pendiente de cancelación usando update_appointment_status
+        try:
+            db_connection.update_appointment_status(appointment_id, new_status="cancellation pending")
+            logging.info(f"Cita {appointment_id} marcada como pendiente de cancelación en la base de datos")
+        except Exception as e:
+            logging.error(f"Error al marcar cita como pendiente de cancelación: {e}")
+
+        return [reminder, cancellation_pending]

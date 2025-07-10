@@ -1,0 +1,58 @@
+version: "3.1"
+
+rules:
+
+# Regla para inicialización del menú de reagendamiento
+- rule: external init rebooking menu
+  steps:
+  - intent: EXTERNAL_init_rebooking_menu
+  - action: action_init_rebooking_menu
+
+# Reglas para opciones del menú de reagendamiento
+- rule: reagendamiento menu opcion 1
+  condition:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  steps:
+  - intent: reagendamiento_menu_opcion1
+  - action: utter_reagendamiento_opcion1
+
+- rule: reagendamiento menu opcion 2
+  condition:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  steps:
+  - intent: reagendamiento_menu_opcion2
+  - action: utter_reagendamiento_opcion2
+
+- rule: reagendamiento menu opcion 3
+  condition:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  steps:
+  - intent: reagendamiento_menu_opcion3
+  - action: utter_reagendamiento_opcion3
+
+- rule: reagendamiento menu opcion 4
+  condition:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  steps:
+  - intent: reagendamiento_menu_opcion4
+  - action: utter_reagendamiento_opcion4
+
+- rule: reagendamiento menu opcion 5
+  condition:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  steps:
+  - intent: reagendamiento_menu_opcion5
+  - action: utter_reagendamiento_opcion5
+
+- rule: reagendamiento menu opcion 6
+  condition:
+  - slot_was_set:
+    - contexto_rebooking_menu: "activado"
+  steps:
+  - intent: reagendamiento_menu_opcion6
+  - action: utter_reagendamiento_opcion6 

@@ -19,6 +19,8 @@ stories:
   - action: utter_greet
   - intent: affirm
   - action: action_confirm_appointment
+  - action: action_eval_response
+  - action: action_schedule_payment_button
 
 # Flujo completo de cancelación de cita
 - story: complete cancellation flow
@@ -28,7 +30,7 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: deny
-  - action: action_cancel_appointment
+  - action: action_schedule_cancellation
 
 
 

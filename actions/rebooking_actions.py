@@ -314,6 +314,10 @@ class ActionInitRebooking(Action):
             slot_events.append(SlotSet("contexto", None))
             logger.info("Contexto general configurado como: None")
             
+            # Configurar el contexto de rebooking menu como None
+            slot_events.append(SlotSet("contexto_rebooking_menu", None))
+            logger.info("Contexto de rebooking menu configurado como: None")
+            
             # Formatear fecha_hora si está disponible
             fecha_hora = get_slot_value(tracker, "fecha_hora")
             if fecha_hora:
