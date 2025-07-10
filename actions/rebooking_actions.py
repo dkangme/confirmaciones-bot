@@ -421,6 +421,9 @@ class ActionProcessDateRequest(Action):
                     slots_response = self._call_get_slots_optimized_with_values(tracker, start_time, end_time)
                     
                     if slots_response:
+                        # Guardar la respuesta completa de la API
+                        slot_events.append(SlotSet("slots_response", slots_response))
+                        
                         # Procesar los slots disponibles
                         available_slots = process_available_slots(slots_response)
                         
@@ -833,6 +836,7 @@ class ActionProcessDateRequest(Action):
 class ActionShowAvailableSlots(Action):
     """
     Acción para mostrar las opciones de horarios disponibles al usuario.
+    Genera una respuesta JSON con estructura de lista interactiva de WhatsApp.
     """
     
     def name(self) -> Text:
@@ -845,23 +849,85 @@ class ActionShowAvailableSlots(Action):
         log_request_info(tracker, self.name())
         
         try:
-            # Obtener slots disponibles
-            available_slots = get_slot_value(tracker, "available_slots")
+            # Obtener la respuesta original de slots de la API
+            slots_response = get_slot_value(tracker, "slots_response")
+            
+            if not slots_response or "slots" not in slots_response:
+                dispatcher.utter_message(text="❌ No hay horarios disponibles en este momento.")
+                return []
+            
+            # Filtrar slots disponibles (Bookable = true) y tomar los primeros 5
+            available_slots = []
+            for slot in slots_response["slots"]:
+                if slot.get("Bookable", {}).get("Bookable", False):
+                    available_slots.append(slot)
+                    if len(available_slots) >= 5:  # Limitar a 5 opciones
+                        break
             
             if not available_slots:
                 dispatcher.utter_message(text="❌ No hay horarios disponibles en este momento.")
                 return []
             
-            # Crear mensaje con las opciones
-            message = "📅 **Horarios disponibles:**\n\n"
-            
+            # Generar las filas de la lista
+            rows = []
             for i, slot in enumerate(available_slots, 1):
-                message += f"{i}. {slot}\n"
+                timestamp = slot.get("Timestamp")
+                if timestamp:
+                    # Convertir timestamp Unix a datetime en zona horaria de Chile
+                    from datetime import datetime
+                    import pytz
+                    
+                    # Crear datetime en UTC
+                    dt_utc = datetime.fromtimestamp(timestamp, tz=pytz.UTC)
+                    
+                    # Convertir a zona horaria de Chile
+                    chile_tz = pytz.timezone('America/Santiago')
+                    dt_chile = dt_utc.astimezone(chile_tz)
+                    
+                    # Formatear fecha y hora
+                    title = self._format_date_spanish(dt_chile)
+                    description = dt_chile.strftime("%H:%M")
+                    
+                    rows.append({
+                        "id": str(i),
+                        "title": title,
+                        "description": description
+                    })
             
-            message += "\nResponde con el número de la opción que prefieras."
+            # Agregar opción "Ninguna" al final
+            rows.append({
+                "id": str(len(rows) + 1),
+                "title": "Ninguna"
+            })
             
-            dispatcher.utter_message(text=message)
+            # Construir la respuesta JSON
+            response_json = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "interactive",
+                "interactive": {
+                    "type": "list",
+                    "body": {
+                        "text": "¡Perfecto! 😊 Estas son las opciones más cercanas disponibles:"
+                    },
+                    "footer": {
+                        "text": "¿Cuál de estas fechas le acomoda más?"
+                    },
+                    "action": {
+                        "button": "Fechas disponibles",
+                        "sections": [
+                            {
+                                "rows": rows
+                            }
+                        ]
+                    }
+                }
+            }
             
+            # Enviar la respuesta JSON
+            dispatcher.utter_message(json_message=response_json)
+            
+            logger.info(f"Lista interactiva enviada con {len(rows)} opciones")
             return []
             
         except Exception as e:
@@ -870,6 +936,40 @@ class ActionShowAvailableSlots(Action):
             
             dispatcher.utter_message(text="❌ Error mostrando los horarios disponibles.")
             return []
+    
+    def _format_date_spanish(self, dt: datetime) -> str:
+        """
+        Formatea una fecha en formato español sin año.
+        
+        Args:
+            dt: Objeto datetime en zona horaria de Chile
+            
+        Returns:
+            str: Fecha formateada como "jueves 10 de julio"
+        """
+        try:
+            # Nombres de los días de la semana
+            dias_semana = {
+                0: "lunes", 1: "martes", 2: "miércoles", 3: "jueves",
+                4: "viernes", 5: "sábado", 6: "domingo"
+            }
+            
+            # Nombres de los meses
+            meses = {
+                1: "enero", 2: "febrero", 3: "marzo", 4: "abril",
+                5: "mayo", 6: "junio", 7: "julio", 8: "agosto",
+                9: "septiembre", 10: "octubre", 11: "noviembre", 12: "diciembre"
+            }
+            
+            dia_semana = dias_semana[dt.weekday()]
+            dia = dt.day
+            mes = meses[dt.month]
+            
+            return f"{dia_semana} {dia} de {mes}"
+            
+        except Exception as e:
+            logger.error(f"Error formateando fecha: {e}")
+            return dt.strftime("%A %d de %B")  # Fallback
 
 
 class ActionProcessSlotSelection(Action):

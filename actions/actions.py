@@ -10,6 +10,7 @@ from typing import Any, Text, Dict, List
 from datetime import datetime, timedelta
 import base64
 import requests
+import pytz
 from dotenv import load_dotenv
 
 from rasa_sdk import Action, Tracker
@@ -25,6 +26,7 @@ from .utils import (
     get_payment_url, get_environment_variable
 )
 
+import requests
 # Cargar variables de entorno desde .env
 load_dotenv()
 
@@ -145,6 +147,11 @@ def confirm_appointment(access_token, appointment_id):
     :param appointment_id: ID de la cita a confirmar
     :return: Respuesta de la API o diccionario con error
     """
+
+    # """ respuesta en duro """
+    # respuesta = {'@odata.context': 'https://proxy-qa.redsalud.cl/RSPBOTWSCONFIRMACION/$metadata#Appointments/$entity', '@odata.etag': 'W/"J0FBQUFBQy9jWjFNPSc="', 'DateTimeFrom': '2025-07-10T16:00:00-04:00', 'DateTimeTo': '2025-07-10T16:15:00-04:00', 'DateTimeFromUTC': '2025-07-10T20:00:00Z', 'DateTimeToUTC': '2025-07-10T20:15:00Z', 'Status': 'Confirmed', 'Duration': 15, 'ResourceId': '7dbd3ae4-4ead-4fcf-a131-a5fa005e35a5', 'ServiceId': '3229b16d-fa44-4a1e-84ea-a60b014e94ed', 'CoveragePlanId': 'f2d3cd94-b91c-420e-9ec0-a5f800ca8dbc', 'PatientId': '7f8c4c23-7b19-44cb-b964-a60900507f49', 'CenterId': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'IsOvercapacity': False, 'InCallBy': None, 'Index': 1, 'Number': 2409, 'NumberOfSlots': 1, 'CommentsCount': 0, 'CreatedByMainAvailabilityId': 'dfd2346b-4dd1-4b3d-a0b2-b29e0174450d', 'BlockedByAvailabilityId': None, 'RescheduleAppointmentId': 'ddf5bf28-bd08-4aa4-b1c3-b31600e39f16', 'OversellingDefinitionId': None, 'Comments': [], 'CreatedByMarketingCampaign': None, 'Archived': False, 'OldPatientId': None, 'SortQueryId': None, 'DynamicData': [{}, {}, {}], 'AppointmentTypeId': '4139651e-c3c2-4839-97ef-cdd5428b9975', 'CreatedByOriginalAvailabilityId': 'dfd2346b-4dd1-4b3d-a0b2-b29e0174450d', 'BlockedByOriginalAvailabilityId': None, 'TreatmentPlanId': None, 'Cancelled': False, 'Id': '54246940-c127-46ee-8972-b31600eb16d3', 'ModifiedOn': '2025-07-10T14:42:48.785009Z', 'CreatedOn': '2025-07-10T14:15:56.0057964Z', 'RowVersion': 'AAAAAC/cZ1M=', 'ModifiedBy': '3eba71b2-d750-4291-932d-b1760170619d', 'CreatedBy': '86a74779-e16c-40d4-b443-b20401389291', 'ModifiedByClient': 'Api', 'CreatedByClient': 'Reception'}
+    # return respuesta
+
     try:
         if not REDSALUD_CONFIG or not REDSALUD_CONFIG.get("base_url"):
             logger.error("Configuración de RedSalud incompleta o no disponible")
@@ -514,6 +521,14 @@ class ActionInitContext(Action):
             slot_events.append(SlotSet("contexto_rebooking_menu", None))
             logger.info("Contexto de rebooking menu limpiado")
             
+            # Asignar conversation_id a appointment_id si está disponible
+            conversation_id = get_slot_value(tracker, "conversation_id")
+            if conversation_id:
+                slot_events.append(SlotSet("appointment_id", conversation_id))
+                logger.info(f"appointment_id asignado desde conversation_id: {conversation_id}")
+            else:
+                logger.warning("No se encontró conversation_id para asignar a appointment_id")
+            
             # Formatear fecha_hora si está disponible
             fecha_hora = get_slot_value(tracker, "fecha_hora")
             if fecha_hora:
@@ -867,7 +882,7 @@ class ActionEvalResponse(Action):
         autopago = tracker.get_slot("autopago")
 
         logging.info(f"ActionEvalResponse")
-        logging.info(f"Slots: area_medica={area_medica}, tipo_mensaje={tipo_mensaje}, centro_medico={centro_medico}, preparations={preparations}, especialidad={especialidad}, piso={piso}, torre={torre}, autopago={autopago}")
+        logging.info(f"Slots: area_medica={area_medica}, tipo_mensaje={tipo_mensaje}, centro_medico={centro_medico}, preparations={preparations}, especialidad={especialidad}, piso={piso}, torre={torre}, autopago={autopago}, appointment_id={appointment_id}")
 
         # Verificar si es una confirmación exitosa
         if tipo_mensaje != "Confirmacion":
@@ -1002,7 +1017,10 @@ class ActionEvalResponse(Action):
         query = "SELECT status FROM appointments WHERE appointment_id = %s"
         result, success = db_connection.execute_query(query, (appointment_id,))
 
-        if success and result and result[0][0] == "confirmed":
+        logging.info(f"ActionEvalResponse - Resultado de la consulta: {result}")
+    
+
+        if success and result and result[0]['status'] == "confirmed":
             logging.info("ActionEvalResponse - Cita confirmada exitosamente, programando botón de pago")
             return [FollowupAction("action_schedule_payment_button")]
         else:
@@ -1128,7 +1146,7 @@ class ActionScheduleCancellation(Action):
         result, success = db_connection.execute_query(query, (appointment_id,))
 
         if success and result:
-            status = result[0][0]
+            status = result[0]['status']
             if status in ["canceled", "Canceling", "canceled error", "Cancellation Pending"]:
                 logging.info(f"La cita {appointment_id} ya está en proceso de cancelación o cancelada (estado: {status}), no programando otra cancelación")
                 # Asegurarse de que cancellation_pending sea False para evitar que se dispare el reminder

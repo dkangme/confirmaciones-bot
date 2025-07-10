@@ -11,6 +11,7 @@ from datetime import datetime, date
 from typing import Dict, Any, Optional, List
 from dateutil import parser
 from dotenv import load_dotenv
+import requests
 
 # Cargar variables de entorno
 load_dotenv()

@@ -234,6 +234,10 @@ slots:
     type: list
     mappings:
     - type: custom
+  slots_response:
+    type: any
+    mappings:
+    - type: custom
   adjacent_slots:
     type: text
     mappings:
@@ -331,17 +335,17 @@ responses:
         - type: body
           parameters:
           - type: text
-            text: "*{nombre_paciente}*"
+            text: "{nombre_paciente}"
           - type: text
-            text: "*{bot_name}*"
+            text: "{bot_name}"
           - type: text
             text: "{area_medica}"
           - type: text
-            text: "*{fecha_hora_formato}*"
+            text: "{fecha_hora_formato}"
           - type: text
-            text: "*{resource_name}*"
+            text: "{resource_name}"
           - type: text
-            text: "_*{especialidad}*_"
+            text: "{especialidad}"
           - type: text
             text: "{centro_medico}"
   - condition:

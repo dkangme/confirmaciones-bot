@@ -17,6 +17,7 @@ PyYAML==6.0.1
 
 # Date/Time Handling
 python-dateutil==2.8.2
+pytz==2023.3
 
 # Logging
 colorlog==6.7.0
