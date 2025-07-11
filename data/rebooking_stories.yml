@@ -27,6 +27,18 @@ stories:
   - intent: affirm_rebooking_confirm
   - action: action_confirm_rebooking
 
+# ===== CANCELACIÓN DE REBOOKING =====
+
+- story: deny rebooking
+  steps:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  - intent: rebooking
+  - action: utter_rebooking
+  - intent: deny
+  - action: utter_rebooking_cancelled
+  - action: action_handle_rebooking_denial
+
 # ===== FALLBACK EN REBOOKING =====
 
 - story: fallback in rebooking context

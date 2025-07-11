@@ -11,7 +11,7 @@ from datetime import datetime
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, FollowupAction
 
 # Importar módulos locales
 from .utils import log_request_info, get_slot_value, sanitize_string
@@ -305,6 +305,14 @@ class ActionInitRebooking(Action):
                     slot_events.append(SlotSet(entity_name, sanitized_value))
                     
                     logger.info(f"Slot actualizado: {entity_name} = {sanitized_value}")
+            
+            # Copiar conversation_id a appointment_id si existe
+            conversation_id = get_slot_value(tracker, "conversation_id")
+            if conversation_id:
+                slot_events.append(SlotSet("appointment_id", conversation_id))
+                logger.info(f"Conversation ID copiado a appointment_id: {conversation_id}")
+            else:
+                logger.warning("No se encontró conversation_id para copiar a appointment_id")
             
             # Configurar el contexto de rebooking
             slot_events.append(SlotSet("contexto_rebooking", "rebooking"))
@@ -1151,3 +1159,65 @@ Tu cita original se mantiene sin cambios. Si necesitas reagendar en otro momento
             
             dispatcher.utter_message(text="❌ Error cancelando el reagendamiento.")
             return [] 
+
+
+class ActionHandleRebookingDenial(Action):
+    """
+    Acción para manejar la negación del rebooking.
+    Establece los slots apropiados y actualiza el estado en la base de datos.
+    """
+    
+    def name(self) -> Text:
+        return "action_handle_rebooking_denial"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        log_request_info(tracker, self.name())
+        
+        try:
+            # Obtener appointment_id del tracker
+            appointment_id = get_slot_value(tracker, "appointment_id")
+            
+            # Actualizar estado en la base de datos
+            if appointment_id:
+                try:
+                    from .database import DatabaseConnection
+                    db = DatabaseConnection()
+                    
+                    # Actualizar estado a "rebooking reject"
+                    success = db.update_appointment_status(appointment_id, "rebooking reject")
+                    
+                    if success:
+                        logger.info(f"Estado de cita {appointment_id} actualizado a 'rebooking reject'")
+                    else:
+                        logger.warning(f"No se pudo actualizar el estado de la cita {appointment_id}")
+                        
+                except Exception as e:
+                    logger.error(f"Error actualizando estado en base de datos: {str(e)}")
+            else:
+                logger.warning("No se encontró appointment_id para actualizar estado")
+            
+            # Establecer los slots según los requerimientos
+            slot_events = []
+            
+            logger.info("Slots actualizados: contexto=None, contexto_rebooking=None, contexto_rebooking_menu=activado")
+            
+            # Agregar followup action para inicializar el menú de rebooking
+            slot_events.append(FollowupAction("action_init_rebooking_menu"))
+            logger.info("Followup action agregado: action_init_rebooking_menu")
+            
+            return slot_events
+            
+        except Exception as e:
+            error_message = f"Error manejando negación de rebooking: {str(e)}"
+            logger.error(error_message, exc_info=True)
+            
+            # Aún intentar limpiar los slots en caso de error y agregar followup
+            return [
+                SlotSet("contexto", None),
+                SlotSet("contexto_rebooking", None),
+                SlotSet("contexto_rebooking_menu", "activado"),
+                FollowupAction("action_init_rebooking_menu")
+            ]

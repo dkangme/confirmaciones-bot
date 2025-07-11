@@ -627,6 +627,7 @@ nlu:
     - menu opcion 5
     - opcion 5
     - reagendamiento_menu_opcion_5
+    - reagendamiento_menu_opcion5
     - opcion 5
     - la opcion 5
     - quiero la opcion 5
@@ -637,6 +638,21 @@ nlu:
     - selecciono opcion 5
     - elijo opcion 5
     - opcion 5 del menu de reagendamiento
+    - 5
+    - numero 5
+    - el numero 5
+    - la opcion numero 5
+    - quiero opcion 5
+    - necesito opcion 5
+    - me interesa opcion 5
+    - opcion numero 5
+    - quinta opcion
+    - opcion quinta
+    - la quinta
+    - quinta
+    - cinco
+    - numero cinco
+    - el numero cinco
 
 - intent: reagendamiento_menu_opcion6
   examples: |

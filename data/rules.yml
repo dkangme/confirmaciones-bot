@@ -87,7 +87,8 @@ rules:
     - contexto_rebooking: "rebooking"
   steps:
   - intent: deny
-  - action: action_cancel_rebooking
+  - action: utter_rebooking_cancelled
+  - action: action_handle_rebooking_denial
 
 - rule: Handle affirm intent for rebooking confirmation (after slot selection)
   condition:

@@ -166,7 +166,7 @@ class DatabaseConnection:
             self.pool.closeall()
             logger.info("Pool de conexiones cerrado")
     
-    def update_appointment_status(self, appointment_id: str, status: str) -> bool:
+    def update_appointment_status(self, appointment_id: str, new_status: str) -> bool:
         """
         Actualiza el estado de una cita en la tabla appointments.
         También actualiza last_notification_date y updated_at con la fecha actual.
@@ -186,12 +186,12 @@ class DatabaseConnection:
                     updated_at = NOW()
                 WHERE appointment_id = %s
             """
-            params = (status, appointment_id)
+            params = (new_status, appointment_id)
             
             rows_affected = self.execute_command(query, params)
             
             if rows_affected > 0:
-                logger.info(f"Estado de cita {appointment_id} actualizado a '{status}' exitosamente")
+                logger.info(f"Estado de cita {appointment_id} actualizado a '{new_status}' exitosamente")
                 return True
             else:
                 logger.warning(f"No se encontró la cita {appointment_id} para actualizar estado")

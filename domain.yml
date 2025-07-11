@@ -384,7 +384,7 @@ responses:
       type: text
       text:
         preview_url: false
-        body: "Entendido {nombre_paciente}, mantendremos su cita para el {fecha_hora_formato}.\n\n✅ **Cita Mantenida**\n\n📅 Fecha: {fecha_hora_formato}\n👨‍⚕️ Doctor: {resource_name}\n🏥 Centro: {centro_medico}\n\n🕑 Recuerde llegar 15 minutos antes de su hora.\n\nSi cambia de opinión más adelante, puede contactarnos nuevamente para reagendar.\n\n¡Que tenga un buen día!"
+        body: "Ok, no hay problema, agradecemos su tiempo, Recuerde que *puede agendar una nueva cita a través de nuestra página Web* https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000. Que tenga un excelente día.\n\n¡Gracias! 😊"
 
   utter_rebooking:
   - custom:
@@ -1136,6 +1136,7 @@ actions:
   - action_process_slot_selection
   - action_confirm_rebooking
   - action_cancel_rebooking
+  - action_handle_rebooking_denial
   - action_fallback
   - action_schedule_cancellation
 
