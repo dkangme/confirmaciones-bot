@@ -6,6 +6,7 @@ Implementa la lógica de negocio para el reagendamiento de citas médicas.
 import logging
 import urllib.parse
 import requests
+import json
 from typing import Any, Text, Dict, List, Optional
 from datetime import datetime
 
@@ -440,8 +441,8 @@ class ActionProcessDateRequest(Action):
                             slot_events.append(SlotSet("available_slots", available_slots))
                             
                             # Mostrar confirmación al usuario
-                            confirmation_message = f"Perfecto, entiendo que quieres reagendar para el **{fecha} a las {hora}**. Te mostraré las opciones disponibles."
-                            dispatcher.utter_message(text=confirmation_message)
+                            #confirmation_message = f"Perfecto, entiendo que quieres reagendar para el **{fecha} a las {hora}**. Te mostraré las opciones disponibles."
+                            #dispatcher.utter_message(text=confirmation_message)
                             
                             return slot_events
                         else:
@@ -897,14 +898,14 @@ class ActionShowAvailableSlots(Action):
                     description = dt_chile.strftime("%H:%M")
                     
                     rows.append({
-                        "id": str(i),
+                        "id": "cita_fecha_" + str(i),
                         "title": title,
                         "description": description
                     })
             
             # Agregar opción "Ninguna" al final
             rows.append({
-                "id": str(len(rows) + 1),
+                "id": "cita_fecha_" + str(len(rows) + 1),
                 "title": "Ninguna"
             })
             
@@ -936,7 +937,7 @@ class ActionShowAvailableSlots(Action):
             dispatcher.utter_message(json_message=response_json)
             
             logger.info(f"Lista interactiva enviada con {len(rows)} opciones")
-            return []
+            return [SlotSet("citas_disponibles", available_slots)]
             
         except Exception as e:
             error_message = f"Error mostrando slots disponibles: {str(e)}"
@@ -984,7 +985,43 @@ class ActionProcessSlotSelection(Action):
     """
     Acción para procesar la selección de horario del usuario.
     """
-    
+    def get_token(self) -> str:
+        url = "https://redsalud-qa.apigee.net/redsaludauth/oauth/accesstoken"
+        headers = {
+            "Authorization": "Basic NHR1MFlQcHVkUG1SRTJidmd5aGVEYktuVkFtUGRDcUs6aUhWTm4wR1pVMEtKMmlOOA==",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-API-Key": "bloqueos"
+        }
+        data = {"grant_type": "client_credentials"}
+        try:
+            response = requests.post(url, headers=headers, data=data)
+            response.raise_for_status()
+            return response.json().get("access_token")
+        except Exception as e:
+            print(f"Error obteniendo token: {e}")
+            return None
+
+    def create_appointment(self, token: str, payload: Dict) -> Dict:
+        url = "https://redsalud-qa.apigee.net/agendarsv2/cita/AppointmentCreate/"
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+            "x-apikey": "bloqueos"
+        }
+        try:
+            # Generar comando curl para logging
+            curl_command = f'curl -X POST "{url}" \\\n'
+            curl_command += ' \\\n'.join([f'  -H "{k}: {v}"' for k, v in headers.items()])
+            curl_command += f' \\\n  -d \'{json.dumps(payload, indent=2)}\''
+            print("[CURL COMMAND]", curl_command)
+            
+            response = requests.post(url, headers=headers, json=payload)
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            print(f"Error creando cita: {e}")
+            return None
+        
     def name(self) -> Text:
         return "action_process_slot_selection"
     
@@ -992,62 +1029,171 @@ class ActionProcessSlotSelection(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        log_request_info(tracker, self.name())
+        # Obtener el intent del último mensaje
+        current_intent = tracker.latest_message.get('intent', {}).get('name')
         
+        # Verificar si es el intent de seleccionar cita nueva fecha
+        if current_intent == "seleccionar_cita_nueva_fecha":
+            # Obtener el texto del mensaje para extraer el número de opción
+            user_message = tracker.latest_message.get('text', '').lower()
+            logger.info(f"Procesando selección de cita: {user_message}")
+            
+            # Extraer el número de la opción seleccionada (cita_fecha_1, cita_fecha_2, etc.)
+            opcion_seleccionada = self._extract_option_number(user_message)
+            logger.info(f"Opción extraída: {opcion_seleccionada}")
+            
+            slots_disponibles = tracker.get_slot("citas_disponibles")
+            if opcion_seleccionada is not None and slots_disponibles is not None:
+                try:
+                    idx = int(opcion_seleccionada) - 1
+                    if 0 <= idx < len(slots_disponibles):
+                        fecha_confirmada = slots_disponibles[idx]
+                        # Obtener token
+                        token = self.get_token()
+                        if token:
+                            # Obtener valores de los slots
+                            service_id = tracker.get_slot("service_id")
+                            resource_id = tracker.get_slot("resource_id")
+                            center_id = tracker.get_slot("id_centro_medico")
+                            patient_id = tracker.get_slot("patient_id")
+                            coverage_plan_id = tracker.get_slot("coverage_plan_id")
+                            conversation_id = tracker.get_slot("conversation_id")
+                            appointment_type_id = tracker.get_slot("appointment_type_id")
+                        
+                            # Formatear fecha_confirmada a formato ISO
+                            print("DEBUG - Fecha confirmada: ", fecha_confirmada)
+                            try:
+                                # Extraer timestamp del slot (fecha_confirmada es un diccionario)
+                                if isinstance(fecha_confirmada, dict) and 'Timestamp' in fecha_confirmada:
+                                    timestamp = fecha_confirmada['Timestamp']
+                                    # Convertir timestamp Unix a datetime
+                                    dt = datetime.fromtimestamp(timestamp)
+                                    datetime_from = dt.strftime("%Y-%m-%dT%H:%M:00")
+                                    print(f"DEBUG - Timestamp extraído: {timestamp}")
+                                    print(f"DEBUG - DateTime convertido: {datetime_from}")
+                                else:
+                                    # Fallback si no es un diccionario o no tiene timestamp
+                                    print("DEBUG - fecha_confirmada no es un diccionario válido, usando valor por defecto")
+                                    datetime_from = "2025-04-25T10:00:00"
+                            except (ValueError, TypeError) as e:
+                                print(f"DEBUG - Error procesando fecha: {e}")
+                                datetime_from = "2025-04-25T10:00:00"  # Valor por defecto si hay error
+                            # Preparar payload para crear cita
+                            payload = {
+                                "Service": {"Id": service_id},
+                                "Resource": {"Id": resource_id},
+                                "Center": {"Id": center_id},
+                                "Patient": {"Id": patient_id},
+                                "CoveragePlan": {"Id": coverage_plan_id},
+                                "DateTimeFrom": datetime_from,
+                                "Duration": 30,
+                                "Status": "Booked",
+                                "IsOvercapacity": False,
+                                "NumberOfSlots": 1,
+                                "AppointmentTypeId": appointment_type_id,
+                                "RescheduleAppointmentId": conversation_id
+                            }
+                            print("DEBUG - Payload: ", payload)
+                                                        # Crear cita
+                            result = self.create_appointment(token, payload)
+                            print("DEBUG - Creating appointment: ", result)
+                            
+                            # Actualizar estado en la base de datos según el resultado
+                            try:
+                                from .database import DatabaseConnection
+                                db = DatabaseConnection()
+                                
+                                if result:
+                                    # Éxito: actualizar estado a "rebooking success"
+                                    success = db.update_appointment_status(conversation_id, "rebooking success")
+                                    if success:
+                                        logger.info(f"Estado de cita {conversation_id} actualizado a 'rebooking success'")
+                                    else:
+                                        logger.warning(f"No se pudo actualizar el estado de la cita {conversation_id}")
+                                    
+                                    print(f"Cita creada: {result}")
+                                    dispatcher.utter_message(response="utter_waiting_for_confirmation")
+                                    dispatcher.utter_message(response="utter_rebooking_success")
+                                    return [SlotSet("fecha_seleccionada_confirmada", fecha_confirmada)]
+                                else:
+                                    # Fallo: actualizar estado a "rebooking failed"
+                                    success = db.update_appointment_status(conversation_id, "rebooking failed")
+                                    if success:
+                                        logger.info(f"Estado de cita {conversation_id} actualizado a 'rebooking failed'")
+                                    else:
+                                        logger.warning(f"No se pudo actualizar el estado de la cita {conversation_id}")
+                                    
+                                    print("DEBUG - Error al crear cita")
+                                    dispatcher.utter_message(response="utter_waiting_for_confirmation")
+                                    dispatcher.utter_message(response="utter_rebookig_booking_error")
+                                    return [SlotSet("fecha_seleccionada_confirmada", "Ninguna")]
+                                    
+                            except Exception as e:
+                                logger.error(f"Error actualizando estado en base de datos: {str(e)}")
+                                # Continuar con el flujo normal incluso si falla la actualización de BD
+                                if result:
+                                    print(f"Cita creada: {result}")
+                                    dispatcher.utter_message(response="utter_waiting_for_confirmation")
+                                    dispatcher.utter_message(response="utter_rebooking_success")
+                                    return [SlotSet("fecha_seleccionada_confirmada", fecha_confirmada)]
+                                else:
+                                    print("DEBUG - Error al crear cita")
+                                    dispatcher.utter_message(response="utter_waiting_for_confirmation")
+                                    dispatcher.utter_message(response="utter_rebookig_booking_error")
+                                    return [SlotSet("fecha_seleccionada_confirmada", "Ninguna")]
+
+                        else:
+                            # Error al obtener token
+                            logger.error("No se pudo obtener el token de autenticación")
+                            dispatcher.utter_message(response="utter_waiting_for_confirmation")
+                            dispatcher.utter_message(response="utter_rebooking_booking_error")
+                            return [SlotSet("fecha_seleccionada_confirmada", "Ninguna")]
+                            
+                except (ValueError, IndexError):
+                    pass
+        else:
+            logger.warning(f"Intent no reconocido o datos faltantes: {current_intent}")
+            dispatcher.utter_message(text="❌ No se pudo procesar tu selección. Por favor, intenta de nuevo.")
+        
+        return []
+    
+    def _extract_option_number(self, message: str) -> Optional[int]:
+        """
+        Extrae el número de opción del mensaje del usuario.
+        
+        Args:
+            message: Mensaje del usuario (ej: "cita_fecha_1", "cita_fecha_2", etc.)
+            
+        Returns:
+            int: Número de la opción (1, 2, 3, etc.) o None si no se puede extraer
+        """
         try:
-            # Obtener el mensaje del usuario
-            user_message = tracker.latest_message.get('text', '').strip()
-            logger.info(f"Procesando selección: {user_message}")
+            import re
             
-            # Obtener slots disponibles
-            available_slots = get_slot_value(tracker, "available_slots")
+            # Buscar patrones como "cita_fecha_1", "cita_fecha_2", etc.
+            pattern = r'cita_fecha_(\d+)'
+            match = re.search(pattern, message.lower())
             
-            if not available_slots:
-                dispatcher.utter_message(text="❌ No hay horarios disponibles para seleccionar.")
-                return []
+            if match:
+                option_number = int(match.group(1))
+                logger.info(f"Opción extraída del mensaje '{message}': {option_number}")
+                return option_number
             
-            # Intentar extraer el número de la selección
-            try:
-                selection = int(user_message)
-                if 1 <= selection <= len(available_slots):
-                    # Obtener el slot seleccionado
-                    selected_slot = available_slots[selection - 1]
-                    
-                    # Guardar la selección
-                    slot_events = [
-                        SlotSet("selected_slot", selected_slot),
-                        SlotSet("slot_selection_index", selection)
-                    ]
-                    
-                    # Confirmar la selección
-                    confirmation_message = f"✅ Perfecto, has seleccionado: **{selected_slot}**\n\n¿Confirmas que quieres reagendar tu cita para este horario?"
-                    dispatcher.utter_message(text=confirmation_message)
-                    
-                    return slot_events
-                else:
-                    # Número fuera de rango
-                    error_message = f"❌ Por favor, selecciona un número entre 1 y {len(available_slots)}."
-                    dispatcher.utter_message(text=error_message)
-                    
-                    # Mostrar las opciones nuevamente
-                    dispatcher.utter_message(response="utter_show_available_slots")
-                    return []
-                    
-            except ValueError:
-                # No es un número válido
-                error_message = "❌ Por favor, responde con el número de la opción que prefieras."
-                dispatcher.utter_message(text=error_message)
-                
-                # Mostrar las opciones nuevamente
-                dispatcher.utter_message(response="utter_show_available_slots")
-                return []
-                
+            # Si no encuentra el patrón, buscar solo números
+            number_pattern = r'(\d+)'
+            match = re.search(number_pattern, message)
+            
+            if match:
+                option_number = int(match.group(1))
+                logger.info(f"Número extraído del mensaje '{message}': {option_number}")
+                return option_number
+            
+            logger.warning(f"No se pudo extraer número de opción del mensaje: {message}")
+            return None
+            
         except Exception as e:
-            error_message = f"Error procesando selección: {str(e)}"
-            logger.error(error_message, exc_info=True)
-            
-            dispatcher.utter_message(text="❌ Error procesando tu selección. Por favor, intenta de nuevo.")
-            return []
+            logger.error(f"Error extrayendo número de opción: {e}")
+            return None
 
 
 class ActionConfirmRebooking(Action):

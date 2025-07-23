@@ -172,4 +172,13 @@ nlu:
     - ninguna
     - ninguna opción
     - no me sirve ninguna
-    - no me conviene ninguna 
+    - no me conviene ninguna
+
+- intent: seleccionar_cita_nueva_fecha
+  examples: |
+    - cita_fecha_1
+    - cita_fecha_2
+    - cita_fecha_3
+    - cita_fecha_4
+    - cita_fecha_5
+    - cita_fecha_6 

@@ -81,6 +81,14 @@ rules:
   - intent: seleccionar_opcion
   - action: action_process_slot_selection
 
+- rule: Handle new date selection in rebooking context
+  condition:
+  - slot_was_set:
+    - contexto_rebooking: "rebooking"
+  steps:
+  - intent: seleccionar_cita_nueva_fecha
+  - action: action_process_slot_selection
+
 - rule: Handle deny intent in rebooking context
   condition:
   - slot_was_set:
@@ -116,6 +124,16 @@ rules:
   steps:
   - intent: out_of_scope
   - action: action_fallback
+
+# ===== MANEJO DE CANCELACIÓN =====
+
+- rule: Handle cancellation reminder
+  condition:
+    - slot_was_set:
+        - cancellation_pending: true
+  steps:
+    - intent: EXTERNAL_cancellation
+    - action: action_cancel_appointment
 
 # ===== MANEJO DE FALLBACK =====
 

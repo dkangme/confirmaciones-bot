@@ -36,12 +36,12 @@ rules:
   - action: action_process_date_request
   - action: action_show_available_slots
 
-- rule: Handle option selection in rebooking context
+- rule: Handle new date selection in rebooking context
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
   steps:
-  - intent: seleccionar_opcion
+  - intent: seleccionar_cita_nueva_fecha
   - action: action_process_slot_selection
 
 - rule: Handle deny intent in rebooking context
@@ -52,17 +52,6 @@ rules:
   - intent: deny
   - action: utter_rebooking_cancelled
   - action: action_handle_rebooking_denial
-
-
-
-- rule: Handle affirm intent for rebooking confirmation (after slot selection)
-  condition:
-  - slot_was_set:
-    - contexto_rebooking: "rebooking"
-    - selected_slot: true
-  steps:
-  - intent: affirm_rebooking_confirm
-  - action: action_confirm_rebooking
 
 # ===== FALLBACK PARA REBOOKING =====
 

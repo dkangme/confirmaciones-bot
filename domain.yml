@@ -11,6 +11,7 @@ intents:
   - EXTERNAL_init_context
   - EXTERNAL_init_rebooking
   - EXTERNAL_init_rebooking_menu
+  - EXTERNAL_cancellation
   - rebooking
   - proponer_fecha
   - seleccionar_opcion
@@ -25,6 +26,7 @@ intents:
   - reagendamiento_menu_opcion4
   - reagendamiento_menu_opcion5
   - reagendamiento_menu_opcion6
+  - seleccionar_cita_nueva_fecha
 
 entities:
   - nombre_paciente
@@ -56,6 +58,7 @@ entities:
   - hora_propuesta
   - opcion_seleccionada
   - fecha_seleccionada_confirmada
+  - EXTERNAL_cancellation
 
 slots:
   nombre_paciente:
@@ -316,6 +319,14 @@ slots:
     type: text
     mappings:
     - type: custom
+  citas_disponibles:
+    type: text
+    mappings:
+    - type: custom
+  cancellation_pending:
+    type: bool
+    mappings:
+    - type: custom
 
 responses:
   utter_greet:
@@ -369,11 +380,11 @@ responses:
           buttons:
           - type: reply
             reply:
-              id: "affirm"
+              id: "si"
               title: "Si"
           - type: reply
             reply:
-              id: "deny"
+              id: "no"
               title: "No"
   - text: "Hey! How are you?"
 
@@ -399,11 +410,11 @@ responses:
           buttons:
             - type: reply
               reply:
-                id: affirm
+                id: si 
                 title: "Sí"
             - type: reply
               reply:
-                id: deny
+                id: no
                 title: "No"
 
   utter_rebooking_confirmed:

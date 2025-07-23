@@ -1080,14 +1080,14 @@ class ActionSchedulePaymentButton(Action):
                 # Obtener la hora actual en Chile (considerando horario de verano/invierno)
                 chile_tz = pytz.timezone('America/Santiago')
                 reminder_time = datetime.now(chile_tz) + timedelta(minutes=5)
-                reminder_time_str = reminder_time.strftime('%Y-%m-%d %H:%M:%S.%f')
+                reminder_time_epoch = int(reminder_time.timestamp())
 
                 # Preparar payload para la API
                 payload = {
                     "paymentUrl": payment_url,
                     "phoneNumber": telefono_paciente,
                     "patientName": nombre_paciente,
-                    "reminderTime": reminder_time_str
+                    "reminderTime": reminder_time_epoch
                 }
 
                 # Realizar llamada a la API
@@ -1127,19 +1127,19 @@ class ActionScheduleCancellation(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         logging.info("Iniciando action_schedule_cancellation")
-
+        events = []
         # Verificar si ya hay una cancelación pendiente o ya se ha intentado cancelar
         cancellation_pending = tracker.get_slot("cancellation_pending")
         if cancellation_pending:
             logging.info("Ya existe una cancelación pendiente, no programando otra")
-            return []
+            return events
 
         # Obtener el ID de la cita
         appointment_id = tracker.get_slot("appointment_id")
         if not appointment_id:
             logging.error("No se encontró el ID de la cita para programar la cancelación")
             dispatcher.utter_message(response="utter_cancelation_appointment_failed")
-            return []
+            return events
 
         # Verificar estado en la base de datos para evitar bucles de cancelación
         query = "SELECT status FROM appointments WHERE appointment_id = %s"
@@ -1157,28 +1157,51 @@ class ActionScheduleCancellation(Action):
         # Despachar mensaje de confirmación de cancelación
         dispatcher.utter_message(response="utter_confirm_deny")
 
-        # Obtener la hora actual en Chile
+
+        logging.info(f"Obteniendo token de acceso para appointment ID: {appointment_id}")
+        # Obtener token de acceso
+        access_token = obtener_access_token()
+        if not access_token:
+            logging.error("No se pudo obtener token de acceso")
+            return events
+
+        logging.info("Token de acceso obtenido exitosamente")
+
+        # Obtener la hora actual en Chile (considerando horario de verano/invierno)
         chile_tz = pytz.timezone('America/Santiago')
         reminder_time = datetime.now(chile_tz) + timedelta(minutes=5)
+        reminder_time_epoch = int(reminder_time.timestamp())
 
-        # Programar recordatorio externo
-        reminder = ReminderScheduled(
-            "EXTERNAL_cancellation",
-            trigger_date_time=reminder_time,
-            name="cancellation_reminder",
-            kill_on_user_message=False
-        )
+        # Preparar payload para la API
+        payload = {
+            "intent": "EXTERNAL_cancellation",
+            "appointmentId": appointment_id,
+            "timestamp": reminder_time_epoch
+        }
+        # Realizar llamada a la API
+        api_url = f"{get_environment_variable('API_OPERATIONS_URL').rstrip('/')}/appointments/cancel/scheduled"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {access_token}"
+        }
 
         logging.info(f"Recordatorio de cancelación programado para: {reminder_time} para la cita {appointment_id}")
+        response = requests.post(api_url, json=payload, headers=headers, timeout=30)
 
+        if response.status_code == 201:
+            logging.info("Solicitud de programación de cancelación de cita enviada exitosamente")
+            events.append(SlotSet("payment_url", api_url))
+        else:
+            logging.error(f"Error al enviar solicitud a la API: {response.status_code} - {response.text}")
+    
         # Establecer el slot de cancelación pendiente
         cancellation_pending = SlotSet("cancellation_pending", True)
 
         # Marcar en la base de datos como pendiente de cancelación usando update_appointment_status
-        try:
-            db_connection.update_appointment_status(appointment_id, new_status="cancellation pending")
-            logging.info(f"Cita {appointment_id} marcada como pendiente de cancelación en la base de datos")
-        except Exception as e:
-            logging.error(f"Error al marcar cita como pendiente de cancelación: {e}")
+        # try:
+        #     db_connection.update_appointment_status(appointment_id, new_status="cancellation pending")
+        #     logging.info(f"Cita {appointment_id} marcada como pendiente de cancelación en la base de datos")
+        # except Exception as e:
+        #     logging.error(f"Error al marcar cita como pendiente de cancelación: {e}")
 
-        return [reminder, cancellation_pending]
+        return [cancellation_pending]

@@ -22,10 +22,8 @@ stories:
   - intent: proponer_fecha
   - action: action_process_date_request
   - action: action_show_available_slots
-  - intent: seleccionar_opcion
+  - intent: seleccionar_cita_nueva_fecha
   - action: action_process_slot_selection
-  - intent: affirm_rebooking_confirm
-  - action: action_confirm_rebooking
 
 # ===== CANCELACIÓN DE REBOOKING =====
 
