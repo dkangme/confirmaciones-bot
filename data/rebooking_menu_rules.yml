@@ -49,6 +49,8 @@ rules:
   condition:
   - slot_was_set:
     - contexto_rebooking_menu: "activado"
+    - post_regret_context: false
+    - contexto_rebooking: null
   steps:
   - intent: out_of_scope
   - action: utter_show_rebooking_menu

@@ -27,6 +27,7 @@ intents:
   - reagendamiento_menu_opcion5
   - reagendamiento_menu_opcion6
   - seleccionar_cita_nueva_fecha
+  - regret_cancellation
 
 entities:
   - nombre_paciente
@@ -325,6 +326,12 @@ slots:
     - type: custom
   cancellation_pending:
     type: bool
+    initial_value: false
+    mappings:
+    - type: custom
+  post_regret_context:
+    type: bool
+    initial_value: false
     mappings:
     - type: custom
 
@@ -1150,6 +1157,8 @@ actions:
   - action_handle_rebooking_denial
   - action_fallback
   - action_schedule_cancellation
+  - action_process_regret_cancellation
+  - action_confirm_post_cancel
 
 session_config:
   session_expiration_time: 60

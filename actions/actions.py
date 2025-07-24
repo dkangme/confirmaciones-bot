@@ -264,14 +264,32 @@ class ActionTestConnection(Action):
                 message = "❌ Error en la conexión a la base de datos"
                 logger.error("Error en conexión a BD")
             
-            dispatcher.utter_message(text=message)
+            response_json = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": message
+                }
+            }
+            dispatcher.utter_message(json_message=response_json)
             
             return []
             
         except Exception as e:
             error_message = f"Error probando conexión: {str(e)}"
             logger.error(error_message, exc_info=True)
-            dispatcher.utter_message(text="❌ Error interno del sistema")
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error interno del sistema"
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
             return []
 
 
@@ -312,14 +330,32 @@ class ActionGetSystemStatus(Action):
 🟢 Sesión: Activa
             """.strip()
             
-            dispatcher.utter_message(text=status_message)
+            status_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": status_message
+                }
+            }
+            dispatcher.utter_message(json_message=status_response)
             
             return []
             
         except Exception as e:
             error_message = f"Error obteniendo estado del sistema: {str(e)}"
             logger.error(error_message, exc_info=True)
-            dispatcher.utter_message(text="❌ Error obteniendo estado del sistema")
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error obteniendo estado del sistema"
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
             return []
 
 
@@ -347,7 +383,16 @@ class ActionValidateInput(Action):
             
             # Validar que haya entidades para procesar
             if not entities:
-                dispatcher.utter_message(text="Por favor proporciona la información requerida")
+                error_response = {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "type": "text",
+                    "text": {
+                        "preview_url": False,
+                        "body": "Por favor proporciona la información requerida"
+                    }
+                }
+                dispatcher.utter_message(json_message=error_response)
                 return []
             
             # Procesar cada entidad
@@ -366,14 +411,32 @@ class ActionValidateInput(Action):
                     logger.info(f"Entidad validada: {entity_name} = {sanitized_value}")
             
             # Confirmar validación exitosa
-            dispatcher.utter_message(text="✅ Información validada correctamente")
+            success_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "✅ Información validada correctamente"
+                }
+            }
+            dispatcher.utter_message(json_message=success_response)
             
             return validation_results
             
         except Exception as e:
             error_message = f"Error validando entrada: {str(e)}"
             logger.error(error_message, exc_info=True)
-            dispatcher.utter_message(text="❌ Error validando la información proporcionada")
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error validando la información proporcionada"
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
             return []
 
 
@@ -411,14 +474,32 @@ Lo sentimos, ha ocurrido un error procesando tu solicitud.
 • Si el problema persiste, contacta al soporte técnico
             """.strip()
             
-            dispatcher.utter_message(text=error_message)
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": error_message
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
             
             # Limpiar información de error
             return [SlotSet("error_info", None)]
             
         except Exception as e:
             logger.error(f"Error en action_handle_error: {str(e)}", exc_info=True)
-            dispatcher.utter_message(text="❌ Error interno del sistema")
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error interno del sistema"
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
             return []
 
 
@@ -460,13 +541,31 @@ Tu mensaje: "{user_message}"
 ¿En qué puedo ayudarte?
             """.strip()
             
-            dispatcher.utter_message(text=fallback_message)
+            fallback_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": fallback_message
+                }
+            }
+            dispatcher.utter_message(json_message=fallback_response)
             
             return []
             
         except Exception as e:
             logger.error(f"Error en action_fallback: {str(e)}", exc_info=True)
-            dispatcher.utter_message(text="❌ Error interno del sistema")
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error interno del sistema"
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
             return []
 
 
@@ -508,6 +607,21 @@ class ActionInitContext(Action):
                     slot_events.append(SlotSet(entity_name, sanitized_value))
                     
                     logger.info(f"Slot actualizado: {entity_name} = {sanitized_value}")
+            
+            # Procesar centro_medico_google si está disponible
+            centro_medico_google = get_slot_value(tracker, "centro_medico_google")
+            if centro_medico_google:
+                # Escapar/limpiar el valor del centro médico de Google
+                if isinstance(centro_medico_google, str):
+                    # Limpiar caracteres especiales y formatear
+                    centro_medico_escaped = sanitize_string(centro_medico_google)
+                    # Reasignar el valor procesado al mismo slot
+                    slot_events.append(SlotSet("centro_medico_google", centro_medico_escaped))
+                    logger.info(f"centro_medico_google procesado y reasignado: {centro_medico_escaped}")
+                else:
+                    logger.warning(f"centro_medico_google no es string: {type(centro_medico_google)}")
+            else:
+                logger.info("No se encontró centro_medico_google para procesar")
             
             # Configurar el contexto como "confirmación"
             slot_events.append(SlotSet("contexto", "confirmación"))
@@ -571,7 +685,16 @@ class ActionInitContext(Action):
             
             confirmation_message += "\n🎯 **Sistema listo para confirmaciones**"
             
-            dispatcher.utter_message(text=confirmation_message)
+            confirmation_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": confirmation_message
+                }
+            }
+            dispatcher.utter_message(json_message=confirmation_response)
             
             logger.info(f"Contexto inicializado exitosamente para usuario: {tracker.sender_id}")
             
@@ -584,7 +707,16 @@ class ActionInitContext(Action):
             # Guardar información del error en un slot
             error_events = [SlotSet("error_info", error_message)]
             
-            dispatcher.utter_message(text="❌ Error inicializando el contexto del sistema")
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error inicializando el contexto del sistema"
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
             
             return error_events
 
@@ -667,7 +799,16 @@ class ActionCancelAppointment(Action):
             # Verificar que tenemos la información necesaria
             if not all([nombre_paciente, fecha_hora, resource_name, centro_medico]):
                 logger.warning("Información incompleta para cancelar cita")
-                dispatcher.utter_message(text="❌ No se pudo procesar la cancelación. Información incompleta.")
+                error_response = {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "type": "text",
+                    "text": {
+                        "preview_url": False,
+                        "body": "❌ No se pudo procesar la cancelación. Información incompleta."
+                    }
+                }
+                dispatcher.utter_message(json_message=error_response)
                 return []
             
             if not appointment_id:
@@ -733,7 +874,16 @@ class ActionCancelAppointment(Action):
             # Guardar información del error en un slot
             error_events = [SlotSet("error_info", error_message)]
             
-            dispatcher.utter_message(text="❌ Error procesando la cancelación de la cita")
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error procesando la cancelación de la cita"
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
             
             return error_events
 
@@ -763,7 +913,16 @@ class ActionConfirmAppointment(Action):
             # Verificar que tenemos la información necesaria
             if not all([nombre_paciente, fecha_hora, resource_name, centro_medico]):
                 logger.warning("Información incompleta para confirmar cita")
-                dispatcher.utter_message(text="❌ No se pudo procesar la confirmación. Información incompleta.")
+                error_response = {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "type": "text",
+                    "text": {
+                        "preview_url": False,
+                        "body": "❌ No se pudo procesar la confirmación. Información incompleta."
+                    }
+                }
+                dispatcher.utter_message(json_message=error_response)
                 return []
             
             # Obtener el ID de la cita desde los slots
@@ -857,7 +1016,16 @@ class ActionConfirmAppointment(Action):
             # Guardar información del error en un slot
             error_events = [SlotSet("error_info", error_message)]
             
-            dispatcher.utter_message(text="❌ Error procesando la confirmación de la cita")
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error procesando la confirmación de la cita"
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
             
             return error_events
 
@@ -1190,18 +1358,236 @@ class ActionScheduleCancellation(Action):
 
         if response.status_code == 201:
             logging.info("Solicitud de programación de cancelación de cita enviada exitosamente")
-            events.append(SlotSet("payment_url", api_url))
+            
+            # Si la cancelación se agendó exitosamente, establecer cancellation_pending = True
+            events.append(SlotSet("cancellation_pending", True))
+            logging.info(f"Slot cancellation_pending establecido como True para cita {appointment_id}")
+            
+            # Marcar en la base de datos como pendiente de cancelación
+            try:
+                db_connection.update_appointment_status(appointment_id, new_status="cancellation pending")
+                logging.info(f"Cita {appointment_id} marcada como pendiente de cancelación en la base de datos")
+            except Exception as e:
+                logging.error(f"Error al marcar cita como pendiente de cancelación: {e}")
         else:
             logging.error(f"Error al enviar solicitud a la API: {response.status_code} - {response.text}")
+            # Si hay error, mantener cancellation_pending como False
+            events.append(SlotSet("cancellation_pending", False))
+            logging.info(f"Slot cancellation_pending mantenido como False debido a error en API")
+
+        return events
+
+
+class ActionProcessRegretCancellation(Action):
+    """
+    Acción para procesar el arrepentimiento de cancelación.
+    Se ejecuta cuando el usuario se arrepiente de cancelar su cita.
+    """
     
-        # Establecer el slot de cancelación pendiente
-        cancellation_pending = SlotSet("cancellation_pending", True)
+    def name(self) -> Text:
+        return "action_process_regret_cancellation"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        log_request_info(tracker, self.name())
+        
+        try:
+            # Obtener el ID de la cita
+            appointment_id = get_slot_value(tracker, "appointment_id")
+            
+            if not appointment_id:
+                logger.error("No se encontró appointment_id para procesar arrepentimiento")
+                error_response = {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "type": "text",
+                    "text": {
+                        "preview_url": False,
+                        "body": "❌ No se pudo procesar tu solicitud. Información incompleta."
+                    }
+                }
+                dispatcher.utter_message(json_message=error_response)
+                return []
+            
+            # Obtener token de acceso
+            access_token = obtener_access_token()
+            if not access_token:
+                logger.error("No se pudo obtener token de acceso para procesar arrepentimiento")
+                error_response = {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "type": "text",
+                    "text": {
+                        "preview_url": False,
+                        "body": "❌ Error de autenticación. Por favor, intenta de nuevo."
+                    }
+                }
+                dispatcher.utter_message(json_message=error_response)
+                return []
+            
+            # Cancelar la cancelación programada (si existe)
+            # Aquí se haría la llamada a la API para cancelar la cancelación programada
+            # Por ahora, simulamos el éxito
+            
+            # Actualizar estado en la base de datos
+            try:
+                db_connection.update_appointment_status(appointment_id, new_status="confirmed")
+                logger.info(f"Estado de cita {appointment_id} actualizado a 'confirmed' después del arrepentimiento")
+            except Exception as e:
+                logger.error(f"Error actualizando estado en base de datos: {str(e)}")
+            
+            # Limpiar el slot de cancelación pendiente y establecer contextos
+            cleanup_events = [
+                SlotSet("cancellation_pending", False),
+                SlotSet("post_regret_context", True),
+                SlotSet("contexto", "confirmación"),
+                SlotSet("contexto_rebooking", None),
+                SlotSet("contexto_rebooking_menu", None)
+            ]
+            
+            logger.info(f"Arrepentimiento procesado exitosamente para cita {appointment_id}")
+            logger.info("Slots actualizados: contexto=confirmación, contexto_rebooking=None, contexto_rebooking_menu=None")
+            
+            # Responder con utter_ask_confirm_cancel_or_keep
+            dispatcher.utter_message(response="utter_ask_confirm_cancel_or_keep")
+            
+            return cleanup_events
+            
+        except Exception as e:
+            error_message = f"Error procesando arrepentimiento: {str(e)}"
+            logger.error(error_message, exc_info=True)
+            
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error procesando tu solicitud. Por favor, intenta de nuevo."
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
+            
+            return []
 
-        # Marcar en la base de datos como pendiente de cancelación usando update_appointment_status
-        # try:
-        #     db_connection.update_appointment_status(appointment_id, new_status="cancellation pending")
-        #     logging.info(f"Cita {appointment_id} marcada como pendiente de cancelación en la base de datos")
-        # except Exception as e:
-        #     logging.error(f"Error al marcar cita como pendiente de cancelación: {e}")
 
-        return [cancellation_pending]
+class ActionConfirmPostCancel(Action):
+    """
+    Acción para confirmar la cita después de un arrepentimiento de cancelación.
+    Se ejecuta cuando el usuario confirma que quiere mantener su cita después del arrepentimiento.
+    """
+    
+    def name(self) -> Text:
+        return "action_confirm_post_cancel"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        log_request_info(tracker, self.name())
+        
+        try:
+            # Obtener el ID de la cita
+            appointment_id = get_slot_value(tracker, "appointment_id")
+            
+            if not appointment_id:
+                logger.error("No se encontró appointment_id para confirmar cita post-cancelación")
+                error_response = {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "type": "text",
+                    "text": {
+                        "preview_url": False,
+                        "body": "❌ No se pudo procesar tu solicitud. Información incompleta."
+                    }
+                }
+                dispatcher.utter_message(json_message=error_response)
+                return []
+            
+            # Obtener token de acceso
+            access_token = obtener_access_token()
+            if not access_token:
+                logger.error("No se pudo obtener token de acceso para confirmar cita")
+                error_response = {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "type": "text",
+                    "text": {
+                        "preview_url": False,
+                        "body": "❌ Error de autenticación. Por favor, intenta de nuevo."
+                    }
+                }
+                dispatcher.utter_message(json_message=error_response)
+                return []
+            
+            # Confirmar la cita en la API
+            result = confirm_appointment(access_token, appointment_id)
+            
+            if "error" in result:
+                logger.error(f"Error confirmando cita post-cancelación: {result['error']}")
+                
+                # Actualizar estado en base de datos como error
+                db_connection.update_appointment_status(appointment_id, "confirmed error")
+                
+                error_response = {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "type": "text",
+                    "text": {
+                        "preview_url": False,
+                        "body": "❌ Error confirmando tu cita. Por favor, contacta al soporte técnico."
+                    }
+                }
+                dispatcher.utter_message(json_message=error_response)
+                return []
+            else:
+                logger.info(f"Cita confirmada exitosamente post-cancelación: {result}")
+                
+                # Actualizar estado en base de datos como confirmado
+                db_connection.update_appointment_status(appointment_id, "confirmed")
+                
+                # Enviar mensaje de confirmación exitosa
+                success_response = {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "type": "text",
+                    "text": {
+                        "preview_url": False,
+                        "body": """✅ **¡Perfecto! Tu cita ha sido confirmada**
+
+🎉 **Cita mantenida y confirmada exitosamente**
+
+Tu cita ha sido confirmada y no será cancelada. 
+
+📋 **Próximos pasos:**
+• Llega 15 minutos antes de tu hora
+• Si necesitas cambiar algo, contáctanos nuevamente
+• Recuerda que puedes acceder a tus exámenes en miredsalud.cl
+
+¡Gracias por confirmar tu asistencia! 😊"""
+                    }
+                }
+                
+                dispatcher.utter_message(json_message=success_response)
+                
+                logger.info(f"Confirmación post-cancelación exitosa para cita {appointment_id}")
+                return []
+                
+        except Exception as e:
+            error_message = f"Error confirmando cita post-cancelación: {str(e)}"
+            logger.error(error_message, exc_info=True)
+            
+            error_response = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "❌ Error procesando tu solicitud. Por favor, intenta de nuevo."
+                }
+            }
+            dispatcher.utter_message(json_message=error_response)
+            
+            return []

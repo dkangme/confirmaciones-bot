@@ -127,6 +127,56 @@ nlu:
     - no confirmo
     - no confirmo mi cita
 
+- intent: regret_cancellation
+  examples: |
+    - me arrepentí
+    - me arrepiento
+    - me arrepentí de cancelar
+    - me arrepiento de cancelar
+    - quiero mantener mi cita
+    - quiero mantener la cita
+    - no quiero cancelar
+    - no quiero cancelar mi cita
+    - no quiero cancelar la cita
+    - quiero mantener mi hora
+    - quiero mantener la hora
+    - no quiero cancelar mi hora
+    - no quiero cancelar la hora
+    - me arrepentí de decir que no
+    - me arrepiento de decir que no
+    - quiero confirmar mi cita
+    - quiero confirmar la cita
+    - quiero asistir
+    - quiero ir
+    - quiero mantener mi cita médica
+    - quiero mantener la cita médica
+    - no quiero cancelar mi cita médica
+    - no quiero cancelar la cita médica
+    - me arrepentí de cancelar mi cita
+    - me arrepiento de cancelar mi cita
+    - quiero mantener mi cita médica
+    - quiero mantener la cita médica
+    - no quiero cancelar mi cita médica
+    - no quiero cancelar la cita médica
+    - me arrepentí de cancelar mi hora
+    - me arrepiento de cancelar mi hora
+    - quiero mantener mi hora médica
+    - quiero mantener la hora médica
+    - no quiero cancelar mi hora médica
+    - no quiero cancelar la hora médica
+    - me arrepentí de cancelar mi cita médica
+    - me arrepiento de cancelar mi cita médica
+    - quiero mantener mi cita médica
+    - quiero mantener la cita médica
+    - no quiero cancelar mi cita médica
+    - no quiero cancelar la cita médica
+    - me arrepentí de cancelar mi hora médica
+    - me arrepiento de cancelar mi hora médica
+    - quiero mantener mi hora médica
+    - quiero mantener la hora médica
+    - no quiero cancelar mi hora médica
+    - no quiero cancelar la hora médica
+
 - intent: mood_great
   examples: |
     - perfect

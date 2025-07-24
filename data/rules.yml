@@ -21,23 +21,53 @@ rules:
   - intent: greet
   - action: utter_greet
 
-- rule: Confirm appointment when user affirms in confirmación context
+- rule: Confirm appointment when user affirms in confirmación context (initial)
   condition:
   - slot_was_set:
     - contexto: "confirmación"
+    - cancellation_pending: false
+    - post_regret_context: false
   steps:
   - intent: affirm
   - action: action_confirm_appointment
   - action: action_eval_response
   - action: action_schedule_payment_button
 
-- rule: Cancel appointment when user denies in confirmación context
+- rule: Cancel appointment when user denies in confirmación context (initial)
   condition:
   - slot_was_set:
     - contexto: "confirmación"
+    - cancellation_pending: false
+    - post_regret_context: false
   steps:
   - intent: deny
   - action: action_schedule_cancellation
+
+- rule: Process regret cancellation when cancellation is pending
+  condition:
+  - slot_was_set:
+    - cancellation_pending: true
+  steps:
+  - intent: regret_cancellation
+  - action: action_process_regret_cancellation
+
+- rule: Confirm cancellation after regret (user clicks "Sí, cancelar cita")
+  condition:
+  - slot_was_set:
+    - post_regret_context: true
+    - contexto: "confirmación"
+  steps:
+  - intent: affirm
+  - action: action_cancel_appointment
+
+- rule: Keep appointment after regret (user clicks "No, mantener cita")
+  condition:
+  - slot_was_set:
+    - post_regret_context: true
+    - contexto: "confirmación"
+  steps:
+  - intent: deny
+  - action: action_confirm_post_cancel
 
 
 
@@ -60,6 +90,8 @@ rules:
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
+    - cancellation_pending: false
+    - post_regret_context: false
   steps:
   - intent: affirm
   - action: utter_rebooking_ask_date
@@ -93,6 +125,8 @@ rules:
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
+    - cancellation_pending: false
+    - post_regret_context: false
   steps:
   - intent: deny
   - action: utter_rebooking_cancelled
@@ -113,6 +147,9 @@ rules:
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
+    - cancellation_pending: false
+    - post_regret_context: false
+    - contexto_rebooking_menu: null
   steps:
   - intent: nlu_fallback
   - action: action_fallback
@@ -121,6 +158,9 @@ rules:
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
+    - cancellation_pending: false
+    - post_regret_context: false
+    - contexto_rebooking_menu: null
   steps:
   - intent: out_of_scope
   - action: action_fallback
@@ -138,11 +178,21 @@ rules:
 # ===== MANEJO DE FALLBACK =====
 
 - rule: Fallback when bot doesn't understand
+  condition:
+  - slot_was_set:
+    - cancellation_pending: false
+    - post_regret_context: false
+    - contexto_rebooking_menu: null
   steps:
   - intent: nlu_fallback
   - action: action_fallback
 
 - rule: Handle out of scope text
+  condition:
+  - slot_was_set:
+    - cancellation_pending: false
+    - post_regret_context: false
+    - contexto_rebooking_menu: null
   steps:
   - intent: out_of_scope
   - action: action_fallback
