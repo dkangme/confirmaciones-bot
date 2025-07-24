@@ -17,6 +17,9 @@
 12. **Sistema de Slots Optimizados**: Función `get_slots_optimized` implementada
 13. **Procesamiento de Fechas**: Acción `ActionProcessDateRequest` para extraer fechas del usuario
 14. **Corrección de Parámetros**: Todos los parámetros de `get_slots_optimized` corregidos
+15. **Flujo de Arrepentimiento de Cancelación**: Sistema completo para manejar arrepentimientos
+16. **Consistencia de Reglas**: Todas las reglas y stories corregidas para evitar conflictos
+17. **Procesamiento de Slots**: Mejora en `ActionInitContext` para procesar `centro_medico_google`
 
 ### 🔄 Trabajo en Progreso
 - **Memory Bank**: Documentación completa del proyecto (EN PROGRESO)
@@ -28,7 +31,8 @@
 2. **Probar Fallback**: Verificar funcionamiento del sistema de fallback
 3. **Validar API**: Probar conexión con RedSalud/Apigee
 4. **Probar Rebooking**: Validar flujo completo de reagendamiento
-5. **Optimizar Respuestas**: Revisar y mejorar mensajes de WhatsApp
+5. **Probar Arrepentimiento**: Validar flujo completo de arrepentimiento de cancelación
+6. **Optimizar Respuestas**: Revisar y mejorar mensajes de WhatsApp
 
 ## Decisiones Técnicas Activas
 
@@ -82,6 +86,21 @@
 - **Razón**: Asegurar que los valores se obtengan de los slots apropiados
 - **Estado**: ✅ Implementado (resource_id, patient_id, finish_time corregidos)
 
+### 11. **Flujo de Arrepentimiento de Cancelación**
+- **Decisión**: Implementar sistema completo para manejar arrepentimientos de cancelación
+- **Razón**: Mejorar experiencia de usuario permitiendo cambiar de opinión
+- **Estado**: ✅ Implementado (acciones, reglas y stories completas)
+
+### 12. **Consistencia de Reglas y Stories**
+- **Decisión**: Usar slot `post_regret_context` para distinguir contextos y evitar conflictos
+- **Razón**: Resolver todos los conflictos InvalidRule entre diferentes flujos
+- **Estado**: ✅ Implementado (todas las reglas corregidas)
+
+### 13. **Procesamiento de Slots Especiales**
+- **Decisión**: Procesar `centro_medico_google` en `ActionInitContext` para limpiar y reasignar
+- **Razón**: Asegurar consistencia en el formato de datos del centro médico
+- **Estado**: ✅ Implementado
+
 ## Problemas Resueltos Recientemente
 
 ### 1. **Error de Credenciales APIGEE**
@@ -129,12 +148,22 @@
 - **Solución**: Usar `resource_id` con fallback a `resource_name`
 - **Estado**: ✅ Resuelto
 
+### 10. **Conflictos InvalidRule**
+- **Problema**: Múltiples conflictos entre reglas y stories para intents `affirm` y `deny`
+- **Solución**: Implementar slot `post_regret_context` y condiciones específicas en todas las reglas
+- **Estado**: ✅ Resuelto
+
+### 11. **Procesamiento de centro_medico_google**
+- **Problema**: Necesidad de limpiar y reasignar el valor del slot `centro_medico_google`
+- **Solución**: Agregar lógica en `ActionInitContext` para procesar y reasignar el slot
+- **Estado**: ✅ Resuelto
+
 ## Configuración Actual
 
 ### Archivos Críticos
 - **config.yml**: Pipeline NLU y políticas configuradas (threshold fallback: 0.7)
-- **domain.yml**: 26 entidades, slots y respuestas definidas (incluye rebooking)
-- **actions/actions.py**: 10 acciones personalizadas implementadas
+- **domain.yml**: 27 entidades, slots y respuestas definidas (incluye rebooking y arrepentimiento)
+- **actions/actions.py**: 12 acciones personalizadas implementadas
 - **actions/rebooking_actions.py**: Acciones específicas de rebooking implementadas
 - **.env**: Variables de entorno para BD y APIGEE
 
@@ -145,6 +174,8 @@
 - **ActionProcessSlotSelection**: Procesa selección de horario
 - **ActionConfirmRebooking**: Confirma reagendamiento
 - **ActionCancelRebooking**: Cancela reagendamiento
+- **ActionProcessRegretCancellation**: Procesa arrepentimiento de cancelación
+- **ActionConfirmPostCancel**: Confirma cita después del arrepentimiento
 - **get_slots_optimized**: Función para obtener horarios disponibles
 - **process_available_slots**: Procesa respuesta de slots disponibles
 
@@ -156,6 +187,10 @@
 - **available_slots**: Lista de horarios disponibles
 - **selected_slot**: Horario seleccionado por el usuario
 - **slot_selection_index**: Índice de la selección
+
+### Slots de Arrepentimiento
+- **cancellation_pending**: Boolean para indicar si hay cancelación pendiente
+- **post_regret_context**: Boolean para distinguir contexto post-arrepentimiento
 
 ### Endpoints Configurados
 - **Action Server**: Puerto 5055
@@ -179,8 +214,9 @@
 1. Entrenar modelo con configuración actual
 2. Probar flujos de confirmación/cancelación
 3. Probar flujo completo de rebooking
-4. Validar integración con API de RedSalud
-5. Verificar funcionamiento del fallback
+4. Probar flujo completo de arrepentimiento de cancelación
+5. Validar integración con API de RedSalud
+6. Verificar funcionamiento del fallback
 
 ### Fase 2: Optimización (Corto Plazo)
 1. Mejorar respuestas de WhatsApp
@@ -226,4 +262,12 @@ python validate_setup.py
 3. **Procesamiento de Fecha**: `proponer_fecha` → `action_process_date_request`
 4. **Selección de Horario**: `seleccionar_opcion` → `action_process_slot_selection`
 5. **Confirmación de Rebooking**: `affirm_rebooking_confirm` → `action_confirm_rebooking`
-6. **Fallback**: `nlu_fallback` o `out_of_scope` → `action_fallback` 
+6. **Arrepentimiento de Cancelación**: `regret_cancellation` → `action_process_regret_cancellation` → `utter_ask_confirm_cancel_or_keep`
+7. **Confirmación Post-Arrepentimiento**: `affirm` → `action_cancel_appointment` o `deny` → `action_confirm_post_cancel`
+8. **Fallback**: `nlu_fallback` o `out_of_scope` → `action_fallback`
+
+### Reglas de Contexto Implementadas
+- **Contexto Inicial**: `post_regret_context: false` + `cancellation_pending: false`
+- **Contexto Post-Arrepentimiento**: `post_regret_context: true` + `cancellation_pending: false`
+- **Contexto de Rebooking**: `contexto_rebooking: "rebooking"` + `post_regret_context: false`
+- **Contexto de Menú**: `contexto_rebooking_menu: "activado"` + `post_regret_context: false` 
