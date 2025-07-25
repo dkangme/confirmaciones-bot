@@ -334,6 +334,11 @@ slots:
     initial_value: false
     mappings:
     - type: custom
+  menu_post_confirmation:
+    type: bool
+    initial_value: false
+    mappings:
+    - type: custom
 
 responses:
   utter_greet:
@@ -393,6 +398,31 @@ responses:
             reply:
               id: "no"
               title: "No"
+  - condition:
+    - type: slot
+      name: campaign_name
+      value: "notificacion"
+    custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: template
+      template:
+        name: "{campaign_name}"
+        language:
+          code: ES_AR
+        components:
+        - type: body
+          parameters:
+        - type: text
+          text: "{nombre_paciente}"
+        - type: text
+          text: "*{bot_name}*"
+        - type: text
+          text: "{area_medica}"
+        - type: text
+          text: "{fecha_hora_formato}"
+        - type: text
+          text: "{centro_medico}"
   - text: "Hey! How are you?"
 
   utter_rebooking_cancelled:
@@ -501,7 +531,7 @@ responses:
                   title: "✅"
                   description: "No, muchas gracias."
                 - id: "reagendamiento_menu_opcion_2"
-                  title: "❎"
+                  title: "❌"
                   description: "Quiero anular mi hora."
                 - id: "reagendamiento_menu_opcion_3"
                   title: "🔄"
@@ -515,6 +545,73 @@ responses:
                 - id: "reagendamiento_menu_opcion_6"
                   title: "❓"
                   description: "Otras consultas."
+
+  utter_show_post_confirmation_menu:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: interactive
+      interactive:
+        type: list
+        header:
+          type: text
+          text: "Menú de Opciones"
+        body:
+          text: "Soy un asistente virtual, para poder ayudarle seleccione una de las siguientes opciones. 👇"
+        footer:
+          text: "Seleccione una opción"
+        action:
+          button: "Opciones"
+          sections:
+            - title: "Opciones disponibles"
+              rows:
+                - id: "reagendamiento_menu_opcion_1"
+                  title: "✅"
+                  description: "No, muchas gracias."
+                - id: "reagendamiento_menu_opcion_2"
+                  title: "❌"
+                  description: "Quiero anular mi hora."
+                - id: "reagendamiento_menu_opcion_3"
+                  title: "🔄"
+                  description: "Quiero reagendar mi hora."
+                - id: "reagendamiento_menu_opcion_4"
+                  title: "💲"
+                  description: "Quiero saber los valores de la atención."
+                - id: "reagendamiento_menu_opcion_5"
+                  title: "💳"
+                  description: "Quiero pagar mi cita Online."
+                - id: "reagendamiento_menu_opcion_6"
+                  title: "❓"
+                  description: "Otras consultas."
+
+  utter_show_post_conf_telem_menu:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: interactive
+      interactive:
+        type: list
+        header:
+          type: text
+          text: "Menú de Opciones"
+        body:
+          text: "Soy un asistente virtual, para poder ayudarle seleccione una de las siguientes opciones. 👇"
+        footer:
+          text: "Seleccione una opción"
+        action:
+          button: "Opciones"
+          sections:
+            - title: "Opciones disponibles"
+              rows:
+                - id: "menu_post_conf_telem_1"
+                  title: "✅"
+                  description: "No, muchas gracias."
+                - id: "menu_post_conf_telem_2"
+                  title: "❌"
+                  description: "Quiero anular mi hora."
+                - id: "menu_post_conf_telem_3"
+                  title: "❓"
+                  description: "Problemas con mi atención."
 
   utter_waiting_for_confirmation:
   - custom:
@@ -1072,19 +1169,19 @@ responses:
           text: "Confirmación de cancelación"
           type: "TEXT"
         body:
-          text: "*{nombre_paciente}*, ¿estás seguro/a de que deseas cancelar tu cita para el {fecha_hora_formato}? Por favor, confirma tu decisión:"
+          text: "¿Necesita confirmar su hora? Para confirmar su asistencia marque 'Si'. De lo contrario, si desea anular su asistencia, marque 'No'."
         footer:
           text: "Selecciona una opción"
         action:
           buttons:
             - type: reply
               reply:
-                id: "cancel"
-                title: "Sí, cancelar cita"
+                id: "si"
+                title: "Sí, confirmar cita"
             - type: reply
               reply:
-                id: "keep"
-                title: "No, mantener cita"
+                id: "no"
+                title: "No, cancelar cita"
 
   utter_reagendamiento_opcion1:
   - custom:

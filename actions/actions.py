@@ -995,8 +995,12 @@ class ActionConfirmAppointment(Action):
                             # Siempre enviar footer
                             dispatcher.utter_message(response="utter_confirm_footer")
                         
+                        # Establecer slot menu_post_confirmation como true
+                        events = [SlotSet("menu_post_confirmation", True)]
+                        logger.info(f"ActionConfirmAppointment - Slot menu_post_confirmation establecido como True para usuario: {tracker.sender_id}")
+                        
                         logger.info(f"Confirmación exitosa para usuario: {tracker.sender_id}")
-                        return []
+                        return events
                 else:
                     logger.warning("No se pudo obtener token de acceso para Apigee")
                     # Enviar mensaje de error directamente
@@ -1489,11 +1493,23 @@ class ActionConfirmPostCancel(Action):
         log_request_info(tracker, self.name())
         
         try:
+            # Obtener información del usuario y contexto
+            user_id = tracker.sender_id
+            logger.info(f"ActionConfirmPostCancel iniciado para usuario: {user_id}")
+            
+            # Obtener slots relevantes para logging
+            post_regret_context = get_slot_value(tracker, "post_regret_context")
+            cancellation_pending = get_slot_value(tracker, "cancellation_pending")
+            contexto = get_slot_value(tracker, "contexto")
+            
+            logger.info(f"Contexto actual - post_regret_context: {post_regret_context}, cancellation_pending: {cancellation_pending}, contexto: {contexto}")
+            
             # Obtener el ID de la cita
             appointment_id = get_slot_value(tracker, "appointment_id")
+            logger.info(f"Appointment ID obtenido: {appointment_id}")
             
             if not appointment_id:
-                logger.error("No se encontró appointment_id para confirmar cita post-cancelación")
+                logger.error(f"ActionConfirmPostCancel - No se encontró appointment_id para usuario: {user_id}")
                 error_response = {
                     "messaging_product": "whatsapp",
                     "recipient_type": "individual",
@@ -1506,10 +1522,19 @@ class ActionConfirmPostCancel(Action):
                 dispatcher.utter_message(json_message=error_response)
                 return []
             
+            # Obtener información adicional de la cita para logging
+            nombre_paciente = get_slot_value(tracker, "nombre_paciente")
+            fecha_hora = get_slot_value(tracker, "fecha_hora")
+            centro_medico = get_slot_value(tracker, "centro_medico")
+            
+            logger.info(f"Información de cita - Paciente: {nombre_paciente}, Fecha: {fecha_hora}, Centro: {centro_medico}")
+            
             # Obtener token de acceso
+            logger.info(f"ActionConfirmPostCancel - Obteniendo token de acceso para cita: {appointment_id}")
             access_token = obtener_access_token()
+            
             if not access_token:
-                logger.error("No se pudo obtener token de acceso para confirmar cita")
+                logger.error(f"ActionConfirmPostCancel - No se pudo obtener token de acceso para usuario: {user_id}, cita: {appointment_id}")
                 error_response = {
                     "messaging_product": "whatsapp",
                     "recipient_type": "individual",
@@ -1522,14 +1547,21 @@ class ActionConfirmPostCancel(Action):
                 dispatcher.utter_message(json_message=error_response)
                 return []
             
+            logger.info(f"ActionConfirmPostCancel - Token de acceso obtenido exitosamente para cita: {appointment_id}")
+            
             # Confirmar la cita en la API
+            logger.info(f"ActionConfirmPostCancel - Iniciando confirmación de cita en API para: {appointment_id}")
             result = confirm_appointment(access_token, appointment_id)
             
             if "error" in result:
-                logger.error(f"Error confirmando cita post-cancelación: {result['error']}")
+                logger.error(f"ActionConfirmPostCancel - Error confirmando cita post-cancelación para usuario: {user_id}, cita: {appointment_id}, error: {result['error']}")
                 
                 # Actualizar estado en base de datos como error
-                db_connection.update_appointment_status(appointment_id, "confirmed error")
+                try:
+                    db_connection.update_appointment_status(appointment_id, "confirmed error")
+                    logger.info(f"ActionConfirmPostCancel - Estado de BD actualizado a 'confirmed error' para cita: {appointment_id}")
+                except Exception as db_error:
+                    logger.error(f"ActionConfirmPostCancel - Error actualizando estado en BD: {db_error}")
                 
                 error_response = {
                     "messaging_product": "whatsapp",
@@ -1543,10 +1575,15 @@ class ActionConfirmPostCancel(Action):
                 dispatcher.utter_message(json_message=error_response)
                 return []
             else:
-                logger.info(f"Cita confirmada exitosamente post-cancelación: {result}")
+                logger.info(f"ActionConfirmPostCancel - Cita confirmada exitosamente en API para usuario: {user_id}, cita: {appointment_id}")
+                logger.info(f"ActionConfirmPostCancel - Respuesta de API: {result}")
                 
                 # Actualizar estado en base de datos como confirmado
-                db_connection.update_appointment_status(appointment_id, "confirmed")
+                try:
+                    db_connection.update_appointment_status(appointment_id, "confirmed")
+                    logger.info(f"ActionConfirmPostCancel - Estado de BD actualizado a 'confirmed' para cita: {appointment_id}")
+                except Exception as db_error:
+                    logger.error(f"ActionConfirmPostCancel - Error actualizando estado en BD: {db_error}")
                 
                 # Enviar mensaje de confirmación exitosa
                 success_response = {
@@ -1572,11 +1609,16 @@ Tu cita ha sido confirmada y no será cancelada.
                 
                 dispatcher.utter_message(json_message=success_response)
                 
-                logger.info(f"Confirmación post-cancelación exitosa para cita {appointment_id}")
-                return []
+                # Establecer slot menu_post_confirmation como true
+                events = [SlotSet("menu_post_confirmation", True)]
+                logger.info(f"ActionConfirmPostCancel - Slot menu_post_confirmation establecido como True para usuario: {user_id}")
+                
+                logger.info(f"ActionConfirmPostCancel - Confirmación post-cancelación completada exitosamente para usuario: {user_id}, cita: {appointment_id}")
+                logger.info(f"ActionConfirmPostCancel - Mensaje de éxito enviado al usuario: {user_id}")
+                return events
                 
         except Exception as e:
-            error_message = f"Error confirmando cita post-cancelación: {str(e)}"
+            error_message = f"ActionConfirmPostCancel - Error confirmando cita post-cancelación para usuario: {tracker.sender_id}, error: {str(e)}"
             logger.error(error_message, exc_info=True)
             
             error_response = {

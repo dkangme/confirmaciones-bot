@@ -848,3 +848,26 @@ nlu:
     - pagar mi cita por el firefox
     - pagar mi cita por el safari
     - pagar mi cita por el edge
+
+- intent: menu_post_conf_telem_1
+  examples: |
+    - menu post conf telem 1
+    - menu post conf telem '1'
+    - opcion 1 del menu post conf telem
+    - menu post conf telem opcion 1
+    - opcion 1 post conf telem
+    - post conf telem opcion 1
+    - opcion 1 del menu
+    - menu opcion 1
+    - opcion 1
+    - menu_post_conf_telem_1
+    - opcion 1
+    - la opcion 1
+    - quiero la opcion 1
+    - me sirve la opcion 1
+    - la primera opcion
+    - opcion uno
+    - opcion 1 por favor
+    - selecciono opcion 1
+    - elijo opcion 1
+    - opcion 1 del menu post conf telem

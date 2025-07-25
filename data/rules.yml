@@ -27,6 +27,7 @@ rules:
     - contexto: "confirmación"
     - cancellation_pending: false
     - post_regret_context: false
+    - menu_post_confirmation: false
   steps:
   - intent: affirm
   - action: action_confirm_appointment
@@ -39,6 +40,7 @@ rules:
     - contexto: "confirmación"
     - cancellation_pending: false
     - post_regret_context: false
+    - menu_post_confirmation: false
   steps:
   - intent: deny
   - action: action_schedule_cancellation
@@ -51,23 +53,23 @@ rules:
   - intent: regret_cancellation
   - action: action_process_regret_cancellation
 
-- rule: Confirm cancellation after regret (user clicks "Sí, cancelar cita")
+- rule: Keep appointment after regret (user clicks "Sí, mantener cita")
   condition:
   - slot_was_set:
     - post_regret_context: true
     - contexto: "confirmación"
   steps:
   - intent: affirm
-  - action: action_cancel_appointment
+  - action: action_confirm_post_cancel
 
-- rule: Keep appointment after regret (user clicks "No, mantener cita")
+- rule: Confirm cancellation after regret (user clicks "No, cancelar cita")
   condition:
   - slot_was_set:
     - post_regret_context: true
     - contexto: "confirmación"
   steps:
   - intent: deny
-  - action: action_confirm_post_cancel
+  - action: action_cancel_appointment
 
 
 
@@ -92,6 +94,7 @@ rules:
     - contexto_rebooking: "rebooking"
     - cancellation_pending: false
     - post_regret_context: false
+    - menu_post_confirmation: false
   steps:
   - intent: affirm
   - action: utter_rebooking_ask_date
@@ -100,6 +103,7 @@ rules:
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
+    - menu_post_confirmation: false
   steps:
   - intent: proponer_fecha
   - action: action_process_date_request
@@ -109,6 +113,7 @@ rules:
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
+    - menu_post_confirmation: false
   steps:
   - intent: seleccionar_opcion
   - action: action_process_slot_selection
@@ -117,6 +122,7 @@ rules:
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
+    - menu_post_confirmation: false
   steps:
   - intent: seleccionar_cita_nueva_fecha
   - action: action_process_slot_selection
@@ -127,6 +133,7 @@ rules:
     - contexto_rebooking: "rebooking"
     - cancellation_pending: false
     - post_regret_context: false
+    - menu_post_confirmation: false
   steps:
   - intent: deny
   - action: utter_rebooking_cancelled
@@ -137,6 +144,7 @@ rules:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
     - selected_slot: true
+    - menu_post_confirmation: false
   steps:
   - intent: affirm_rebooking_confirm
   - action: action_confirm_rebooking
@@ -150,6 +158,7 @@ rules:
     - cancellation_pending: false
     - post_regret_context: false
     - contexto_rebooking_menu: null
+    - menu_post_confirmation: false
   steps:
   - intent: nlu_fallback
   - action: action_fallback
@@ -161,6 +170,7 @@ rules:
     - cancellation_pending: false
     - post_regret_context: false
     - contexto_rebooking_menu: null
+    - menu_post_confirmation: false
   steps:
   - intent: out_of_scope
   - action: action_fallback
@@ -175,6 +185,40 @@ rules:
     - intent: EXTERNAL_cancellation
     - action: action_cancel_appointment
 
+# ===== MENÚ POST-CONFIRMACIÓN =====
+
+- rule: Show post confirmation menu for cancel_appointment
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: cancel_appointment
+  - action: utter_show_post_confirmation_menu
+
+- rule: Show post confirmation menu for reschedule_appointment
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: reschedule_appointment
+  - action: utter_show_post_confirmation_menu
+
+- rule: Show post confirmation menu for ask_prices
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: ask_prices
+  - action: utter_show_post_confirmation_menu
+
+- rule: Show post confirmation menu for pay_online
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: pay_online
+  - action: utter_show_post_confirmation_menu
+
 # ===== MANEJO DE FALLBACK =====
 
 - rule: Fallback when bot doesn't understand
@@ -183,6 +227,7 @@ rules:
     - cancellation_pending: false
     - post_regret_context: false
     - contexto_rebooking_menu: null
+    - menu_post_confirmation: false
   steps:
   - intent: nlu_fallback
   - action: action_fallback
@@ -193,6 +238,7 @@ rules:
     - cancellation_pending: false
     - post_regret_context: false
     - contexto_rebooking_menu: null
+    - menu_post_confirmation: false
   steps:
   - intent: out_of_scope
   - action: action_fallback

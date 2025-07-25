@@ -9,7 +9,6 @@ stories:
   - action: action_init_context
 
 
-
 # Flujo completo de confirmación de cita
 - story: complete confirmation flow
   steps:
@@ -35,27 +34,11 @@ stories:
     - cancellation_pending: true
   - intent: regret_cancellation
   - action: action_process_regret_cancellation
-
-# Flujo de cancelación confirmada después del arrepentimiento
-- story: cancellation confirmed after regret
-  steps:
-  - slot_was_set:
-    - contexto: "confirmación"
-  - intent: greet
-  - action: utter_greet
-  - intent: deny
-  - action: action_schedule_cancellation
-  - slot_was_set:
-    - cancellation_pending: true
-  - intent: regret_cancellation
-  - action: action_process_regret_cancellation
   - slot_was_set:
     - cancellation_pending: false
     - post_regret_context: true
-  - intent: affirm
-  - action: action_cancel_appointment
 
-# Flujo de cita mantenida después del arrepentimiento
+# Flujo de cita mantenida después del arrepentimiento (user clicks "Sí, mantener cita")
 - story: appointment kept after regret
   steps:
   - slot_was_set:
@@ -71,8 +54,27 @@ stories:
   - slot_was_set:
     - cancellation_pending: false
     - post_regret_context: true
-  - intent: deny
+  - intent: affirm
   - action: action_confirm_post_cancel
+
+# Flujo de cancelación confirmada después del arrepentimiento (user clicks "No, cancelar cita")
+- story: cancellation confirmed after regret
+  steps:
+  - slot_was_set:
+    - contexto: "confirmación"
+  - intent: greet
+  - action: utter_greet
+  - intent: deny
+  - action: action_schedule_cancellation
+  - slot_was_set:
+    - cancellation_pending: true
+  - intent: regret_cancellation
+  - action: action_process_regret_cancellation
+  - slot_was_set:
+    - cancellation_pending: false
+    - post_regret_context: true
+  - intent: deny
+  - action: action_cancel_appointment
 
 
 
