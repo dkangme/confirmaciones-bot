@@ -727,6 +727,160 @@ nlu:
     - elijo opcion 6
     - opcion 6 del menu de reagendamiento
 
+- intent: reag_pconfirm_menu_opcion_1
+  examples: |
+    - reag pconfirm menu opcion 1
+    - reag pconfirm menu opcion '1'
+    - opcion 1 del menu reag pconfirm
+    - menu reag pconfirm opcion 1
+    - opcion 1 reag pconfirm
+    - reag pconfirm opcion 1
+    - opcion 1 del menu
+    - menu opcion 1
+    - opcion 1
+    - reag_pconfirm_menu_opcion_1
+    - opcion 1
+    - la opcion 1
+    - quiero la opcion 1
+    - me sirve la opcion 1
+    - la primera opcion
+    - opcion uno
+    - opcion 1 por favor
+    - selecciono opcion 1
+    - elijo opcion 1
+    - opcion 1 del menu reag pconfirm
+
+- intent: reag_pconfirm_menu_opcion_2
+  examples: |
+    - reag pconfirm menu opcion 2
+    - reag pconfirm menu opcion '2'
+    - opcion 2 del menu reag pconfirm
+    - menu reag pconfirm opcion 2
+    - opcion 2 reag pconfirm
+    - reag pconfirm opcion 2
+    - opcion 2 del menu
+    - menu opcion 2
+    - opcion 2
+    - reag_pconfirm_menu_opcion_2
+    - opcion 2
+    - la opcion 2
+    - quiero la opcion 2
+    - me sirve la opcion 2
+    - la segunda opcion
+    - opcion dos
+    - opcion 2 por favor
+    - selecciono opcion 2
+    - elijo opcion 2
+    - opcion 2 del menu reag pconfirm
+
+- intent: reag_pconfirm_menu_opcion_3
+  examples: |
+    - reag pconfirm menu opcion 3
+    - reag pconfirm menu opcion '3'
+    - opcion 3 del menu reag pconfirm
+    - menu reag pconfirm opcion 3
+    - opcion 3 reag pconfirm
+    - reag pconfirm opcion 3
+    - opcion 3 del menu
+    - menu opcion 3
+    - opcion 3
+    - reag_pconfirm_menu_opcion_3
+    - opcion 3
+    - la opcion 3
+    - quiero la opcion 3
+    - me sirve la opcion 3
+    - la tercera opcion
+    - opcion tres
+    - opcion 3 por favor
+    - selecciono opcion 3
+    - elijo opcion 3
+    - opcion 3 del menu reag pconfirm
+
+- intent: reag_pconfirm_menu_opcion_4
+  examples: |
+    - reag pconfirm menu opcion 4
+    - reag pconfirm menu opcion '4'
+    - opcion 4 del menu reag pconfirm
+    - menu reag pconfirm opcion 4
+    - opcion 4 reag pconfirm
+    - reag pconfirm opcion 4
+    - opcion 4 del menu
+    - menu opcion 4
+    - opcion 4
+    - reag_pconfirm_menu_opcion_4
+    - opcion 4
+    - la opcion 4
+    - quiero la opcion 4
+    - me sirve la opcion 4
+    - la cuarta opcion
+    - opcion cuatro
+    - opcion 4 por favor
+    - selecciono opcion 4
+    - elijo opcion 4
+    - opcion 4 del menu reag pconfirm
+
+- intent: reag_pconfirm_menu_opcion_5
+  examples: |
+    - reag pconfirm menu opcion 5
+    - reag pconfirm menu opcion '5'
+    - opcion 5 del menu reag pconfirm
+    - menu reag pconfirm opcion 5
+    - opcion 5 reag pconfirm
+    - reag pconfirm opcion 5
+    - opcion 5 del menu
+    - menu opcion 5
+    - opcion 5
+    - reag_pconfirm_menu_opcion_5
+    - reag_pconfirm_menu_opcion5
+    - opcion 5
+    - la opcion 5
+    - quiero la opcion 5
+    - me sirve la opcion 5
+    - la quinta opcion
+    - opcion cinco
+    - opcion 5 por favor
+    - selecciono opcion 5
+    - elijo opcion 5
+    - opcion 5 del menu reag pconfirm
+    - 5
+    - numero 5
+    - el numero 5
+    - la opcion numero 5
+    - quiero opcion 5
+    - necesito opcion 5
+    - me interesa opcion 5
+    - opcion numero 5
+    - quinta opcion
+    - opcion quinta
+    - la quinta
+    - quinta
+    - cinco
+    - numero cinco
+    - el numero cinco
+
+- intent: reag_pconfirm_menu_opcion_6
+  examples: |
+    - reag pconfirm menu opcion 6
+    - reag pconfirm menu opcion '6'
+    - opcion 6 del menu reag pconfirm
+    - menu reag pconfirm opcion 6
+    - opcion 6 reag pconfirm
+    - reag pconfirm opcion 6
+    - opcion 6 del menu
+    - menu opcion 6
+    - opcion 6
+    - reag_pconfirm_menu_opcion_6
+    - opcion 6
+    - la opcion 6
+    - quiero la opcion 6
+    - me sirve la opcion 6
+    - la sexta opcion
+    - opcion seis
+    - opcion 6 por favor
+    - selecciono opcion 6
+    - elijo opcion 6
+    - opcion 6 del menu reag pconfirm
+
 - intent: cancel_appointment
   examples: |
     - quiero cancelar mi cita

@@ -1,0 +1,52 @@
+version: "3.1"
+
+rules:
+
+# Reglas para opciones del menú de post-confirmación
+- rule: reag pconfirm menu opcion 1
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: reag_pconfirm_menu_opcion_1
+  - action: utter_reagendamiento_opcion1
+
+- rule: reag pconfirm menu opcion 2
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: reag_pconfirm_menu_opcion_2
+  - action: utter_reagendamiento_opcion2
+
+- rule: reag pconfirm menu opcion 3
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: reag_pconfirm_menu_opcion_3
+  - action: utter_reagendamiento_opcion3
+
+- rule: reag pconfirm menu opcion 4
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: reag_pconfirm_menu_opcion_4
+  - action: utter_reagendamiento_opcion4
+
+- rule: reag pconfirm menu opcion 5
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: reag_pconfirm_menu_opcion_5
+  - action: utter_reagendamiento_opcion5
+
+- rule: reag pconfirm menu opcion 6
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: reag_pconfirm_menu_opcion_6
+  - action: utter_reagendamiento_opcion6 

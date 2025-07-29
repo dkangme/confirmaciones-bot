@@ -144,14 +144,13 @@ rules:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
     - selected_slot: true
-    - menu_post_confirmation: false
   steps:
   - intent: affirm_rebooking_confirm
   - action: action_confirm_rebooking
 
 # ===== FALLBACK PARA REBOOKING =====
 
-- rule: Fallback for rebooking when bot doesn't understand
+- rule: Fallback for rebooking when bot doesn't understand (not in post confirmation context)
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
@@ -163,7 +162,7 @@ rules:
   - intent: nlu_fallback
   - action: action_fallback
 
-- rule: Handle out of scope text in rebooking context
+- rule: Handle out of scope text in rebooking context (not in post confirmation context)
   condition:
   - slot_was_set:
     - contexto_rebooking: "rebooking"
@@ -186,6 +185,14 @@ rules:
     - action: action_cancel_appointment
 
 # ===== MENÚ POST-CONFIRMACIÓN =====
+
+- rule: Handle affirm after confirmation (show post confirmation menu)
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: affirm
+  - action: utter_show_post_confirmation_menu
 
 - rule: Show post confirmation menu for cancel_appointment
   condition:
@@ -221,7 +228,7 @@ rules:
 
 # ===== MANEJO DE FALLBACK =====
 
-- rule: Fallback when bot doesn't understand
+- rule: Fallback when bot doesn't understand (not in post confirmation context)
   condition:
   - slot_was_set:
     - cancellation_pending: false
@@ -232,13 +239,31 @@ rules:
   - intent: nlu_fallback
   - action: action_fallback
 
-- rule: Handle out of scope text
+- rule: Handle out of scope text (not in post confirmation context)
   condition:
   - slot_was_set:
     - cancellation_pending: false
     - post_regret_context: false
     - contexto_rebooking_menu: null
     - menu_post_confirmation: false
+  steps:
+  - intent: out_of_scope
+  - action: action_fallback
+
+# ===== FALLBACK EN CONTEXTO POST-CONFIRMACIÓN =====
+
+- rule: Fallback in post confirmation context
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: nlu_fallback
+  - action: action_fallback
+
+- rule: Handle out of scope text in post confirmation context
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
   steps:
   - intent: out_of_scope
   - action: action_fallback

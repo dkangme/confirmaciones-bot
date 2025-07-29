@@ -26,6 +26,12 @@ intents:
   - reagendamiento_menu_opcion4
   - reagendamiento_menu_opcion5
   - reagendamiento_menu_opcion6
+  - reag_pconfirm_menu_opcion_1
+  - reag_pconfirm_menu_opcion_2
+  - reag_pconfirm_menu_opcion_3
+  - reag_pconfirm_menu_opcion_4
+  - reag_pconfirm_menu_opcion_5
+  - reag_pconfirm_menu_opcion_6
   - seleccionar_cita_nueva_fecha
   - regret_cancellation
 
@@ -527,22 +533,22 @@ responses:
           sections:
             - title: "Opciones disponibles"
               rows:
-                - id: "reagendamiento_menu_opcion_1"
+                - id: "reagendamiento_menu_opcion1"
                   title: "✅"
                   description: "No, muchas gracias."
-                - id: "reagendamiento_menu_opcion_2"
+                - id: "reagendamiento_menu_opcion2"
                   title: "❌"
                   description: "Quiero anular mi hora."
-                - id: "reagendamiento_menu_opcion_3"
+                - id: "reagendamiento_menu_opcion3"
                   title: "🔄"
                   description: "Quiero reagendar mi hora."
-                - id: "reagendamiento_menu_opcion_4"
+                - id: "reagendamiento_menu_opcion4"
                   title: "💲"
                   description: "Quiero saber los valores de la atención."
-                - id: "reagendamiento_menu_opcion_5"
+                - id: "reagendamiento_menu_opcion5"
                   title: "💳"
                   description: "Quiero pagar mi cita Online."
-                - id: "reagendamiento_menu_opcion_6"
+                - id: "reagendamiento_menu_opcion6"
                   title: "❓"
                   description: "Otras consultas."
 
@@ -565,22 +571,22 @@ responses:
           sections:
             - title: "Opciones disponibles"
               rows:
-                - id: "reagendamiento_menu_opcion_1"
+                - id: "reag_pconfirm_menu_opcion_1"
                   title: "✅"
                   description: "No, muchas gracias."
-                - id: "reagendamiento_menu_opcion_2"
+                - id: "reag_pconfirm_menu_opcion_2"
                   title: "❌"
                   description: "Quiero anular mi hora."
-                - id: "reagendamiento_menu_opcion_3"
+                - id: "reag_pconfirm_menu_opcion_3"
                   title: "🔄"
                   description: "Quiero reagendar mi hora."
-                - id: "reagendamiento_menu_opcion_4"
+                - id: "reag_pconfirm_menu_opcion_4"
                   title: "💲"
                   description: "Quiero saber los valores de la atención."
-                - id: "reagendamiento_menu_opcion_5"
+                - id: "reag_pconfirm_menu_opcion_5"
                   title: "💳"
                   description: "Quiero pagar mi cita Online."
-                - id: "reagendamiento_menu_opcion_6"
+                - id: "reag_pconfirm_menu_opcion_6"
                   title: "❓"
                   description: "Otras consultas."
 

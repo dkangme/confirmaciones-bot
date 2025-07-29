@@ -611,13 +611,14 @@ class ActionInitContext(Action):
             # Procesar centro_medico_google si está disponible
             centro_medico_google = get_slot_value(tracker, "centro_medico_google")
             if centro_medico_google:
-                # Escapar/limpiar el valor del centro médico de Google
+                # Mantener formato URL con espacios codificados como %20
                 if isinstance(centro_medico_google, str):
-                    # Limpiar caracteres especiales y formatear
-                    centro_medico_escaped = sanitize_string(centro_medico_google)
+                    # Codificar espacios y caracteres especiales para URL
+                    import urllib.parse
+                    centro_medico_url_encoded = urllib.parse.quote(centro_medico_google, safe=':/?=&')
                     # Reasignar el valor procesado al mismo slot
-                    slot_events.append(SlotSet("centro_medico_google", centro_medico_escaped))
-                    logger.info(f"centro_medico_google procesado y reasignado: {centro_medico_escaped}")
+                    slot_events.append(SlotSet("centro_medico_google", centro_medico_url_encoded))
+                    logger.info(f"centro_medico_google procesado y codificado como URL: {centro_medico_url_encoded}")
                 else:
                     logger.warning(f"centro_medico_google no es string: {type(centro_medico_google)}")
             else:
@@ -995,12 +996,8 @@ class ActionConfirmAppointment(Action):
                             # Siempre enviar footer
                             dispatcher.utter_message(response="utter_confirm_footer")
                         
-                        # Establecer slot menu_post_confirmation como true
-                        events = [SlotSet("menu_post_confirmation", True)]
-                        logger.info(f"ActionConfirmAppointment - Slot menu_post_confirmation establecido como True para usuario: {tracker.sender_id}")
-                        
                         logger.info(f"Confirmación exitosa para usuario: {tracker.sender_id}")
-                        return events
+                        return []
                 else:
                     logger.warning("No se pudo obtener token de acceso para Apigee")
                     # Enviar mensaje de error directamente
@@ -1282,6 +1279,11 @@ class ActionSchedulePaymentButton(Action):
             logging.error(f"Error en action_schedule_payment_button: {str(e)}")
             import traceback
             logging.error(f"Stacktrace: {traceback.format_exc()}")
+
+        # Establecer slot menu_post_confirmation como true al final de la secuencia
+        # Se ejecuta SIEMPRE, independientemente de errores o excepciones
+        events.append(SlotSet("menu_post_confirmation", True))
+        logging.info(f"ActionSchedulePaymentButton - Slot menu_post_confirmation establecido como True para usuario: {tracker.sender_id}")
 
         logging.info(f"ActionSchedulePaymentButton retornando eventos: {events}")
         return events
