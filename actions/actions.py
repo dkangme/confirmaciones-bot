@@ -650,8 +650,18 @@ class ActionInitContext(Action):
                 try:
                     # Parsear la fecha ISO y formatearla
                     from datetime import datetime
+                    dias_semana = [
+                        "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"
+                    ]
+                    meses = [
+                        "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+                    ]
                     fecha_obj = datetime.fromisoformat(fecha_hora.replace('Z', '+00:00'))
-                    fecha_formateada = fecha_obj.strftime("%d/%m/%Y a las %H:%M")
+                    dia_semana = dias_semana[fecha_obj.weekday()]
+                    dia = fecha_obj.day
+                    mes = meses[fecha_obj.month - 1]
+                    hora = fecha_obj.strftime("%H:%M")
+                    fecha_formateada = f"{dia_semana} {dia} de {mes} a las {hora}"
                     slot_events.append(SlotSet("fecha_hora_formato", fecha_formateada))
                     logger.info(f"Fecha formateada: {fecha_formateada}")
                 except Exception as e:
