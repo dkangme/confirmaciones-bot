@@ -1025,3 +1025,96 @@ nlu:
     - selecciono opcion 1
     - elijo opcion 1
     - opcion 1 del menu post conf telem
+
+- intent: problema_atencion
+  examples: |
+    - tuve problemas en mi atención
+    - tuve problemas con mi atención
+    - tuve problemas durante mi atención
+    - tuve problemas en la atención
+    - tuve problemas con la atención
+    - tuve problemas durante la atención
+    - tuve problemas en mi cita
+    - tuve problemas con mi cita
+    - tuve problemas durante mi cita
+    - tuve problemas en la cita
+    - tuve problemas con la cita
+    - tuve problemas durante la cita
+    - tuve problemas en mi consulta
+    - tuve problemas con mi consulta
+    - tuve problemas durante mi consulta
+    - tuve problemas en la consulta
+    - tuve problemas con la consulta
+    - tuve problemas durante la consulta
+    - tuve problemas en mi hora
+    - tuve problemas con mi hora
+    - tuve problemas durante mi hora
+
+- intent: menu_postconf_tm1
+  examples: |
+    - menu postconf tm1
+    - menu postconf tm '1'
+    - opcion 1 del menu postconf tm
+    - menu postconf tm opcion 1
+    - opcion 1 postconf tm
+    - postconf tm opcion 1
+    - opcion 1 del menu
+    - menu opcion 1
+    - opcion 1
+    - menu_postconf_tm1
+    - opcion 1
+    - la opcion 1
+    - quiero la opcion 1
+    - me sirve la opcion 1
+    - la primera opcion
+    - opcion uno
+    - opcion 1 por favor
+    - selecciono opcion 1
+    - elijo opcion 1
+    - opcion 1 del menu postconf tm
+
+- intent: menu_postconf_tm2
+  examples: |
+    - menu postconf tm2
+    - menu postconf tm '2'
+    - opcion 2 del menu postconf tm
+    - menu postconf tm opcion 2
+    - opcion 2 postconf tm
+    - postconf tm opcion 2
+    - opcion 2 del menu
+    - menu opcion 2
+    - opcion 2
+    - menu_postconf_tm2
+    - opcion 2
+    - la opcion 2
+    - quiero la opcion 2
+    - me sirve la opcion 2
+    - la segunda opcion
+    - opcion dos
+    - opcion 2 por favor
+    - selecciono opcion 2
+    - elijo opcion 2
+    - opcion 2 del menu postconf tm
+
+- intent: menu_postconf_tm3
+  examples: |
+    - menu postconf tm3
+    - menu postconf tm '3'
+    - opcion 3 del menu postconf tm
+    - menu postconf tm opcion 3
+    - opcion 3 postconf tm
+    - postconf tm opcion 3
+    - opcion 3 del menu
+    - menu opcion 3
+    - opcion 3
+    - menu_postconf_tm3
+    - opcion 3
+    - la opcion 3
+    - quiero la opcion 3
+    - me sirve la opcion 3
+    - la tercera opcion
+    - opcion tres
+    - opcion 3 por favor
+    - selecciono opcion 3
+    - elijo opcion 3
+    - opcion 3 del menu postconf tm

@@ -42793,3 +42793,780 @@ SSL SYSCALL error: Operation timed out
 2025-07-29 18:31:07 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 08:00
 2025-07-29 18:31:07 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: 66c278e2-58b2-43dc-9512-b32800fc1b0d
 2025-07-29 18:31:07 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:00:09 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: 109a5c93-7146-44cd-96dd-b3290171c975
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Manuel Castillo Vicuña', 'id_especialidad': '2ac260d0-a196-4b60-bd8c-afff00ee3b15', 'especialidad': 'EVALUACION KINESIOLOGÍA BARIÁTRICA', 'fecha_hora': '2025-07-30T18:30:00-04:00', 'id_centro_medico': 'f80ba6ae-d846-4934-ab9b-a8ac010a03f6', 'centro_medico': 'Clínica RedSalud Vitacura', 'centro_medico_address': 'Tabancura 1185,Vitacura', 'centro_medico_google': 'https://goo.gl/maps/qY6TiUmbujDKh75bA', 'centro_medico_comuna': 'Vitacura', 'area_medica': 'Kinesiología', 'conversation_id': '109a5c93-7146-44cd-96dd-b3290171c975', 'bot_name': 'BOT DEV', 'campaign_name': 'confirmacion', 'phone_number': '+56964058510', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Natalia Fernanda Trigo Espinoza', 'status': 'ready to send', 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 18:30', 'appointment_id': '109a5c93-7146-44cd-96dd-b3290171c975', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Manuel Castillo Vicuña'}, {'entity': 'id_especialidad', 'value': '2ac260d0-a196-4b60-bd8c-afff00ee3b15'}, {'entity': 'especialidad', 'value': 'EVALUACION KINESIOLOGÍA BARIÁTRICA'}, {'entity': 'fecha_hora', 'value': '2025-07-30T18:30:00-04:00'}, {'entity': 'id_centro_medico', 'value': 'f80ba6ae-d846-4934-ab9b-a8ac010a03f6'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Vitacura'}, {'entity': 'centro_medico_address', 'value': 'Tabancura 1185,Vitacura'}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/qY6TiUmbujDKh75bA'}, {'entity': 'centro_medico_comuna', 'value': 'Vitacura'}, {'entity': 'area_medica', 'value': 'Kinesiología'}, {'entity': 'conversation_id', 'value': '109a5c93-7146-44cd-96dd-b3290171c975'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'confirmacion'}, {'entity': 'phone_number', 'value': '+56964058510'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Natalia Fernanda Trigo Espinoza'}, {'entity': 'status', 'value': 'ready to send'}, {'entity': 'piso', 'value': None}, {'entity': 'torre', 'value': None}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Manuel Castillo Vicuña
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 2ac260d0-a196-4b60-bd8c-afff00ee3b15
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = EVALUACION KINESIOLOGÍA BARIÁTRICA
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T183000-0400
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = f80ba6ae-d846-4934-ab9b-a8ac010a03f6
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Vitacura
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Tabancura 1185,Vitacura
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsqY6TiUmbujDKh75bA
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_comuna = Vitacura
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Kinesiología
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = 109a5c93-7146-44cd-96dd-b3290171c975
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56964058510
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Natalia Fernanda Trigo Espinoza
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: status = ready to send
+2025-07-29 19:00:09 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/qY6TiUmbujDKh75bA
+2025-07-29 19:00:09 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:00:09 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: 109a5c93-7146-44cd-96dd-b3290171c975
+2025-07-29 19:00:09 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 18:30
+2025-07-29 19:00:09 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: 109a5c93-7146-44cd-96dd-b3290171c975
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:00:09 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Nicolas Pio Montero guerra', 'id_especialidad': '5d507fe5-d84d-440c-9b87-a60d001fea80', 'especialidad': 'MEDICINA GENERAL INFANTIL', 'fecha_hora': '2025-07-30T09:15:00-04:00', 'id_centro_medico': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b', 'centro_medico': 'Clínica RedSalud Rancagua', 'centro_medico_address': "Libertador Bernardo O'Higgins 634, Rancagua", 'centro_medico_google': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9', 'centro_medico_comuna': None, 'area_medica': 'Médica', 'conversation_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'bot_name': 'BOT DEV', 'campaign_name': 'confirmacion', 'phone_number': '+56988889999', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Luis Augusto Terán Paredes', 'status': 'ready to send', 'piso': '2', 'torre': 'A', 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 09:15', 'appointment_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Nicolas Pio Montero guerra'}, {'entity': 'id_especialidad', 'value': '5d507fe5-d84d-440c-9b87-a60d001fea80'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL INFANTIL'}, {'entity': 'fecha_hora', 'value': '2025-07-30T09:15:00-04:00'}, {'entity': 'id_centro_medico', 'value': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Rancagua'}, {'entity': 'centro_medico_address', 'value': "Libertador Bernardo O'Higgins 634, Rancagua"}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9'}, {'entity': 'centro_medico_comuna', 'value': None}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'eeb47378-3878-4577-a706-b31b014adf3e'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'confirmacion'}, {'entity': 'phone_number', 'value': '+56988889999'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Luis Augusto Terán Paredes'}, {'entity': 'status', 'value': 'ready to send'}, {'entity': 'piso', 'value': '2'}, {'entity': 'torre', 'value': 'A'}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Nicolas Pio Montero guerra
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 5d507fe5-d84d-440c-9b87-a60d001fea80
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL INFANTIL
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T091500-0400
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 61bb1873-0585-4ed6-8ef5-a8b80021ba1b
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Rancagua
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Libertador Bernardo OHiggins 634, Rancagua
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsGHqUcqFM4ZcS1xVc9
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56988889999
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Luis Augusto Terán Paredes
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: status = ready to send
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: piso = 2
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: torre = A
+2025-07-29 19:00:09 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/GHqUcqFM4ZcS1xVc9
+2025-07-29 19:00:09 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:00:09 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:00:09 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 09:15
+2025-07-29 19:00:09 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:00:09 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: f6766e6c-2c36-431b-ab13-b329013793f2
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Carolina Ignacia Contreras Núñez', 'id_especialidad': 'd76fee22-6a38-43ef-b824-a60d001fe940', 'especialidad': 'MEDICINA GENERAL ADULTO', 'fecha_hora': '2025-07-30T12:45:00-04:00', 'id_centro_medico': '4f238db3-af9a-40a1-bc0a-a8ac0109aee0', 'centro_medico': 'Clínica RedSalud Providencia', 'centro_medico_address': 'Av. Salvador 100,Providencia', 'centro_medico_google': 'https://goo.gl/maps/7Txo9vLMhm3CtuG7A', 'centro_medico_comuna': 'Providencia', 'area_medica': 'Médica', 'conversation_id': 'f6766e6c-2c36-431b-ab13-b329013793f2', 'bot_name': 'BOT DEV', 'campaign_name': 'confirmacion', 'phone_number': '+56976233172', 'preparations': True, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': 'https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link', 'preparation_pdf_name': None, 'resource_name': 'Boris Bastián Gómez Bobadilla', 'status': 'ready to send', 'piso': '3', 'torre': 'Sur', 'autopago': 'Piso 1 al lado de informaciones', 'fecha_hora_formato': '30/07/2025 a las 12:45', 'appointment_id': 'f6766e6c-2c36-431b-ab13-b329013793f2', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Carolina Ignacia Contreras Núñez'}, {'entity': 'id_especialidad', 'value': 'd76fee22-6a38-43ef-b824-a60d001fe940'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL ADULTO'}, {'entity': 'fecha_hora', 'value': '2025-07-30T12:45:00-04:00'}, {'entity': 'id_centro_medico', 'value': '4f238db3-af9a-40a1-bc0a-a8ac0109aee0'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Providencia'}, {'entity': 'centro_medico_address', 'value': 'Av. Salvador 100,Providencia'}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/7Txo9vLMhm3CtuG7A'}, {'entity': 'centro_medico_comuna', 'value': 'Providencia'}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'f6766e6c-2c36-431b-ab13-b329013793f2'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'confirmacion'}, {'entity': 'phone_number', 'value': '+56976233172'}, {'entity': 'preparations', 'value': True}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': 'https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link'}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Boris Bastián Gómez Bobadilla'}, {'entity': 'status', 'value': 'ready to send'}, {'entity': 'piso', 'value': '3'}, {'entity': 'torre', 'value': 'Sur'}, {'entity': 'autopago', 'value': 'Piso 1 al lado de informaciones'}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T124500-0400
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 4f238db3-af9a-40a1-bc0a-a8ac0109aee0
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Providencia
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Av. Salvador 100,Providencia
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmaps7Txo9vLMhm3CtuG7A
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_comuna = Providencia
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = f6766e6c-2c36-431b-ab13-b329013793f2
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56976233172
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: preparations = True
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Boris Bastián Gómez Bobadilla
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: status = ready to send
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: piso = 3
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: torre = Sur
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: autopago = Piso 1 al lado de informaciones
+2025-07-29 19:00:09 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/7Txo9vLMhm3CtuG7A
+2025-07-29 19:00:09 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:00:09 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: f6766e6c-2c36-431b-ab13-b329013793f2
+2025-07-29 19:00:09 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 12:45
+2025-07-29 19:00:09 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: f6766e6c-2c36-431b-ab13-b329013793f2
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:00:09 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: 66c278e2-58b2-43dc-9512-b32800fc1b0d
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Ro Pacientes Julio', 'id_especialidad': '9143f63f-ed3d-4d39-bc19-ad9b0178a9cc', 'especialidad': 'TTO. KINESIOLOGIA TRAUMATOLOGÍA', 'fecha_hora': '2025-07-30T08:00:00-04:00', 'id_centro_medico': '223ce757-0a28-471b-a13a-a8ac010e5041', 'centro_medico': 'Clínica RedSalud Santiago', 'centro_medico_address': 'Av Lib Bernardo Ohiggins 4850,Santiago', 'centro_medico_google': 'https://goo.gl/maps/LmkXZn4PYRgkGrYZ9', 'centro_medico_comuna': 'Santiago', 'area_medica': 'Kinesiología', 'conversation_id': '66c278e2-58b2-43dc-9512-b32800fc1b0d', 'bot_name': 'BOT DEV', 'campaign_name': 'confirmacion', 'phone_number': '+56987654321', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Constanza Ximena Barraza Jiménez', 'status': 'ready to send', 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 08:00', 'appointment_id': '66c278e2-58b2-43dc-9512-b32800fc1b0d', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Ro Pacientes Julio'}, {'entity': 'id_especialidad', 'value': '9143f63f-ed3d-4d39-bc19-ad9b0178a9cc'}, {'entity': 'especialidad', 'value': 'TTO. KINESIOLOGIA TRAUMATOLOGÍA'}, {'entity': 'fecha_hora', 'value': '2025-07-30T08:00:00-04:00'}, {'entity': 'id_centro_medico', 'value': '223ce757-0a28-471b-a13a-a8ac010e5041'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Santiago'}, {'entity': 'centro_medico_address', 'value': 'Av Lib Bernardo Ohiggins 4850,Santiago'}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/LmkXZn4PYRgkGrYZ9'}, {'entity': 'centro_medico_comuna', 'value': 'Santiago'}, {'entity': 'area_medica', 'value': 'Kinesiología'}, {'entity': 'conversation_id', 'value': '66c278e2-58b2-43dc-9512-b32800fc1b0d'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'confirmacion'}, {'entity': 'phone_number', 'value': '+56987654321'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Constanza Ximena Barraza Jiménez'}, {'entity': 'status', 'value': 'ready to send'}, {'entity': 'piso', 'value': None}, {'entity': 'torre', 'value': None}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Ro Pacientes Julio
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 9143f63f-ed3d-4d39-bc19-ad9b0178a9cc
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = TTO. KINESIOLOGIA TRAUMATOLOGÍA
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T080000-0400
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 223ce757-0a28-471b-a13a-a8ac010e5041
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Santiago
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Av Lib Bernardo Ohiggins 4850,Santiago
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsLmkXZn4PYRgkGrYZ9
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Kinesiología
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = 66c278e2-58b2-43dc-9512-b32800fc1b0d
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56987654321
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Constanza Ximena Barraza Jiménez
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: status = ready to send
+2025-07-29 19:00:09 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/LmkXZn4PYRgkGrYZ9
+2025-07-29 19:00:09 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:00:09 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: 66c278e2-58b2-43dc-9512-b32800fc1b0d
+2025-07-29 19:00:09 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 08:00
+2025-07-29 19:00:09 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: 66c278e2-58b2-43dc-9512-b32800fc1b0d
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:00:09 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Nicolas Pio Montero guerra', 'id_especialidad': '5d507fe5-d84d-440c-9b87-a60d001fea80', 'especialidad': 'MEDICINA GENERAL INFANTIL', 'fecha_hora': '2025-07-30T09:15:00-04:00', 'id_centro_medico': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b', 'centro_medico': 'Clínica RedSalud Rancagua', 'centro_medico_address': "Libertador Bernardo O'Higgins 634, Rancagua", 'centro_medico_google': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9', 'centro_medico_comuna': None, 'area_medica': 'Médica', 'conversation_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'bot_name': 'BOT DEV', 'campaign_name': 'confirmacion', 'phone_number': '+56988889999', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Luis Augusto Terán Paredes', 'status': 'ready to send', 'piso': '3', 'torre': 'A', 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 09:15', 'appointment_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:00:09 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Nicolas Pio Montero guerra'}, {'entity': 'id_especialidad', 'value': '5d507fe5-d84d-440c-9b87-a60d001fea80'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL INFANTIL'}, {'entity': 'fecha_hora', 'value': '2025-07-30T09:15:00-04:00'}, {'entity': 'id_centro_medico', 'value': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Rancagua'}, {'entity': 'centro_medico_address', 'value': "Libertador Bernardo O'Higgins 634, Rancagua"}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9'}, {'entity': 'centro_medico_comuna', 'value': None}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'eeb47378-3878-4577-a706-b31b014adf3e'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'confirmacion'}, {'entity': 'phone_number', 'value': '+56988889999'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Luis Augusto Terán Paredes'}, {'entity': 'status', 'value': 'ready to send'}, {'entity': 'piso', 'value': '3'}, {'entity': 'torre', 'value': 'A'}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Nicolas Pio Montero guerra
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 5d507fe5-d84d-440c-9b87-a60d001fea80
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL INFANTIL
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T091500-0400
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 61bb1873-0585-4ed6-8ef5-a8b80021ba1b
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Rancagua
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Libertador Bernardo OHiggins 634, Rancagua
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsGHqUcqFM4ZcS1xVc9
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56988889999
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Luis Augusto Terán Paredes
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: status = ready to send
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: piso = 3
+2025-07-29 19:00:09 - actions.actions - INFO - run:609 - Slot actualizado: torre = A
+2025-07-29 19:00:09 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/GHqUcqFM4ZcS1xVc9
+2025-07-29 19:00:09 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:00:09 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:00:09 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:00:09 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 09:15
+2025-07-29 19:00:09 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:00:09 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:05:08 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:05:08 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: 66c278e2-58b2-43dc-9512-b32800fc1b0d
+2025-07-29 19:05:08 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Ro Pacientes Julio', 'id_especialidad': '9143f63f-ed3d-4d39-bc19-ad9b0178a9cc', 'especialidad': 'TTO. KINESIOLOGIA TRAUMATOLOGÍA', 'fecha_hora': '2025-07-30T08:00:00-04:00', 'id_centro_medico': '223ce757-0a28-471b-a13a-a8ac010e5041', 'centro_medico': 'Clínica RedSalud Santiago', 'centro_medico_address': 'Av Lib Bernardo Ohiggins 4850,Santiago', 'centro_medico_google': 'https://goo.gl/maps/LmkXZn4PYRgkGrYZ9', 'centro_medico_comuna': 'Santiago', 'area_medica': 'Kinesiología', 'conversation_id': '66c278e2-58b2-43dc-9512-b32800fc1b0d', 'bot_name': 'BOT DEV', 'campaign_name': 'reconfirmacion', 'phone_number': '+56987654321', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Constanza Ximena Barraza Jiménez', 'status': 'reconfirmation in progress', 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 08:00', 'appointment_id': '66c278e2-58b2-43dc-9512-b32800fc1b0d', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:05:08 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Ro Pacientes Julio'}, {'entity': 'id_especialidad', 'value': '9143f63f-ed3d-4d39-bc19-ad9b0178a9cc'}, {'entity': 'especialidad', 'value': 'TTO. KINESIOLOGIA TRAUMATOLOGÍA'}, {'entity': 'fecha_hora', 'value': '2025-07-30T08:00:00-04:00'}, {'entity': 'id_centro_medico', 'value': '223ce757-0a28-471b-a13a-a8ac010e5041'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Santiago'}, {'entity': 'centro_medico_address', 'value': 'Av Lib Bernardo Ohiggins 4850,Santiago'}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/LmkXZn4PYRgkGrYZ9'}, {'entity': 'centro_medico_comuna', 'value': 'Santiago'}, {'entity': 'area_medica', 'value': 'Kinesiología'}, {'entity': 'conversation_id', 'value': '66c278e2-58b2-43dc-9512-b32800fc1b0d'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'reconfirmacion'}, {'entity': 'phone_number', 'value': '+56987654321'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Constanza Ximena Barraza Jiménez'}, {'entity': 'status', 'value': 'reconfirmation in progress'}, {'entity': 'piso', 'value': None}, {'entity': 'torre', 'value': None}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Ro Pacientes Julio
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 9143f63f-ed3d-4d39-bc19-ad9b0178a9cc
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = TTO. KINESIOLOGIA TRAUMATOLOGÍA
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T080000-0400
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 223ce757-0a28-471b-a13a-a8ac010e5041
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Santiago
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Av Lib Bernardo Ohiggins 4850,Santiago
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsLmkXZn4PYRgkGrYZ9
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Kinesiología
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = 66c278e2-58b2-43dc-9512-b32800fc1b0d
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56987654321
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Constanza Ximena Barraza Jiménez
+2025-07-29 19:05:08 - actions.actions - INFO - run:609 - Slot actualizado: status = reconfirmation in progress
+2025-07-29 19:05:08 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/LmkXZn4PYRgkGrYZ9
+2025-07-29 19:05:08 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:05:08 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:05:08 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:05:08 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: 66c278e2-58b2-43dc-9512-b32800fc1b0d
+2025-07-29 19:05:08 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 08:00
+2025-07-29 19:05:08 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: 66c278e2-58b2-43dc-9512-b32800fc1b0d
+2025-07-29 19:05:08 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:11:09 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:11:09 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:11:09 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Nicolas Pio Montero guerra', 'id_especialidad': '5d507fe5-d84d-440c-9b87-a60d001fea80', 'especialidad': 'MEDICINA GENERAL INFANTIL', 'fecha_hora': '2025-07-30T09:15:00-04:00', 'id_centro_medico': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b', 'centro_medico': 'Clínica RedSalud Rancagua', 'centro_medico_address': "Libertador Bernardo O'Higgins 634, Rancagua", 'centro_medico_google': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9', 'centro_medico_comuna': None, 'area_medica': 'Médica', 'conversation_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'bot_name': 'BOT DEV', 'campaign_name': 'reconfirmacion', 'phone_number': '+56988889999', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Luis Augusto Terán Paredes', 'status': 'reconfirmation in progress', 'piso': '2', 'torre': 'A', 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 09:15', 'appointment_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:11:09 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Nicolas Pio Montero guerra'}, {'entity': 'id_especialidad', 'value': '5d507fe5-d84d-440c-9b87-a60d001fea80'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL INFANTIL'}, {'entity': 'fecha_hora', 'value': '2025-07-30T09:15:00-04:00'}, {'entity': 'id_centro_medico', 'value': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Rancagua'}, {'entity': 'centro_medico_address', 'value': "Libertador Bernardo O'Higgins 634, Rancagua"}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9'}, {'entity': 'centro_medico_comuna', 'value': None}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'eeb47378-3878-4577-a706-b31b014adf3e'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'reconfirmacion'}, {'entity': 'phone_number', 'value': '+56988889999'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Luis Augusto Terán Paredes'}, {'entity': 'status', 'value': 'reconfirmation in progress'}, {'entity': 'piso', 'value': '2'}, {'entity': 'torre', 'value': 'A'}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Nicolas Pio Montero guerra
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 5d507fe5-d84d-440c-9b87-a60d001fea80
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL INFANTIL
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T091500-0400
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 61bb1873-0585-4ed6-8ef5-a8b80021ba1b
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Rancagua
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Libertador Bernardo OHiggins 634, Rancagua
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsGHqUcqFM4ZcS1xVc9
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56988889999
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Luis Augusto Terán Paredes
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: status = reconfirmation in progress
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: piso = 2
+2025-07-29 19:11:09 - actions.actions - INFO - run:609 - Slot actualizado: torre = A
+2025-07-29 19:11:09 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/GHqUcqFM4ZcS1xVc9
+2025-07-29 19:11:09 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:11:09 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:11:09 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:11:09 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:11:09 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 09:15
+2025-07-29 19:11:09 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:11:09 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:11:10 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:11:10 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:11:10 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Nicolas Pio Montero guerra', 'id_especialidad': '5d507fe5-d84d-440c-9b87-a60d001fea80', 'especialidad': 'MEDICINA GENERAL INFANTIL', 'fecha_hora': '2025-07-30T09:15:00-04:00', 'id_centro_medico': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b', 'centro_medico': 'Clínica RedSalud Rancagua', 'centro_medico_address': "Libertador Bernardo O'Higgins 634, Rancagua", 'centro_medico_google': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9', 'centro_medico_comuna': None, 'area_medica': 'Médica', 'conversation_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'bot_name': 'BOT DEV', 'campaign_name': 'reconfirmacion', 'phone_number': '+56988889999', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Luis Augusto Terán Paredes', 'status': 'reconfirmation in progress', 'piso': '3', 'torre': 'A', 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 09:15', 'appointment_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:11:10 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Nicolas Pio Montero guerra'}, {'entity': 'id_especialidad', 'value': '5d507fe5-d84d-440c-9b87-a60d001fea80'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL INFANTIL'}, {'entity': 'fecha_hora', 'value': '2025-07-30T09:15:00-04:00'}, {'entity': 'id_centro_medico', 'value': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Rancagua'}, {'entity': 'centro_medico_address', 'value': "Libertador Bernardo O'Higgins 634, Rancagua"}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9'}, {'entity': 'centro_medico_comuna', 'value': None}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'eeb47378-3878-4577-a706-b31b014adf3e'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'reconfirmacion'}, {'entity': 'phone_number', 'value': '+56988889999'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Luis Augusto Terán Paredes'}, {'entity': 'status', 'value': 'reconfirmation in progress'}, {'entity': 'piso', 'value': '3'}, {'entity': 'torre', 'value': 'A'}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Nicolas Pio Montero guerra
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 5d507fe5-d84d-440c-9b87-a60d001fea80
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL INFANTIL
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T091500-0400
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 61bb1873-0585-4ed6-8ef5-a8b80021ba1b
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Rancagua
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Libertador Bernardo OHiggins 634, Rancagua
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsGHqUcqFM4ZcS1xVc9
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56988889999
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Luis Augusto Terán Paredes
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: status = reconfirmation in progress
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: piso = 3
+2025-07-29 19:11:10 - actions.actions - INFO - run:609 - Slot actualizado: torre = A
+2025-07-29 19:11:10 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/GHqUcqFM4ZcS1xVc9
+2025-07-29 19:11:10 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:11:10 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:11:10 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:11:10 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:11:10 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 09:15
+2025-07-29 19:11:10 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:11:10 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:12:08 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:12:08 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:12:08 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Nicolas Pio Montero guerra', 'id_especialidad': '5d507fe5-d84d-440c-9b87-a60d001fea80', 'especialidad': 'MEDICINA GENERAL INFANTIL', 'fecha_hora': '2025-07-30T09:15:00-04:00', 'id_centro_medico': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b', 'centro_medico': 'Clínica RedSalud Rancagua', 'centro_medico_address': "Libertador Bernardo O'Higgins 634, Rancagua", 'centro_medico_google': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9', 'centro_medico_comuna': None, 'area_medica': 'Médica', 'conversation_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'bot_name': 'BOT DEV', 'campaign_name': 'reconfirmacion', 'phone_number': '+56988889999', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Luis Augusto Terán Paredes', 'status': 'reconfirmation in progress', 'piso': '2', 'torre': 'A', 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 09:15', 'appointment_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:12:08 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Nicolas Pio Montero guerra'}, {'entity': 'id_especialidad', 'value': '5d507fe5-d84d-440c-9b87-a60d001fea80'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL INFANTIL'}, {'entity': 'fecha_hora', 'value': '2025-07-30T09:15:00-04:00'}, {'entity': 'id_centro_medico', 'value': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Rancagua'}, {'entity': 'centro_medico_address', 'value': "Libertador Bernardo O'Higgins 634, Rancagua"}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9'}, {'entity': 'centro_medico_comuna', 'value': None}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'eeb47378-3878-4577-a706-b31b014adf3e'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'reconfirmacion'}, {'entity': 'phone_number', 'value': '+56988889999'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Luis Augusto Terán Paredes'}, {'entity': 'status', 'value': 'reconfirmation in progress'}, {'entity': 'piso', 'value': '2'}, {'entity': 'torre', 'value': 'A'}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Nicolas Pio Montero guerra
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 5d507fe5-d84d-440c-9b87-a60d001fea80
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL INFANTIL
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T091500-0400
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 61bb1873-0585-4ed6-8ef5-a8b80021ba1b
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Rancagua
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Libertador Bernardo OHiggins 634, Rancagua
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsGHqUcqFM4ZcS1xVc9
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56988889999
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Luis Augusto Terán Paredes
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: status = reconfirmation in progress
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: piso = 2
+2025-07-29 19:12:08 - actions.actions - INFO - run:609 - Slot actualizado: torre = A
+2025-07-29 19:12:08 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/GHqUcqFM4ZcS1xVc9
+2025-07-29 19:12:08 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:12:08 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:12:08 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:12:08 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:12:08 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 09:15
+2025-07-29 19:12:08 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:12:08 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:12:09 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:12:09 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:12:09 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Nicolas Pio Montero guerra', 'id_especialidad': '5d507fe5-d84d-440c-9b87-a60d001fea80', 'especialidad': 'MEDICINA GENERAL INFANTIL', 'fecha_hora': '2025-07-30T09:15:00-04:00', 'id_centro_medico': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b', 'centro_medico': 'Clínica RedSalud Rancagua', 'centro_medico_address': "Libertador Bernardo O'Higgins 634, Rancagua", 'centro_medico_google': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9', 'centro_medico_comuna': None, 'area_medica': 'Médica', 'conversation_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'bot_name': 'BOT DEV', 'campaign_name': 'reconfirmacion', 'phone_number': '+56988889999', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Luis Augusto Terán Paredes', 'status': 'reconfirmation in progress', 'piso': '3', 'torre': 'A', 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 09:15', 'appointment_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:12:09 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Nicolas Pio Montero guerra'}, {'entity': 'id_especialidad', 'value': '5d507fe5-d84d-440c-9b87-a60d001fea80'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL INFANTIL'}, {'entity': 'fecha_hora', 'value': '2025-07-30T09:15:00-04:00'}, {'entity': 'id_centro_medico', 'value': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Rancagua'}, {'entity': 'centro_medico_address', 'value': "Libertador Bernardo O'Higgins 634, Rancagua"}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9'}, {'entity': 'centro_medico_comuna', 'value': None}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'eeb47378-3878-4577-a706-b31b014adf3e'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'reconfirmacion'}, {'entity': 'phone_number', 'value': '+56988889999'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Luis Augusto Terán Paredes'}, {'entity': 'status', 'value': 'reconfirmation in progress'}, {'entity': 'piso', 'value': '3'}, {'entity': 'torre', 'value': 'A'}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Nicolas Pio Montero guerra
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 5d507fe5-d84d-440c-9b87-a60d001fea80
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL INFANTIL
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T091500-0400
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 61bb1873-0585-4ed6-8ef5-a8b80021ba1b
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Rancagua
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Libertador Bernardo OHiggins 634, Rancagua
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsGHqUcqFM4ZcS1xVc9
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56988889999
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Luis Augusto Terán Paredes
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: status = reconfirmation in progress
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: piso = 3
+2025-07-29 19:12:09 - actions.actions - INFO - run:609 - Slot actualizado: torre = A
+2025-07-29 19:12:09 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/GHqUcqFM4ZcS1xVc9
+2025-07-29 19:12:09 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:12:09 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:12:09 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:12:09 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:12:09 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 09:15
+2025-07-29 19:12:09 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:12:09 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:13:08 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:13:08 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:13:08 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Nicolas Pio Montero guerra', 'id_especialidad': '5d507fe5-d84d-440c-9b87-a60d001fea80', 'especialidad': 'MEDICINA GENERAL INFANTIL', 'fecha_hora': '2025-07-30T09:15:00-04:00', 'id_centro_medico': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b', 'centro_medico': 'Clínica RedSalud Rancagua', 'centro_medico_address': "Libertador Bernardo O'Higgins 634, Rancagua", 'centro_medico_google': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9', 'centro_medico_comuna': None, 'area_medica': 'Médica', 'conversation_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'bot_name': 'BOT DEV', 'campaign_name': 'reconfirmacion', 'phone_number': '+56988889999', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Luis Augusto Terán Paredes', 'status': 'reconfirmation in progress', 'piso': '2', 'torre': 'A', 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 09:15', 'appointment_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:13:08 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Nicolas Pio Montero guerra'}, {'entity': 'id_especialidad', 'value': '5d507fe5-d84d-440c-9b87-a60d001fea80'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL INFANTIL'}, {'entity': 'fecha_hora', 'value': '2025-07-30T09:15:00-04:00'}, {'entity': 'id_centro_medico', 'value': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Rancagua'}, {'entity': 'centro_medico_address', 'value': "Libertador Bernardo O'Higgins 634, Rancagua"}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9'}, {'entity': 'centro_medico_comuna', 'value': None}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'eeb47378-3878-4577-a706-b31b014adf3e'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'reconfirmacion'}, {'entity': 'phone_number', 'value': '+56988889999'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Luis Augusto Terán Paredes'}, {'entity': 'status', 'value': 'reconfirmation in progress'}, {'entity': 'piso', 'value': '2'}, {'entity': 'torre', 'value': 'A'}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Nicolas Pio Montero guerra
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 5d507fe5-d84d-440c-9b87-a60d001fea80
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL INFANTIL
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T091500-0400
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 61bb1873-0585-4ed6-8ef5-a8b80021ba1b
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Rancagua
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Libertador Bernardo OHiggins 634, Rancagua
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsGHqUcqFM4ZcS1xVc9
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56988889999
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Luis Augusto Terán Paredes
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: status = reconfirmation in progress
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: piso = 2
+2025-07-29 19:13:08 - actions.actions - INFO - run:609 - Slot actualizado: torre = A
+2025-07-29 19:13:08 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/GHqUcqFM4ZcS1xVc9
+2025-07-29 19:13:08 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:13:08 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:13:08 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:13:08 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:13:08 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 09:15
+2025-07-29 19:13:08 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:13:08 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:13:09 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:13:09 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:13:09 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Nicolas Pio Montero guerra', 'id_especialidad': '5d507fe5-d84d-440c-9b87-a60d001fea80', 'especialidad': 'MEDICINA GENERAL INFANTIL', 'fecha_hora': '2025-07-30T09:15:00-04:00', 'id_centro_medico': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b', 'centro_medico': 'Clínica RedSalud Rancagua', 'centro_medico_address': "Libertador Bernardo O'Higgins 634, Rancagua", 'centro_medico_google': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9', 'centro_medico_comuna': None, 'area_medica': 'Médica', 'conversation_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'bot_name': 'BOT DEV', 'campaign_name': 'reconfirmacion', 'phone_number': '+56988889999', 'preparations': False, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': None, 'preparation_pdf_name': None, 'resource_name': 'Luis Augusto Terán Paredes', 'status': 'reconfirmation in progress', 'piso': '3', 'torre': 'A', 'autopago': None, 'fecha_hora_formato': '30/07/2025 a las 09:15', 'appointment_id': 'eeb47378-3878-4577-a706-b31b014adf3e', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:13:09 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Nicolas Pio Montero guerra'}, {'entity': 'id_especialidad', 'value': '5d507fe5-d84d-440c-9b87-a60d001fea80'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL INFANTIL'}, {'entity': 'fecha_hora', 'value': '2025-07-30T09:15:00-04:00'}, {'entity': 'id_centro_medico', 'value': '61bb1873-0585-4ed6-8ef5-a8b80021ba1b'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Rancagua'}, {'entity': 'centro_medico_address', 'value': "Libertador Bernardo O'Higgins 634, Rancagua"}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/GHqUcqFM4ZcS1xVc9'}, {'entity': 'centro_medico_comuna', 'value': None}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'eeb47378-3878-4577-a706-b31b014adf3e'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'reconfirmacion'}, {'entity': 'phone_number', 'value': '+56988889999'}, {'entity': 'preparations', 'value': False}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': None}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Luis Augusto Terán Paredes'}, {'entity': 'status', 'value': 'reconfirmation in progress'}, {'entity': 'piso', 'value': '3'}, {'entity': 'torre', 'value': 'A'}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Nicolas Pio Montero guerra
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = 5d507fe5-d84d-440c-9b87-a60d001fea80
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL INFANTIL
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T091500-0400
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 61bb1873-0585-4ed6-8ef5-a8b80021ba1b
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Rancagua
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Libertador Bernardo OHiggins 634, Rancagua
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsGHqUcqFM4ZcS1xVc9
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56988889999
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: preparations = False
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Luis Augusto Terán Paredes
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: status = reconfirmation in progress
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: piso = 3
+2025-07-29 19:13:09 - actions.actions - INFO - run:609 - Slot actualizado: torre = A
+2025-07-29 19:13:09 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/GHqUcqFM4ZcS1xVc9
+2025-07-29 19:13:09 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:13:09 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:13:09 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:13:09 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:13:09 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 09:15
+2025-07-29 19:13:09 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: eeb47378-3878-4577-a706-b31b014adf3e
+2025-07-29 19:13:09 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-29 19:21:09 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-29 19:21:09 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: f6766e6c-2c36-431b-ab13-b329013793f2
+2025-07-29 19:21:09 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Carolina Ignacia Contreras Núñez', 'id_especialidad': 'd76fee22-6a38-43ef-b824-a60d001fe940', 'especialidad': 'MEDICINA GENERAL ADULTO', 'fecha_hora': '2025-07-30T12:45:00-04:00', 'id_centro_medico': '4f238db3-af9a-40a1-bc0a-a8ac0109aee0', 'centro_medico': 'Clínica RedSalud Providencia', 'centro_medico_address': 'Av. Salvador 100,Providencia', 'centro_medico_google': 'https://goo.gl/maps/7Txo9vLMhm3CtuG7A', 'centro_medico_comuna': 'Providencia', 'area_medica': 'Médica', 'conversation_id': 'f6766e6c-2c36-431b-ab13-b329013793f2', 'bot_name': 'BOT DEV', 'campaign_name': 'reconfirmacion', 'phone_number': '+56976233172', 'preparations': True, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': 'https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link', 'preparation_pdf_name': None, 'resource_name': 'Boris Bastián Gómez Bobadilla', 'status': 'reconfirmation in progress', 'piso': '3', 'torre': 'Sur', 'autopago': 'Piso 1 al lado de informaciones', 'fecha_hora_formato': '30/07/2025 a las 12:45', 'appointment_id': 'f6766e6c-2c36-431b-ab13-b329013793f2', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-29 19:21:09 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Carolina Ignacia Contreras Núñez'}, {'entity': 'id_especialidad', 'value': 'd76fee22-6a38-43ef-b824-a60d001fe940'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL ADULTO'}, {'entity': 'fecha_hora', 'value': '2025-07-30T12:45:00-04:00'}, {'entity': 'id_centro_medico', 'value': '4f238db3-af9a-40a1-bc0a-a8ac0109aee0'}, {'entity': 'centro_medico', 'value': 'Clínica RedSalud Providencia'}, {'entity': 'centro_medico_address', 'value': 'Av. Salvador 100,Providencia'}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/7Txo9vLMhm3CtuG7A'}, {'entity': 'centro_medico_comuna', 'value': 'Providencia'}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': 'f6766e6c-2c36-431b-ab13-b329013793f2'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'reconfirmacion'}, {'entity': 'phone_number', 'value': '+56976233172'}, {'entity': 'preparations', 'value': True}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': 'https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link'}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Boris Bastián Gómez Bobadilla'}, {'entity': 'status', 'value': 'reconfirmation in progress'}, {'entity': 'piso', 'value': '3'}, {'entity': 'torre', 'value': 'Sur'}, {'entity': 'autopago', 'value': 'Piso 1 al lado de informaciones'}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Carolina Ignacia Contreras Núñez
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-30T124500-0400
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = 4f238db3-af9a-40a1-bc0a-a8ac0109aee0
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = Clínica RedSalud Providencia
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = Av. Salvador 100,Providencia
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmaps7Txo9vLMhm3CtuG7A
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_comuna = Providencia
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = f6766e6c-2c36-431b-ab13-b329013793f2
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = reconfirmacion
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56976233172
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: preparations = True
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Boris Bastián Gómez Bobadilla
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: status = reconfirmation in progress
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: piso = 3
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: torre = Sur
+2025-07-29 19:21:09 - actions.actions - INFO - run:609 - Slot actualizado: autopago = Piso 1 al lado de informaciones
+2025-07-29 19:21:09 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/7Txo9vLMhm3CtuG7A
+2025-07-29 19:21:09 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-29 19:21:09 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-29 19:21:09 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-29 19:21:09 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: f6766e6c-2c36-431b-ab13-b329013793f2
+2025-07-29 19:21:09 - actions.actions - INFO - run:656 - Fecha formateada: 30/07/2025 a las 12:45
+2025-07-29 19:21:09 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: f6766e6c-2c36-431b-ab13-b329013793f2
+2025-07-29 19:21:09 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-30 07:52:13 - root - INFO - setup_logging:89 - Logging configurado - Nivel: DEBUG, Archivo: bot_confirmaciones.log
+2025-07-30 07:52:13 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-30 07:52:15 - actions.database - ERROR - _initialize_pool:49 - Error al inicializar pool de conexiones: connection to server at "34.45.109.62", port 5432 failed: FATAL:  password authentication failed for user "bot_client"
+connection to server at "34.45.109.62", port 5432 failed: FATAL:  password authentication failed for user "bot_client"
+
+2025-07-30 07:52:15 - urllib3.connectionpool - DEBUG - _new_conn:1022 - Starting new HTTPS connection (1): o251570.ingest.sentry.io:443
+2025-07-30 07:52:16 - urllib3.connectionpool - DEBUG - _make_request:475 - https://o251570.ingest.sentry.io:443 "POST /api/2801673/envelope/ HTTP/1.1" 200 2
+2025-07-30 07:54:24 - root - INFO - setup_logging:89 - Logging configurado - Nivel: DEBUG, Archivo: bot_confirmaciones.log
+2025-07-30 07:54:24 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-30 07:54:25 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-30 07:54:25 - actions.actions - INFO - <module>:45 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-30 07:54:25 - actions.actions - INFO - <module>:46 - APIGEE_USERNAME: 4tu0...
+2025-07-30 07:54:25 - actions.actions - INFO - <module>:47 - APIGEE_PASSWORD: Configurado
+2025-07-30 07:54:25 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_regret_cancellation'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_post_cancel'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_rebooking_denial'.
+2025-07-30 07:54:25 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-30 07:54:26 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-30 07:54:26 - rasa_sdk.plugin - DEBUG - _discover_plugins:30 - No plugins found: No module named 'rasa_sdk_plugins'
+2025-07-30 07:54:26 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-30 07:54:26 - rasa_sdk.utils - DEBUG - _log_and_get_default_number_of_workers:202 - Using the default number of Sanic workers (1).
+2025-07-30 07:54:48 - root - INFO - setup_logging:89 - Logging configurado - Nivel: DEBUG, Archivo: bot_confirmaciones.log
+2025-07-30 07:54:48 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-30 07:54:49 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-30 07:54:49 - actions.actions - INFO - <module>:45 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-30 07:54:49 - actions.actions - INFO - <module>:46 - APIGEE_USERNAME: 4tu0...
+2025-07-30 07:54:49 - actions.actions - INFO - <module>:47 - APIGEE_PASSWORD: Configurado
+2025-07-30 07:54:49 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_regret_cancellation'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_post_cancel'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_rebooking_denial'.
+2025-07-30 07:54:49 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-30 07:54:49 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-30 07:54:49 - rasa_sdk.plugin - DEBUG - _discover_plugins:30 - No plugins found: No module named 'rasa_sdk_plugins'
+2025-07-30 07:54:49 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-30 07:54:49 - rasa_sdk.utils - DEBUG - _log_and_get_default_number_of_workers:202 - Using the default number of Sanic workers (1).
+2025-07-30 07:54:59 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-30 07:54:59 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: 1a
+2025-07-30 07:54:59 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Manuel Castillo Vicuña', 'id_especialidad': 'd76fee22-6a38-43ef-b824-a60d001fe940', 'especialidad': 'MEDICINA GENERAL ADULTO', 'fecha_hora': '2025-07-02T19:00:00-04:00', 'id_centro_medico': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'centro_medico': 'RedSalud Alameda', 'centro_medico_address': 'San Martin 30 ,Santiago', 'centro_medico_google': 'https://goo.gl/maps/T7iNCdZcQc35gbp58', 'centro_medico_comuna': 'Santiago', 'area_medica': 'Médica', 'conversation_id': '70fc2fdd-1721-4439-bf6e-b30e010acec7', 'bot_name': 'BOT DEV', 'campaign_name': 'confirmacion', 'phone_number': '+56964058510', 'preparations': True, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': 'https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link', 'preparation_pdf_name': None, 'resource_name': 'Celeste Olivia Borie Polanco', 'status': 'ready to send', 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': None, 'appointment_id': None, 'contexto': None, 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-30 07:54:59 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Manuel Castillo Vicuña'}, {'entity': 'id_especialidad', 'value': 'd76fee22-6a38-43ef-b824-a60d001fe940'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL ADULTO'}, {'entity': 'fecha_hora', 'value': '2025-07-02T19:00:00-04:00'}, {'entity': 'id_centro_medico', 'value': 'c7e1f17b-45c6-45e0-b981-a5f800212bef'}, {'entity': 'centro_medico', 'value': 'RedSalud Alameda'}, {'entity': 'centro_medico_address', 'value': 'San Martin 30 ,Santiago'}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/T7iNCdZcQc35gbp58'}, {'entity': 'centro_medico_comuna', 'value': 'Santiago'}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': '70fc2fdd-1721-4439-bf6e-b30e010acec7'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'confirmacion'}, {'entity': 'phone_number', 'value': '+56964058510'}, {'entity': 'preparations', 'value': True}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': 'https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link'}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Celeste Olivia Borie Polanco'}, {'entity': 'status', 'value': 'ready to send'}, {'entity': 'piso', 'value': None}, {'entity': 'torre', 'value': None}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Manuel Castillo Vicuña
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-02T190000-0400
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = confirmacion
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56964058510
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: preparations = True
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Celeste Olivia Borie Polanco
+2025-07-30 07:54:59 - actions.actions - INFO - run:609 - Slot actualizado: status = ready to send
+2025-07-30 07:54:59 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/T7iNCdZcQc35gbp58
+2025-07-30 07:54:59 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-30 07:54:59 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-30 07:54:59 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-30 07:54:59 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 07:54:59 - actions.actions - INFO - run:656 - Fecha formateada: 02/07/2025 a las 19:00
+2025-07-30 07:54:59 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: 1a
+2025-07-30 07:54:59 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-30 07:55:12 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_confirm_appointment'
+2025-07-30 07:55:12 - actions.utils - INFO - log_request_info:191 - Ejecutando action_confirm_appointment para usuario: 1a
+2025-07-30 07:55:12 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Manuel Castillo Vicuña', 'id_especialidad': 'd76fee22-6a38-43ef-b824-a60d001fe940', 'especialidad': 'MEDICINA GENERAL ADULTO', 'fecha_hora': '2025-07-02T190000-0400', 'id_centro_medico': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'centro_medico': 'RedSalud Alameda', 'centro_medico_address': 'San Martin 30 ,Santiago', 'centro_medico_google': 'https://goo.gl/maps/T7iNCdZcQc35gbp58', 'centro_medico_comuna': 'Santiago', 'area_medica': 'Médica', 'conversation_id': '70fc2fdd-1721-4439-bf6e-b30e010acec7', 'bot_name': 'BOT DEV', 'campaign_name': 'confirmacion', 'phone_number': '56964058510', 'preparations': True, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': 'httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link', 'preparation_pdf_name': None, 'resource_name': 'Celeste Olivia Borie Polanco', 'status': 'ready to send', 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': '02/07/2025 a las 19:00', 'appointment_id': '70fc2fdd-1721-4439-bf6e-b30e010acec7', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-30 07:55:12 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'affirm', 'confidence': 0.9947205781936646}, 'entities': [], 'text': 'si', 'message_id': '7799ab37d1504b7b9441844143051693', 'metadata': {}, 'text_tokens': [[0, 2]], 'intent_ranking': [{'name': 'affirm', 'confidence': 0.9947205781936646}, {'name': 'EXTERNAL_init_context', 'confidence': 0.0012276628986001015}, {'name': 'mood_great', 'confidence': 0.0011584419989958405}, {'name': 'deny', 'confidence': 0.0007820229511708021}, {'name': 'seleccionar_opcion', 'confidence': 0.00031623459653928876}, {'name': 'seleccionar_cita_nueva_fecha', 'confidence': 0.00024350942112505436}, {'name': 'affirm_rebooking_confirm', 'confidence': 0.00023638189304620028}, {'name': 'ask_prices', 'confidence': 0.00023569508630316705}, {'name': 'reag_pconfirm_menu_opcion_3', 'confidence': 0.00013624278653878719}, {'name': 'EXTERNAL_init_rebooking_menu', 'confidence': 0.00011109827028121799}], 'response_selector': {'all_retrieval_intents': [], 'default': {'response': {'responses': None, 'confidence': 0.0, 'intent_response_key': None, 'utter_action': 'utter_None'}, 'ranking': []}}}
+2025-07-30 07:55:12 - actions.actions - INFO - obtener_access_token:104 - Solicitando token de acceso a https://redsalud-qa.apigee.net/oauth/token
+2025-07-30 07:55:12 - actions.actions - INFO - obtener_access_token:105 - Client ID: 4tu0...
+2025-07-30 07:55:12 - urllib3.connectionpool - DEBUG - _new_conn:1022 - Starting new HTTPS connection (1): redsalud-qa.apigee.net:443
+2025-07-30 07:55:12 - urllib3.connectionpool - DEBUG - _make_request:475 - https://redsalud-qa.apigee.net:443 "POST /oauth/token HTTP/1.1" 200 113
+2025-07-30 07:55:12 - actions.actions - INFO - obtener_access_token:123 - Token de acceso obtenido exitosamente, expira en 2025-07-30 08:40:11.615478
+2025-07-30 07:55:12 - actions.actions - INFO - run:953 - Cita confirmada exitosamente en Apigee: {'@odata.context': 'https://proxy-qa.redsalud.cl/RSPBOTWSCONFIRMACION/$metadata#Appointments/$entity', '@odata.etag': 'W/"J0FBQUFBQy9jWjFNPSc="', 'DateTimeFrom': '2025-07-10T16:00:00-04:00', 'DateTimeTo': '2025-07-10T16:15:00-04:00', 'DateTimeFromUTC': '2025-07-10T20:00:00Z', 'DateTimeToUTC': '2025-07-10T20:15:00Z', 'Status': 'Confirmed', 'Duration': 15, 'ResourceId': '7dbd3ae4-4ead-4fcf-a131-a5fa005e35a5', 'ServiceId': '3229b16d-fa44-4a1e-84ea-a60b014e94ed', 'CoveragePlanId': 'f2d3cd94-b91c-420e-9ec0-a5f800ca8dbc', 'PatientId': '7f8c4c23-7b19-44cb-b964-a60900507f49', 'CenterId': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'IsOvercapacity': False, 'InCallBy': None, 'Index': 1, 'Number': 2409, 'NumberOfSlots': 1, 'CommentsCount': 0, 'CreatedByMainAvailabilityId': 'dfd2346b-4dd1-4b3d-a0b2-b29e0174450d', 'BlockedByAvailabilityId': None, 'RescheduleAppointmentId': 'ddf5bf28-bd08-4aa4-b1c3-b31600e39f16', 'OversellingDefinitionId': None, 'Comments': [], 'CreatedByMarketingCampaign': None, 'Archived': False, 'OldPatientId': None, 'SortQueryId': None, 'DynamicData': [{}, {}, {}], 'AppointmentTypeId': '4139651e-c3c2-4839-97ef-cdd5428b9975', 'CreatedByOriginalAvailabilityId': 'dfd2346b-4dd1-4b3d-a0b2-b29e0174450d', 'BlockedByOriginalAvailabilityId': None, 'TreatmentPlanId': None, 'Cancelled': False, 'Id': '54246940-c127-46ee-8972-b31600eb16d3', 'ModifiedOn': '2025-07-10T14:42:48.785009Z', 'CreatedOn': '2025-07-10T14:15:56.0057964Z', 'RowVersion': 'AAAAAC/cZ1M=', 'ModifiedBy': '3eba71b2-d750-4291-932d-b1760170619d', 'CreatedBy': '86a74779-e16c-40d4-b443-b20401389291', 'ModifiedByClient': 'Api', 'CreatedByClient': 'Reception'}
+2025-07-30 07:55:12 - actions.database - DEBUG - execute_command:98 - Ejecutando comando: 
+                UPDATE appointments 
+                SET status = %s, 
+                    last_notification_date = NOW(), 
+                    updated_at = NOW()
+                WHERE appointment_id = %s
+            
+2025-07-30 07:55:13 - actions.database - DEBUG - execute_command:102 - Comando ejecutado exitosamente. Filas afectadas: 0
+2025-07-30 07:55:13 - actions.database - WARNING - update_appointment_status:197 - No se encontró la cita 70fc2fdd-1721-4439-bf6e-b30e010acec7 para actualizar estado
+2025-07-30 07:55:13 - actions.actions - INFO - run:999 - Confirmación exitosa para usuario: 1a
+2025-07-30 07:55:13 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_confirm_appointment'
+2025-07-30 07:55:13 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_eval_response'
+2025-07-30 07:55:13 - root - INFO - run:1053 - ActionEvalResponse
+2025-07-30 07:55:13 - root - INFO - run:1054 - Slots: area_medica=Médica, tipo_mensaje=Confirmacion, centro_medico=RedSalud Alameda, preparations=True, especialidad=MEDICINA GENERAL ADULTO, piso=None, torre=None, autopago=None, appointment_id=70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 07:55:13 - root - INFO - run:1077 - ActionEvalResponse - Centro detectado: Centro
+2025-07-30 07:55:13 - root - INFO - run:1087 - ActionEvalResponse - Tiene preparación: True
+2025-07-30 07:55:13 - root - INFO - run:1098 - ActionEvalResponse - Área médica normalizada: medica
+2025-07-30 07:55:13 - root - INFO - run:1099 - ActionEvalResponse - Especialidad normalizada: medicina general adulto
+2025-07-30 07:55:13 - root - INFO - run:1100 - ActionEvalResponse - Centro médico: RedSalud Alameda
+2025-07-30 07:55:13 - root - INFO - run:1101 - ActionEvalResponse - Tipo de centro: Centro
+2025-07-30 07:55:13 - root - INFO - run:1182 - ActionEvalResponse - Enviando respuesta: utter_confirm_affirm_medica_medicina_general_centromedico
+2025-07-30 07:55:13 - actions.database - DEBUG - execute_query:69 - Ejecutando consulta: SELECT status FROM appointments WHERE appointment_id = %s
+2025-07-30 07:55:13 - actions.database - DEBUG - execute_query:72 - Consulta ejecutada exitosamente. Filas retornadas: 0
+2025-07-30 07:55:13 - root - INFO - run:1189 - ActionEvalResponse - Resultado de la consulta: []
+2025-07-30 07:55:13 - root - INFO - run:1196 - ActionEvalResponse - Cita no confirmada, no se programará el botón de pago
+2025-07-30 07:55:13 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_eval_response'
+2025-07-30 07:55:13 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_schedule_payment_button'
+2025-07-30 07:55:13 - root - INFO - run:1211 - Iniciando action_schedule_payment_button
+2025-07-30 07:55:13 - root - INFO - run:1217 - Appointment ID extraído del slot: 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 07:55:13 - root - INFO - run:1222 - Obteniendo token de acceso para appointment ID: 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 07:55:13 - actions.actions - INFO - obtener_access_token:70 - Usando token de acceso en caché
+2025-07-30 07:55:13 - root - INFO - run:1229 - Token de acceso obtenido exitosamente
+2025-07-30 07:55:13 - root - INFO - run:1230 - Obteniendo URL de pago para appointment ID: 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 07:55:13 - root - INFO - get_payment_url:309 - Solicitando URL de pago para cita 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 07:55:13 - root - INFO - get_payment_url:310 - URL de la petición: https://redsalud-qa.apigee.net/agendarsv2/PaymentUrl/GetPaymentUrl/70fc2fdd-1721-4439-bf6e-b30e010acec7/
+2025-07-30 07:55:13 - urllib3.connectionpool - DEBUG - _new_conn:1022 - Starting new HTTPS connection (1): redsalud-qa.apigee.net:443
+2025-07-30 07:55:43 - urllib3.connectionpool - DEBUG - _make_request:475 - https://redsalud-qa.apigee.net:443 "GET /agendarsv2/PaymentUrl/GetPaymentUrl/70fc2fdd-1721-4439-bf6e-b30e010acec7/ HTTP/1.1" 504 112
+2025-07-30 07:55:43 - root - INFO - get_payment_url:313 - Status code de la respuesta: 504
+2025-07-30 07:55:43 - root - INFO - get_payment_url:314 - Contenido de la respuesta: {"fault":{"faultstring":"Gateway Timeout","detail":{"errorcode":"messaging.adaptors.http.flow.GatewayTimeout"}}}...
+2025-07-30 07:55:43 - root - ERROR - get_payment_url:350 - Error al obtener URL de pago: 504 - {"fault":{"faultstring":"Gateway Timeout","detail":{"errorcode":"messaging.adaptors.http.flow.GatewayTimeout"}}}
+2025-07-30 07:55:43 - root - ERROR - run:1277 - No se pudo obtener URL de pago para cita 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 07:55:43 - root - INFO - run:1286 - ActionSchedulePaymentButton - Slot menu_post_confirmation establecido como True para usuario: 1a
+2025-07-30 07:55:43 - root - INFO - run:1288 - ActionSchedulePaymentButton retornando eventos: [{'event': 'slot', 'timestamp': None, 'name': 'menu_post_confirmation', 'value': True}]
+2025-07-30 07:55:43 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_schedule_payment_button'
+2025-07-30 07:59:55 - root - INFO - setup_logging:89 - Logging configurado - Nivel: DEBUG, Archivo: bot_confirmaciones.log
+2025-07-30 07:59:55 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-30 07:59:56 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-30 07:59:56 - actions.actions - INFO - <module>:45 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-30 07:59:56 - actions.actions - INFO - <module>:46 - APIGEE_USERNAME: 4tu0...
+2025-07-30 07:59:56 - actions.actions - INFO - <module>:47 - APIGEE_PASSWORD: Configurado
+2025-07-30 07:59:56 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_regret_cancellation'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_post_cancel'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_rebooking_denial'.
+2025-07-30 07:59:56 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-30 07:59:56 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-30 07:59:56 - rasa_sdk.plugin - DEBUG - _discover_plugins:30 - No plugins found: No module named 'rasa_sdk_plugins'
+2025-07-30 07:59:56 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-30 07:59:56 - rasa_sdk.utils - DEBUG - _log_and_get_default_number_of_workers:202 - Using the default number of Sanic workers (1).
+2025-07-30 08:02:08 - root - INFO - setup_logging:89 - Logging configurado - Nivel: DEBUG, Archivo: bot_confirmaciones.log
+2025-07-30 08:02:08 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-30 08:02:10 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-30 08:02:10 - actions.actions - INFO - <module>:45 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-30 08:02:10 - actions.actions - INFO - <module>:46 - APIGEE_USERNAME: 4tu0...
+2025-07-30 08:02:10 - actions.actions - INFO - <module>:47 - APIGEE_PASSWORD: Configurado
+2025-07-30 08:02:10 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_regret_cancellation'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_post_cancel'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_rebooking_denial'.
+2025-07-30 08:02:10 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-30 08:02:10 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-30 08:02:10 - rasa_sdk.plugin - DEBUG - _discover_plugins:30 - No plugins found: No module named 'rasa_sdk_plugins'
+2025-07-30 08:02:10 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-30 08:02:10 - rasa_sdk.utils - DEBUG - _log_and_get_default_number_of_workers:202 - Using the default number of Sanic workers (1).
+2025-07-30 08:03:11 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_init_context'
+2025-07-30 08:03:11 - actions.utils - INFO - log_request_info:191 - Ejecutando action_init_context para usuario: 1a
+2025-07-30 08:03:11 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Manuel Castillo Vicuña', 'id_especialidad': 'd76fee22-6a38-43ef-b824-a60d001fe940', 'especialidad': 'MEDICINA GENERAL ADULTO', 'fecha_hora': '2025-07-02T19:00:00-04:00', 'id_centro_medico': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'centro_medico': 'RedSalud Alameda', 'centro_medico_address': 'San Martin 30 ,Santiago', 'centro_medico_google': 'https://goo.gl/maps/T7iNCdZcQc35gbp58', 'centro_medico_comuna': 'Santiago', 'area_medica': 'Médica', 'conversation_id': '70fc2fdd-1721-4439-bf6e-b30e010acec7', 'bot_name': 'BOT DEV', 'campaign_name': 'confirmacion', 'phone_number': '+56964058510', 'preparations': True, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': 'https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link', 'preparation_pdf_name': None, 'resource_name': 'Celeste Olivia Borie Polanco', 'status': 'ready to send', 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': None, 'appointment_id': None, 'contexto': None, 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-30 08:03:11 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'EXTERNAL_init_context'}, 'entities': [{'entity': 'nombre_paciente', 'value': 'Manuel Castillo Vicuña'}, {'entity': 'id_especialidad', 'value': 'd76fee22-6a38-43ef-b824-a60d001fe940'}, {'entity': 'especialidad', 'value': 'MEDICINA GENERAL ADULTO'}, {'entity': 'fecha_hora', 'value': '2025-07-02T19:00:00-04:00'}, {'entity': 'id_centro_medico', 'value': 'c7e1f17b-45c6-45e0-b981-a5f800212bef'}, {'entity': 'centro_medico', 'value': 'RedSalud Alameda'}, {'entity': 'centro_medico_address', 'value': 'San Martin 30 ,Santiago'}, {'entity': 'centro_medico_google', 'value': 'https://goo.gl/maps/T7iNCdZcQc35gbp58'}, {'entity': 'centro_medico_comuna', 'value': 'Santiago'}, {'entity': 'area_medica', 'value': 'Médica'}, {'entity': 'conversation_id', 'value': '70fc2fdd-1721-4439-bf6e-b30e010acec7'}, {'entity': 'bot_name', 'value': 'BOT DEV'}, {'entity': 'campaign_name', 'value': 'confirmacion'}, {'entity': 'phone_number', 'value': '+56964058510'}, {'entity': 'preparations', 'value': True}, {'entity': 'tipo_mensaje', 'value': 'Confirmacion'}, {'entity': 'centro_medico_tipo', 'value': 'Clínica'}, {'entity': 'preparation_url', 'value': 'https://drive.google.com/file/d/13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfAS/view?usp=drive_link'}, {'entity': 'preparation_pdf_name', 'value': None}, {'entity': 'resource_name', 'value': 'Celeste Olivia Borie Polanco'}, {'entity': 'status', 'value': 'ready to send'}, {'entity': 'piso', 'value': None}, {'entity': 'torre', 'value': None}, {'entity': 'autopago', 'value': None}], 'text': 'EXTERNAL: EXTERNAL_init_context', 'message_id': None, 'metadata': {'is_external': True}}
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: nombre_paciente = Manuel Castillo Vicuña
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: id_especialidad = d76fee22-6a38-43ef-b824-a60d001fe940
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: especialidad = MEDICINA GENERAL ADULTO
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: fecha_hora = 2025-07-02T190000-0400
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: id_centro_medico = c7e1f17b-45c6-45e0-b981-a5f800212bef
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico = RedSalud Alameda
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_address = San Martin 30 ,Santiago
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_google = httpsgoo.glmapsT7iNCdZcQc35gbp58
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_comuna = Santiago
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: area_medica = Médica
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: conversation_id = 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: bot_name = BOT DEV
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: campaign_name = confirmacion
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: phone_number = 56964058510
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: preparations = True
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: tipo_mensaje = Confirmacion
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: centro_medico_tipo = Clínica
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: preparation_url = httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: resource_name = Celeste Olivia Borie Polanco
+2025-07-30 08:03:11 - actions.actions - INFO - run:609 - Slot actualizado: status = ready to send
+2025-07-30 08:03:11 - actions.actions - INFO - run:621 - centro_medico_google procesado y codificado como URL: https://goo.gl/maps/T7iNCdZcQc35gbp58
+2025-07-30 08:03:11 - actions.actions - INFO - run:629 - Contexto configurado como: confirmación
+2025-07-30 08:03:11 - actions.actions - INFO - run:633 - Contexto de rebooking limpiado
+2025-07-30 08:03:11 - actions.actions - INFO - run:637 - Contexto de rebooking menu limpiado
+2025-07-30 08:03:11 - actions.actions - INFO - run:643 - appointment_id asignado desde conversation_id: 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:03:11 - actions.actions - INFO - run:656 - Fecha formateada: 02/07/2025 a las 19:00
+2025-07-30 08:03:11 - actions.actions - INFO - run:700 - Contexto inicializado exitosamente para usuario: 1a
+2025-07-30 08:03:11 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_init_context'
+2025-07-30 08:03:27 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_confirm_appointment'
+2025-07-30 08:03:27 - actions.utils - INFO - log_request_info:191 - Ejecutando action_confirm_appointment para usuario: 1a
+2025-07-30 08:03:27 - actions.utils - DEBUG - log_request_info:192 - Slots actuales: {'nombre_paciente': 'Manuel Castillo Vicuña', 'id_especialidad': 'd76fee22-6a38-43ef-b824-a60d001fe940', 'especialidad': 'MEDICINA GENERAL ADULTO', 'fecha_hora': '2025-07-02T190000-0400', 'id_centro_medico': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'centro_medico': 'RedSalud Alameda', 'centro_medico_address': 'San Martin 30 ,Santiago', 'centro_medico_google': 'https://goo.gl/maps/T7iNCdZcQc35gbp58', 'centro_medico_comuna': 'Santiago', 'area_medica': 'Médica', 'conversation_id': '70fc2fdd-1721-4439-bf6e-b30e010acec7', 'bot_name': 'BOT DEV', 'campaign_name': 'confirmacion', 'phone_number': '56964058510', 'preparations': True, 'tipo_mensaje': 'Confirmacion', 'centro_medico_tipo': 'Clínica', 'preparation_url': 'httpsdrive.google.comfiled13-7QlkXRg3-lVsDCe0LCdVDhw3FsJfASviewuspdrive_link', 'preparation_pdf_name': None, 'resource_name': 'Celeste Olivia Borie Polanco', 'status': 'ready to send', 'piso': None, 'torre': None, 'autopago': None, 'fecha_hora_formato': '02/07/2025 a las 19:00', 'appointment_id': '70fc2fdd-1721-4439-bf6e-b30e010acec7', 'contexto': 'confirmación', 'contexto_rebooking': None, 'contexto_rebooking_menu': None, 'fecha_propuesta': None, 'hora_propuesta': None, 'opcion_seleccionada': None, 'rebooking_fecha': None, 'rebooking_hora': None, 'start_time': None, 'end_time': None, 'available_slots': None, 'slots_response': None, 'adjacent_slots': None, 'fecha_seleccionada_confirmada': None, 'selected_slot': None, 'slot_selection_index': None, 'appointment_type_id': None, 'preparations_url': None, 'resource_id': None, 'patient_id': None, 'service_id': None, 'coverage_plan_id': None, 'starting_location_id': None, 'original_appointment_id': None, 'maximum_distance': None, 'app_timezone': None, 'include_self_payer': None, 'expert_booking_mode': None, 'include_not_bookable': None, 'reschedule_appointment_id': None, 'payment_url': None, 'citas_disponibles': None, 'cancellation_pending': False, 'post_regret_context': False, 'menu_post_confirmation': False, 'session_started_metadata': None}
+2025-07-30 08:03:27 - actions.utils - DEBUG - log_request_info:193 - Último mensaje: {'intent': {'name': 'affirm', 'confidence': 0.9909568428993225}, 'entities': [], 'text': 'si', 'message_id': '08611af31d534c8fb16a30e24701ffc1', 'metadata': {}, 'text_tokens': [[0, 2]], 'intent_ranking': [{'name': 'affirm', 'confidence': 0.9909568428993225}, {'name': 'deny', 'confidence': 0.00429315771907568}, {'name': 'mood_great', 'confidence': 0.0008399592479690909}, {'name': 'EXTERNAL_init_rebooking_menu', 'confidence': 0.0005285858642309904}, {'name': 'seleccionar_cita_nueva_fecha', 'confidence': 0.0003846543258987367}, {'name': 'ask_prices', 'confidence': 0.0003257021598983556}, {'name': 'greet', 'confidence': 0.0002963999577332288}, {'name': 'reagendamiento_menu_opcion3', 'confidence': 0.000269382813712582}, {'name': 'pay_online', 'confidence': 0.00021503529569599777}, {'name': 'regret_cancellation', 'confidence': 0.00020230829250067472}], 'response_selector': {'all_retrieval_intents': [], 'default': {'response': {'responses': None, 'confidence': 0.0, 'intent_response_key': None, 'utter_action': 'utter_None'}, 'ranking': []}}}
+2025-07-30 08:03:27 - actions.actions - INFO - obtener_access_token:104 - Solicitando token de acceso a https://redsalud-qa.apigee.net/oauth/token
+2025-07-30 08:03:27 - actions.actions - INFO - obtener_access_token:105 - Client ID: 4tu0...
+2025-07-30 08:03:27 - urllib3.connectionpool - DEBUG - _new_conn:1022 - Starting new HTTPS connection (1): redsalud-qa.apigee.net:443
+2025-07-30 08:03:27 - urllib3.connectionpool - DEBUG - _make_request:475 - https://redsalud-qa.apigee.net:443 "POST /oauth/token HTTP/1.1" 200 113
+2025-07-30 08:03:27 - actions.actions - INFO - obtener_access_token:123 - Token de acceso obtenido exitosamente, expira en 2025-07-30 08:48:26.363692
+2025-07-30 08:03:27 - actions.actions - INFO - run:953 - Cita confirmada exitosamente en Apigee: {'@odata.context': 'https://proxy-qa.redsalud.cl/RSPBOTWSCONFIRMACION/$metadata#Appointments/$entity', '@odata.etag': 'W/"J0FBQUFBQy9jWjFNPSc="', 'DateTimeFrom': '2025-07-10T16:00:00-04:00', 'DateTimeTo': '2025-07-10T16:15:00-04:00', 'DateTimeFromUTC': '2025-07-10T20:00:00Z', 'DateTimeToUTC': '2025-07-10T20:15:00Z', 'Status': 'Confirmed', 'Duration': 15, 'ResourceId': '7dbd3ae4-4ead-4fcf-a131-a5fa005e35a5', 'ServiceId': '3229b16d-fa44-4a1e-84ea-a60b014e94ed', 'CoveragePlanId': 'f2d3cd94-b91c-420e-9ec0-a5f800ca8dbc', 'PatientId': '7f8c4c23-7b19-44cb-b964-a60900507f49', 'CenterId': 'c7e1f17b-45c6-45e0-b981-a5f800212bef', 'IsOvercapacity': False, 'InCallBy': None, 'Index': 1, 'Number': 2409, 'NumberOfSlots': 1, 'CommentsCount': 0, 'CreatedByMainAvailabilityId': 'dfd2346b-4dd1-4b3d-a0b2-b29e0174450d', 'BlockedByAvailabilityId': None, 'RescheduleAppointmentId': 'ddf5bf28-bd08-4aa4-b1c3-b31600e39f16', 'OversellingDefinitionId': None, 'Comments': [], 'CreatedByMarketingCampaign': None, 'Archived': False, 'OldPatientId': None, 'SortQueryId': None, 'DynamicData': [{}, {}, {}], 'AppointmentTypeId': '4139651e-c3c2-4839-97ef-cdd5428b9975', 'CreatedByOriginalAvailabilityId': 'dfd2346b-4dd1-4b3d-a0b2-b29e0174450d', 'BlockedByOriginalAvailabilityId': None, 'TreatmentPlanId': None, 'Cancelled': False, 'Id': '54246940-c127-46ee-8972-b31600eb16d3', 'ModifiedOn': '2025-07-10T14:42:48.785009Z', 'CreatedOn': '2025-07-10T14:15:56.0057964Z', 'RowVersion': 'AAAAAC/cZ1M=', 'ModifiedBy': '3eba71b2-d750-4291-932d-b1760170619d', 'CreatedBy': '86a74779-e16c-40d4-b443-b20401389291', 'ModifiedByClient': 'Api', 'CreatedByClient': 'Reception'}
+2025-07-30 08:03:27 - actions.database - DEBUG - execute_command:98 - Ejecutando comando: 
+                UPDATE appointments 
+                SET status = %s, 
+                    last_notification_date = NOW(), 
+                    updated_at = NOW()
+                WHERE appointment_id = %s
+            
+2025-07-30 08:03:28 - actions.database - DEBUG - execute_command:102 - Comando ejecutado exitosamente. Filas afectadas: 0
+2025-07-30 08:03:28 - actions.database - WARNING - update_appointment_status:197 - No se encontró la cita 70fc2fdd-1721-4439-bf6e-b30e010acec7 para actualizar estado
+2025-07-30 08:03:28 - actions.actions - INFO - run:999 - Confirmación exitosa para usuario: 1a
+2025-07-30 08:03:28 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_confirm_appointment'
+2025-07-30 08:03:28 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_eval_response'
+2025-07-30 08:03:28 - root - INFO - run:1053 - ActionEvalResponse
+2025-07-30 08:03:28 - root - INFO - run:1054 - Slots: area_medica=Médica, tipo_mensaje=Confirmacion, centro_medico=RedSalud Alameda, preparations=True, especialidad=MEDICINA GENERAL ADULTO, piso=None, torre=None, autopago=None, appointment_id=70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:03:28 - root - INFO - run:1077 - ActionEvalResponse - Centro detectado: Centro
+2025-07-30 08:03:28 - root - INFO - run:1087 - ActionEvalResponse - Tiene preparación: True
+2025-07-30 08:03:28 - root - INFO - run:1098 - ActionEvalResponse - Área médica normalizada: medica
+2025-07-30 08:03:28 - root - INFO - run:1099 - ActionEvalResponse - Especialidad normalizada: medicina general adulto
+2025-07-30 08:03:28 - root - INFO - run:1100 - ActionEvalResponse - Centro médico: RedSalud Alameda
+2025-07-30 08:03:28 - root - INFO - run:1101 - ActionEvalResponse - Tipo de centro: Centro
+2025-07-30 08:03:28 - root - INFO - run:1182 - ActionEvalResponse - Enviando respuesta: utter_confirm_affirm_medica_medicina_general_centromedico
+2025-07-30 08:03:28 - actions.database - DEBUG - execute_query:69 - Ejecutando consulta: SELECT status FROM appointments WHERE appointment_id = %s
+2025-07-30 08:03:28 - actions.database - DEBUG - execute_query:72 - Consulta ejecutada exitosamente. Filas retornadas: 0
+2025-07-30 08:03:28 - root - INFO - run:1189 - ActionEvalResponse - Resultado de la consulta: []
+2025-07-30 08:03:28 - root - INFO - run:1196 - ActionEvalResponse - Cita no confirmada, no se programará el botón de pago
+2025-07-30 08:03:28 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_eval_response'
+2025-07-30 08:03:28 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_schedule_payment_button'
+2025-07-30 08:03:28 - root - INFO - run:1211 - Iniciando action_schedule_payment_button
+2025-07-30 08:03:28 - root - INFO - run:1217 - Appointment ID extraído del slot: 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:03:28 - root - INFO - run:1222 - Obteniendo token de acceso para appointment ID: 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:03:28 - actions.actions - INFO - obtener_access_token:70 - Usando token de acceso en caché
+2025-07-30 08:03:28 - root - INFO - run:1229 - Token de acceso obtenido exitosamente
+2025-07-30 08:03:28 - root - INFO - run:1230 - Obteniendo URL de pago para appointment ID: 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:03:28 - root - INFO - get_payment_url:309 - Solicitando URL de pago para cita 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:03:28 - root - INFO - get_payment_url:310 - URL de la petición: https://redsalud-qa.apigee.net/agendarsv2/PaymentUrl/GetPaymentUrl/70fc2fdd-1721-4439-bf6e-b30e010acec7/
+2025-07-30 08:03:28 - urllib3.connectionpool - DEBUG - _new_conn:1022 - Starting new HTTPS connection (1): redsalud-qa.apigee.net:443
+2025-07-30 08:03:57 - urllib3.connectionpool - DEBUG - _make_request:475 - https://redsalud-qa.apigee.net:443 "GET /agendarsv2/PaymentUrl/GetPaymentUrl/70fc2fdd-1721-4439-bf6e-b30e010acec7/ HTTP/1.1" 504 112
+2025-07-30 08:03:57 - root - INFO - get_payment_url:313 - Status code de la respuesta: 504
+2025-07-30 08:03:57 - root - INFO - get_payment_url:314 - Contenido de la respuesta: {"fault":{"faultstring":"Gateway Timeout","detail":{"errorcode":"messaging.adaptors.http.flow.GatewayTimeout"}}}...
+2025-07-30 08:03:57 - root - ERROR - get_payment_url:350 - Error al obtener URL de pago: 504 - {"fault":{"faultstring":"Gateway Timeout","detail":{"errorcode":"messaging.adaptors.http.flow.GatewayTimeout"}}}
+2025-07-30 08:03:57 - root - ERROR - run:1277 - No se pudo obtener URL de pago para cita 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:03:57 - root - INFO - run:1286 - ActionSchedulePaymentButton - Slot menu_post_confirmation establecido como True para usuario: 1a
+2025-07-30 08:03:57 - root - INFO - run:1288 - ActionSchedulePaymentButton retornando eventos: [{'event': 'slot', 'timestamp': None, 'name': 'menu_post_confirmation', 'value': True}]
+2025-07-30 08:03:57 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_schedule_payment_button'
+2025-07-30 08:04:25 - rasa_sdk.executor - DEBUG - run:388 - Received request to run 'action_schedule_cancellation'
+2025-07-30 08:04:25 - root - INFO - run:1303 - Iniciando action_schedule_cancellation
+2025-07-30 08:04:25 - actions.database - DEBUG - execute_query:69 - Ejecutando consulta: SELECT status FROM appointments WHERE appointment_id = %s
+2025-07-30 08:04:25 - actions.database - DEBUG - execute_query:72 - Consulta ejecutada exitosamente. Filas retornadas: 0
+2025-07-30 08:04:26 - root - WARNING - run:1329 - No se encontró la cita 70fc2fdd-1721-4439-bf6e-b30e010acec7 en la base de datos
+2025-07-30 08:04:26 - root - INFO - run:1335 - Obteniendo token de acceso para appointment ID: 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:04:26 - actions.actions - INFO - obtener_access_token:70 - Usando token de acceso en caché
+2025-07-30 08:04:26 - root - INFO - run:1342 - Token de acceso obtenido exitosamente
+2025-07-30 08:04:27 - root - INFO - run:1362 - Recordatorio de cancelación programado para: 2025-07-30 08:09:27.164166-04:00 para la cita 70fc2fdd-1721-4439-bf6e-b30e010acec7
+2025-07-30 08:04:27 - urllib3.connectionpool - DEBUG - _new_conn:1022 - Starting new HTTPS connection (1): srv-apio-cr-861602570827.us-central1.run.app:443
+2025-07-30 08:04:27 - urllib3.connectionpool - DEBUG - _make_request:475 - https://srv-apio-cr-861602570827.us-central1.run.app:443 "POST /appointments/cancel/scheduled HTTP/1.1" 404 52
+2025-07-30 08:04:27 - root - ERROR - run:1379 - Error al enviar solicitud a la API: 404 - {"statusCode":404,"message":"Appointment not found"}
+2025-07-30 08:04:27 - root - INFO - run:1382 - Slot cancellation_pending mantenido como False debido a error en API
+2025-07-30 08:04:27 - rasa_sdk.executor - DEBUG - run:407 - Finished running 'action_schedule_cancellation'
+2025-07-30 17:59:36 - root - INFO - setup_logging:89 - Logging configurado - Nivel: DEBUG, Archivo: bot_confirmaciones.log
+2025-07-30 17:59:36 - root - INFO - setup_logging:90 - Bot de confirmaciones iniciando...
+2025-07-30 17:59:37 - actions.database - INFO - _initialize_pool:47 - Pool de conexiones PostgreSQL inicializado correctamente
+2025-07-30 17:59:37 - actions.actions - INFO - <module>:45 - APIGEE_API_URL: https://redsalud-qa.apigee.net
+2025-07-30 17:59:37 - actions.actions - INFO - <module>:46 - APIGEE_USERNAME: 4tu0...
+2025-07-30 17:59:37 - actions.actions - INFO - <module>:47 - APIGEE_PASSWORD: Configurado
+2025-07-30 17:59:37 - actions - INFO - <module>:37 - Módulo de acciones cargado correctamente
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_test_connection'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_get_system_status'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_validate_input'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_error'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_fallback'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_context'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_format_date'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_appointment'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_appointment'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_eval_response'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_payment_button'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_schedule_cancellation'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_regret_cancellation'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_post_cancel'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_date_request'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_show_available_slots'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_process_slot_selection'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_confirm_rebooking'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_cancel_rebooking'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_handle_rebooking_denial'.
+2025-07-30 17:59:37 - rasa_sdk.executor - INFO - register_function:204 - Registered function for 'action_init_rebooking_menu'.
+2025-07-30 17:59:37 - rasa_sdk.endpoint - INFO - run:161 - Starting plugins...
+2025-07-30 17:59:37 - rasa_sdk.plugin - DEBUG - _discover_plugins:30 - No plugins found: No module named 'rasa_sdk_plugins'
+2025-07-30 17:59:37 - rasa_sdk.endpoint - INFO - run:167 - Action endpoint is up and running on http://0.0.0.0:5055
+2025-07-30 17:59:37 - rasa_sdk.utils - DEBUG - _log_and_get_default_number_of_workers:202 - Using the default number of Sanic workers (1).

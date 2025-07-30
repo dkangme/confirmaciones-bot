@@ -1280,10 +1280,28 @@ class ActionSchedulePaymentButton(Action):
             import traceback
             logging.error(f"Stacktrace: {traceback.format_exc()}")
 
-        # Establecer slot menu_post_confirmation como true al final de la secuencia
-        # Se ejecuta SIEMPRE, independientemente de errores o excepciones
-        events.append(SlotSet("menu_post_confirmation", True))
-        logging.info(f"ActionSchedulePaymentButton - Slot menu_post_confirmation establecido como True para usuario: {tracker.sender_id}")
+        # Obtener área médica de la cita
+        area_medica = tracker.get_slot("area_medica")
+        logging.info(f"ActionSchedulePaymentButton - Área médica obtenida: {area_medica}")
+        
+        # Evaluar si es telemedicina (en minúsculas, mayúsculas y capitalizada)
+        is_telemedicina = False
+        if area_medica:
+            area_medica_lower = area_medica.lower()
+            is_telemedicina = "telemedicina" in area_medica_lower
+            logging.info(f"ActionSchedulePaymentButton - Evaluación telemedicina: {is_telemedicina} (área: {area_medica_lower})")
+        
+        # Configurar slots según el área médica
+        if is_telemedicina:
+            events.append(SlotSet("menu_post_confirmation", False))
+            events.append(SlotSet("menu_post_confirmation_tm", True))
+            logging.info(f"ActionSchedulePaymentButton - Configuración para telemedicina: menu_post_confirmation=False, menu_post_confirmation_tm=True")
+        else:
+            events.append(SlotSet("menu_post_confirmation", True))
+            events.append(SlotSet("menu_post_confirmation_tm", False))
+            logging.info(f"ActionSchedulePaymentButton - Configuración para área no-telemedicina: menu_post_confirmation=True, menu_post_confirmation_tm=False")
+        
+        logging.info(f"ActionSchedulePaymentButton - Slots configurados para usuario: {tracker.sender_id}")
 
         logging.info(f"ActionSchedulePaymentButton retornando eventos: {events}")
         return events
@@ -1302,6 +1320,12 @@ class ActionScheduleCancellation(Action):
 
         logging.info("Iniciando action_schedule_cancellation")
         events = []
+        
+        # Obtener la última intención del usuario
+        latest_message = tracker.latest_message
+        last_intent = latest_message.get('intent', {}).get('name', 'unknown') if latest_message else 'unknown'
+        logging.info(f"Última intención del usuario: {last_intent}")
+        
         # Verificar si ya hay una cancelación pendiente o ya se ha intentado cancelar
         cancellation_pending = tracker.get_slot("cancellation_pending")
         if cancellation_pending:
@@ -1327,10 +1351,6 @@ class ActionScheduleCancellation(Action):
                 return [SlotSet("cancellation_pending", False)]
         else:
             logging.warning(f"No se encontró la cita {appointment_id} en la base de datos")
-
-        # Despachar mensaje de confirmación de cancelación
-        dispatcher.utter_message(response="utter_confirm_deny")
-
 
         logging.info(f"Obteniendo token de acceso para appointment ID: {appointment_id}")
         # Obtener token de acceso
@@ -1375,6 +1395,20 @@ class ActionScheduleCancellation(Action):
                 logging.info(f"Cita {appointment_id} marcada como pendiente de cancelación en la base de datos")
             except Exception as e:
                 logging.error(f"Error al marcar cita como pendiente de cancelación: {e}")
+            
+            # Lógica de respuesta basada en la última intención
+            if last_intent == "reag_pconfirm_menu_opcion_2":
+                logging.info("Enviando utter_reagendamiento_opcion2 debido a última intención: reag_pconfirm_menu_opcion_2")
+                dispatcher.utter_message(response="utter_reagendamiento_opcion2")
+            elif last_intent == "reag_pconfirm_menu_opcion_3":
+                logging.info("Enviando utter_reagendamiento_opcion3 debido a última intención: reag_pconfirm_menu_opcion_3")
+                dispatcher.utter_message(response="utter_reagendamiento_opcion3")
+            elif last_intent == "menu_postconf_tm2":
+                logging.info("Enviando utter_opc2_tm debido a última intención: menu_postconf_tm2")
+                dispatcher.utter_message(response="utter_opc2_tm")
+            else:
+                logging.info(f"Enviando utter_confirm_deny (respuesta por defecto) para última intención: {last_intent}")
+                dispatcher.utter_message(response="utter_confirm_deny")
         else:
             logging.error(f"Error al enviar solicitud a la API: {response.status_code} - {response.text}")
             # Si hay error, mantener cancellation_pending como False

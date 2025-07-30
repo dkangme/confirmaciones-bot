@@ -226,6 +226,24 @@ rules:
   - intent: pay_online
   - action: utter_show_post_confirmation_menu
 
+# ===== MENÚ POST-CONFIRMACIÓN TELEMEDICINA =====
+
+- rule: Show telemedicine post confirmation menu for cancel_appointment
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation_tm: true
+  steps:
+  - intent: cancel_appointment
+  - action: utter_show_post_conf_telem_menu
+
+- rule: Show telemedicine post confirmation menu for problema_atencion
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation_tm: true
+  steps:
+  - intent: problema_atencion
+  - action: utter_show_post_conf_telem_menu
+
 # ===== MANEJO DE FALLBACK =====
 
 - rule: Fallback when bot doesn't understand (not in post confirmation context)

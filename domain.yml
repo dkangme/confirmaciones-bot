@@ -12,6 +12,9 @@ intents:
   - EXTERNAL_init_rebooking
   - EXTERNAL_init_rebooking_menu
   - EXTERNAL_cancellation
+  - EXTERNAL_insistencia_10
+  - EXTERNAL_insistencia_20
+  - EXTERNAL_insistencia_90
   - rebooking
   - proponer_fecha
   - seleccionar_opcion
@@ -34,6 +37,10 @@ intents:
   - reag_pconfirm_menu_opcion_6
   - seleccionar_cita_nueva_fecha
   - regret_cancellation
+  - problema_atencion
+  - menu_postconf_tm1
+  - menu_postconf_tm2
+  - menu_postconf_tm3
 
 entities:
   - nombre_paciente
@@ -345,6 +352,26 @@ slots:
     initial_value: false
     mappings:
     - type: custom
+  menu_post_confirmation_tm:
+    type: bool
+    initial_value: false
+    mappings:
+    - type: custom
+  insistencia_10:
+    type: bool
+    initial_value: false
+    mappings:
+    - type: custom
+  insistencia_20:
+    type: bool
+    initial_value: false
+    mappings:
+    - type: custom
+  insistencia_90:
+    type: bool
+    initial_value: false
+    mappings:
+    - type: custom
 
 responses:
   utter_greet:
@@ -381,6 +408,31 @@ responses:
     - type: slot
       name: campaign_name
       value: "reconfirmacion"
+    custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: template
+      template:
+        name: "{campaign_name}"
+        language:
+          code: ES_AR
+        components:
+        - type: body
+          parameters:
+          - type: text
+            text: "{nombre_paciente}"
+          - type: text
+            text: "{fecha_hora_formato}"
+          - type: text
+            text: "{centro_medico}"
+          - type: text
+            text: "{especialidad}"
+          - type: text
+            text: "{resource_name}"
+  - condition:
+    - type: slot
+      name: campaign_name
+      value: "insistencia"
     custom:
       messaging_product: whatsapp
       recipient_type: "individual"
@@ -1242,6 +1294,60 @@ responses:
       text:
         preview_url: false
         body: "Para otras consultas, puede dirigirse a nuestra página web www.redsalud.cl o llamando al \nContact Center en el 600 718 6000. \n\n\n¡Gracias!."
+
+  utter_insistencia_paciente_10:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "*{nombre_paciente}*, sabemos que su tiempo es valioso y agradecemos que nos pueda responder en cuanto le sea posible. *Estamos atentos a su respuesta*. 😊"
+
+  utter_insistencia_paciente_20:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "*{nombre_paciente}*, *este es el segundo intento de contacto* Quedamos atentos para entregarle asistencia 😊"
+
+  utter_insistencia_paciente_90:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "*{nombre_paciente}*, *notamos que no hemos recibido respuesta* Cerraremos esta conversación por ahora, Recuerde que puede agendar una nueva cita a través de nuestra página Web https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000. Que tenga un excelente día.\n\n¡Gracias! 😊"
+
+  utter_opc1_tm:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "OK! 😉Si necesita hablar con un ejecutivo puede contactarnos al 600 718 6000."
+
+  utter_opc2_tm:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "OK! 😉\nNo hay problema, procedo a cancelar la hora entonces!\n\nRecuerde que si así lo necesita puede reagendar su hora ingresando al siguiente link https://agenda.redsalud.cl/#/patientPortal/identifyPatientAppointments o llamando al 600 718 6000."
+
+  utter_opc3_tm:
+  - custom:
+      messaging_product: whatsapp
+      recipient_type: "individual"
+      type: text
+      text:
+        preview_url: false
+        body: "Si necesita ayuda con su hora ingrese a www.redsalud.cl/telemedicina, luego busque la sección \"¿Necesitas Ayuda?\" y siga las instrucciones."
 
 actions:
   - action_init_context

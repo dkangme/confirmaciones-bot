@@ -1,0 +1,29 @@
+version: "3.1"
+
+rules:
+
+# ===== REGLAS PARA MENÚ POST-CONFIRMACIÓN TELEMEDICINA =====
+
+- rule: menu postconf tm opcion 1
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation_tm: true
+  steps:
+  - intent: menu_postconf_tm1
+  - action: utter_opc1_tm
+
+- rule: menu postconf tm opcion 2
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation_tm: true
+  steps:
+  - intent: menu_postconf_tm2
+  - action: action_schedule_cancellation
+
+- rule: menu postconf tm opcion 3
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation_tm: true
+  steps:
+  - intent: menu_postconf_tm3
+  - action: utter_opc3_tm 

@@ -17,7 +17,7 @@ rules:
     - menu_post_confirmation: true
   steps:
   - intent: reag_pconfirm_menu_opcion_2
-  - action: utter_reagendamiento_opcion2
+  - action: action_schedule_cancellation
 
 - rule: reag pconfirm menu opcion 3
   condition:
@@ -49,4 +49,29 @@ rules:
     - menu_post_confirmation: true
   steps:
   - intent: reag_pconfirm_menu_opcion_6
-  - action: utter_reagendamiento_opcion6 
+  - action: utter_reagendamiento_opcion6
+
+# Reglas para insistencia en contexto post-confirmación
+- rule: insistencia 10 en contexto post confirmacion
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: EXTERNAL_insistencia_10
+  - action: utter_insistencia_paciente_10
+
+- rule: insistencia 20 en contexto post confirmacion
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: EXTERNAL_insistencia_20
+  - action: utter_insistencia_paciente_20
+
+- rule: insistencia 90 en contexto post confirmacion
+  condition:
+  - slot_was_set:
+    - menu_post_confirmation: true
+  steps:
+  - intent: EXTERNAL_insistencia_90
+  - action: utter_insistencia_paciente_90 
